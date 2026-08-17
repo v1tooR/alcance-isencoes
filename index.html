@@ -83,6 +83,18 @@
       margin-inline: auto;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     main,
     section {
       max-width: 100%;
@@ -398,6 +410,37 @@
       color: var(--ink);
     }
 
+    .hero-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    .hero-benefits li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border: 1px solid rgba(0, 0, 0, .11);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
+      font-size: .83rem;
+      font-weight: 850;
+    }
+
+    .hero-benefits svg {
+      width: 17px;
+      height: 17px;
+      padding: 3px;
+      border-radius: 50%;
+      color: white;
+      background: var(--brand);
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -489,11 +532,21 @@
       position: absolute;
       top: 0;
       right: 0;
+      display: block;
       width: 88%;
       height: 455px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, .1);
       border-radius: 160px 24px 160px 24px;
+      background: #e7e7e7;
       box-shadow: var(--shadow-lg);
       transform: rotate(1.6deg);
+    }
+
+    .hero-photo > svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-1.6deg) scale(1.04);
     }
 
     .floating-card {
@@ -534,6 +587,70 @@
       color: var(--ink-soft);
       font-size: .83rem;
       line-height: 1.5;
+    }
+
+    .floating-card .card-link {
+      margin-top: 14px;
+      font-size: .78rem;
+    }
+
+    .brands {
+      overflow: hidden;
+      padding: 23px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: white;
+    }
+
+    .brands-label {
+      margin-bottom: 16px;
+      color: var(--ink-soft);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .brands-viewport {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .brands-track {
+      display: flex;
+      width: max-content;
+      animation: brands-scroll 34s linear infinite;
+    }
+
+    .brands:hover .brands-track {
+      animation-play-state: paused;
+    }
+
+    .brand-set {
+      display: flex;
+      align-items: center;
+    }
+
+    .partner-logo {
+      display: grid;
+      width: 155px;
+      min-width: 155px;
+      height: 54px;
+      place-items: center;
+      padding: 7px 20px;
+      border-right: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    .partner-logo img {
+      width: auto;
+      max-width: 112px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    @keyframes brands-scroll {
+      to { transform: translateX(-50%); }
     }
 
     .trust-bar {
@@ -821,6 +938,86 @@
       color: rgba(255, 255, 255, .75);
     }
 
+    .eligibility-card {
+      display: flex;
+      min-height: 610px;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(38px, 5vw, 64px);
+      border-left: 1px solid rgba(255, 255, 255, .1);
+      background:
+        radial-gradient(circle at 100% 0, rgba(255, 255, 255, .08), transparent 36%),
+        #252525;
+    }
+
+    .eligibility-card h3 {
+      margin-bottom: 28px;
+      color: var(--accent);
+      font-size: .8rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .eligibility-list {
+      display: grid;
+      gap: 16px;
+      list-style: none;
+    }
+
+    .eligibility-list li {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: rgba(255, 255, 255, .9);
+      font-size: .92rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .eligibility-list svg {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      color: var(--accent);
+    }
+
+    .institutional-copy {
+      max-width: 840px;
+      margin-top: 25px;
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+    }
+
+    .institutional-highlights {
+      display: grid;
+      margin-top: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .institutional-highlight {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .institutional-highlight strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .98rem;
+    }
+
+    .institutional-highlight span {
+      color: var(--ink-soft);
+      font-size: .8rem;
+      line-height: 1.45;
+    }
+
     .reasons-grid {
       display: grid;
       margin-top: 54px;
@@ -860,8 +1057,8 @@
 
     .process-section {
       overflow: hidden;
-      color: white;
-      background: var(--brand);
+      color: var(--ink);
+      background: linear-gradient(145deg, #f3f3f3 0%, #fff 55%, #ececec 100%);
     }
 
     .process-section::after {
@@ -870,17 +1067,17 @@
       bottom: -170px;
       width: 420px;
       height: 420px;
-      border: 80px solid rgba(255, 255, 255, .035);
+      border: 80px solid rgba(0, 0, 0, .025);
       border-radius: 50%;
       content: "";
     }
 
     .process-section .eyebrow {
-      color: var(--accent);
+      color: var(--brand-2);
     }
 
     .process-section .section-lead {
-      color: rgba(255, 255, 255, .7);
+      color: var(--ink-soft);
     }
 
     .steps {
@@ -899,7 +1096,7 @@
       right: 9%;
       left: 9%;
       height: 1px;
-      background: rgba(255, 255, 255, .18);
+      background: rgba(0, 0, 0, .14);
       content: "";
     }
 
@@ -909,11 +1106,11 @@
       height: 55px;
       margin-bottom: 25px;
       place-items: center;
-      border: 1px solid rgba(255, 255, 255, .26);
+      border: 1px solid rgba(0, 0, 0, .18);
       border-radius: 50%;
       color: var(--brand);
       background: var(--accent);
-      box-shadow: 0 0 0 8px var(--brand);
+      box-shadow: 0 0 0 8px #f4f4f4;
       font-size: .9rem;
       font-weight: 900;
     }
@@ -926,7 +1123,7 @@
     }
 
     .step p {
-      color: rgba(255, 255, 255, .66);
+      color: var(--ink-soft);
       font-size: .86rem;
       line-height: 1.55;
     }
@@ -938,18 +1135,19 @@
       gap: 30px;
       margin-top: 58px;
       padding: 25px 28px;
-      border: 1px solid rgba(255, 255, 255, .12);
+      border: 1px solid rgba(0, 0, 0, .1);
       border-radius: 18px;
-      background: rgba(255, 255, 255, .06);
+      background: rgba(255, 255, 255, .78);
+      box-shadow: var(--shadow-sm);
     }
 
     .process-cta p {
-      color: rgba(255, 255, 255, .72);
+      color: var(--ink-soft);
     }
 
     .process-cta strong {
       display: block;
-      color: white;
+      color: var(--ink);
       font-family: Georgia, "Times New Roman", serif;
       font-size: 1.13rem;
     }
@@ -1038,6 +1236,84 @@
       padding-bottom: 24px;
     }
 
+    .testimonials {
+      background: var(--mint-light);
+    }
+
+    .testimonials-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .testimonials-head .section-lead {
+      max-width: 420px;
+      margin: 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      min-height: 260px;
+      flex-direction: column;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+    }
+
+    .testimonial-stars {
+      color: #e5a600;
+      font-size: 1rem;
+      letter-spacing: .08em;
+    }
+
+    .testimonial-card blockquote {
+      margin: 18px 0 24px;
+      color: var(--ink-soft);
+      font-size: .91rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: auto;
+    }
+
+    .testimonial-avatar {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--brand);
+      font-size: .82rem;
+      font-weight: 900;
+    }
+
+    .testimonial-author strong {
+      display: block;
+      font-size: .86rem;
+      line-height: 1.3;
+    }
+
+    .testimonial-author small {
+      color: var(--ink-soft);
+      font-size: .72rem;
+    }
+
     .final-cta {
       padding: 100px 0;
       background: var(--cream);
@@ -1103,9 +1379,13 @@
 
     .cta-note {
       display: block;
-      margin-top: 15px;
-      color: rgba(255, 255, 255, .54);
-      font-size: .76rem;
+      max-width: 720px;
+      margin: 24px auto 0;
+      color: rgba(255, 255, 255, .68);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
     .site-footer {
@@ -1299,6 +1579,10 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .reason-card:nth-child(4),
       .reason-card:nth-child(5) {
         grid-column: span 1;
@@ -1373,6 +1657,22 @@
       .support-photo {
         min-height: 420px;
         order: -1;
+      }
+
+      .eligibility-card {
+        min-height: auto;
+      }
+
+      .institutional-highlights {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonials-head {
+        display: block;
+      }
+
+      .testimonials-head .section-lead {
+        margin-top: 18px;
       }
 
       .reasons-grid {
@@ -1453,6 +1753,11 @@
 
       .check-list { grid-template-columns: 1fr; }
 
+      .institutional-highlights,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
       .reasons-grid,
       .steps {
         grid-template-columns: 1fr;
@@ -1502,6 +1807,19 @@
         opacity: 1;
         transform: none;
       }
+
+      .brands-viewport {
+        overflow-x: auto;
+        mask-image: none;
+      }
+
+      .brands-track {
+        animation: none;
+      }
+
+      .brand-set[aria-hidden="true"] {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -1535,18 +1853,24 @@
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <span class="eyebrow">Assessoria especializada</span>
-          <h1>Seus direitos podem estar <span>mais perto</span> do que você imagina.</h1>
-          <p class="hero-copy"><strong>Isenções, benefícios e processos para pessoas com deficiência, aposentados e pensionistas.</strong> Cuidamos de tudo — da análise inicial à liberação final.</p>
+          <h1>Você pode ter <span>direitos</span> que ainda não conhece.</h1>
+          <p class="hero-copy">Descubra quais benefícios e isenções podem se aplicar ao seu caso. Atendimento especializado para <strong>pessoas com deficiência, aposentados e pensionistas</strong>, com acompanhamento em todas as etapas do processo.</p>
+
+          <ul class="hero-benefits">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg>Isenção de IPI</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg>Isenção de ICMS</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg>Isenção de IPVA</li>
+          </ul>
 
           <div class="hero-actions">
             <a class="btn btn--primary" href="#contato">
-              Quero analisar meu caso
+              Quero uma avaliação gratuita
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg>
             </a>
             <a class="btn btn--dark" href="#como-funciona">Entenda como funciona</a>
           </div>
 
-          <div class="micro-proof" aria-label="Atendimento humanizado e acompanhamento completo">
+          <div class="micro-proof">
             <div class="avatar-stack" aria-hidden="true">
               <span class="avatar">PCD</span><span class="avatar">AP</span><span class="avatar">+</span>
             </div>
@@ -1554,20 +1878,83 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Espaço reservado para imagem principal">
-          <div class="image-placeholder hero-photo">
-            <span class="placeholder-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
-              Imagem principal<br>Pessoa sendo atendida com acolhimento
-            </span>
+        <div class="hero-visual reveal">
+          <div class="hero-photo" role="img" aria-label="Ilustração de uma pessoa recebendo a chave de um veículo novo">
+            <svg viewBox="0 0 620 690" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="hero-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8f8f8"/><stop offset="1" stop-color="#cfcfcf"/></linearGradient>
+                <linearGradient id="car-body" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#303030"/><stop offset="1" stop-color="#0f0f0f"/></linearGradient>
+              </defs>
+              <rect width="620" height="690" fill="url(#hero-bg)"/>
+              <circle cx="492" cy="122" r="94" fill="#fff" opacity=".58"/>
+              <path d="M-10 540c82-78 166-111 259-101 96 11 198 61 381 34v217H-10Z" fill="#bdbdbd"/>
+              <g transform="translate(48 313)">
+                <path d="m43 150 38-93c7-18 23-30 43-32l192-11c31-2 58 13 75 39l40 63 49 14c18 5 31 21 31 40v38H16v-27c0-16 10-28 27-31Z" fill="url(#car-body)"/>
+                <path d="m115 61 197-11c17-1 34 7 44 22l28 43H92Z" fill="#d9d9d9"/>
+                <path d="m222 52-5 63M83 116h340" fill="none" stroke="#fff" stroke-width="6" opacity=".38"/>
+                <circle cx="115" cy="205" r="47" fill="#171717" stroke="#eee" stroke-width="12"/><circle cx="407" cy="205" r="47" fill="#171717" stroke="#eee" stroke-width="12"/>
+                <path d="M29 158h52M448 150h49" stroke="#e3e3e3" stroke-width="10" stroke-linecap="round"/>
+              </g>
+              <g transform="translate(70 58)">
+                <circle cx="171" cy="91" r="51" fill="#b2b2b2"/>
+                <path d="M116 231c3-78 28-115 69-115 43 0 77 45 80 122l-28 113H91Z" fill="#575757"/>
+                <path d="M112 179c-31 12-50 45-58 99M245 165c27 5 50 20 70 47" fill="none" stroke="#757575" stroke-width="35" stroke-linecap="round"/>
+                <path d="M310 210c29 0 54-6 75-19" fill="none" stroke="#757575" stroke-width="28" stroke-linecap="round"/>
+                <circle cx="394" cy="187" r="16" fill="#929292"/>
+                <path d="M408 178h48M447 178v23M433 201h28" fill="none" stroke="#171717" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="455" cy="208" r="10" fill="none" stroke="#171717" stroke-width="6"/>
+              </g>
+              <g transform="translate(418 82)">
+                <rect width="146" height="62" rx="31" fill="#171717"/>
+                <path d="m31 31 9 9 19-21" fill="none" stroke="#e3e3e3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="72" y="37" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800" text-anchor="middle">SEU 0 KM</text>
+              </g>
+            </svg>
           </div>
-          <aside class="floating-card" aria-label="Destaque de acompanhamento">
+          <aside class="floating-card" aria-label="Avaliação gratuita">
             <span class="floating-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             </span>
-            <strong>Você não está sozinho.</strong>
-            <p>Nossa equipe cuida dos documentos, prazos e etapas junto com você.</p>
+            <strong>Avaliação Gratuita do seu Caso</strong>
+            <p>Analisamos o seu direito a isenções ou benefícios. Nossa equipe cuida de toda a documentação e etapas junto com você.</p>
+            <a class="card-link" href="#contato">Quero minha avaliação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="brands" aria-label="Montadoras e marcas parceiras">
+      <p class="brands-label">Marcas que fazem parte da sua escolha</p>
+      <div class="brands-viewport">
+        <div class="brands-track">
+          <div class="brand-set">
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/jeep" alt="Jeep"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/nissan" alt="Nissan"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/volkswagen" alt="Volkswagen"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/toyota" alt="Toyota"></span>
+            <span class="partner-logo"><img src="https://cdn.worldvectorlogo.com/logos/byd-1.svg" alt="BYD"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/citroen" alt="Citroën"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/fiat" alt="FIAT"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/chevrolet" alt="Chevrolet"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/peugeot" alt="Peugeot"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/renault" alt="Renault"></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/hyundai" alt="Hyundai"></span>
+            <span class="partner-logo"><img src="https://cdn.worldvectorlogo.com/logos/gwm-1.svg" alt="GWM"></span>
+          </div>
+          <div class="brand-set" aria-hidden="true">
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/jeep" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/nissan" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/volkswagen" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/toyota" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.worldvectorlogo.com/logos/byd-1.svg" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/citroen" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/fiat" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/chevrolet" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/peugeot" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/renault" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.simpleicons.org/hyundai" alt=""></span>
+            <span class="partner-logo"><img src="https://cdn.worldvectorlogo.com/logos/gwm-1.svg" alt=""></span>
+          </div>
         </div>
       </div>
     </section>
@@ -1576,19 +1963,19 @@
       <div class="container trust-grid">
         <div class="trust-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-          <span><strong>Análise individual</strong>Cada caso é avaliado com atenção</span>
+          <span><strong>Análise personalizada</strong>Seu caso merece atenção especial</span>
         </div>
         <div class="trust-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span><strong>Processo seguro</strong>Organização em todas as etapas</span>
+          <span><strong>Segurança em cada etapa</strong>Cuidamos de todo o processo</span>
         </div>
         <div class="trust-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
-          <span><strong>Contato próximo</strong>Você acompanha o andamento</span>
+          <span><strong>Acompanhamento de perto</strong>Você sempre sabe o andamento</span>
         </div>
         <div class="trust-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <span><strong>Mais tranquilidade</strong>Menos burocracia para você</span>
+          <span><strong>Mais tranquilidade</strong>Nós cuidamos da burocracia</span>
         </div>
       </div>
     </section>
@@ -1602,7 +1989,7 @@
               Imagem de apoio<br>Especialista orientando cliente
             </span>
           </div>
-          <aside class="side-note">
+          <aside class="side-note" aria-label="Mensagem sobre clareza">
             <span>“</span>
             <p>Clareza para você tomar decisões com segurança.</p>
           </aside>
@@ -1611,9 +1998,8 @@
         <div class="copy-block reveal">
           <span class="eyebrow">Burocracia não precisa ser um obstáculo</span>
           <h2 class="section-title">Menos burocracia. Mais tranquilidade para você.</h2>
-          <p>Lidar com documentos, órgãos públicos, clínicas, prazos e exigências pode transformar um direito que deveria ser simples em um processo cansativo.</p>
-          <p>Na <strong>Alcance Isenções</strong>, você não precisa enfrentar tudo isso sozinho. Nossa equipe acompanha cada etapa, orienta sobre a documentação e mantém você informado.</p>
-          <div class="copy-callout">Você sabe o que está acontecendo do início ao fim.</div>
+          <p>Conquistar seu direito não precisa ser cansativo. Na <strong>Alcance Isenções</strong>, cuidamos de toda a documentação, prazos e órgãos públicos para você não ter dor de cabeça. Você foca no que importa, e nós cuidamos do resto.</p>
+          <div class="copy-callout">Acompanhamento do início ao fim do processo.</div>
           <a class="btn btn--dark" href="#contato">
             Falar com um especialista
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg>
@@ -1637,26 +2023,26 @@
             <span class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><path d="M7 17v2M17 17v2M8 13h8"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg>
             </span>
-            <h3>Isenção de IPI e ICMS</h3>
-            <p>Assessoria para solicitação das isenções tributárias aplicáveis à aquisição de veículos por pessoas que atendam aos requisitos legais.</p>
+            <h3>Isenção de IPI, ICMS e IPVA</h3>
+            <p>A Alcance Isenções oferece assessoria completa com segurança e qualidade para o seu processo. Obtenha <strong>até 30% de desconto</strong> na compra do seu veículo 0km.</p>
             <a class="card-link" href="#contato">Quero saber se tenho direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="service-card service-card--featured reveal">
             <span class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v11H4z"/><path d="M8 7V4h8v3M8 12h8M8 15h5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v4h4M9 11h6M9 15h2M14 14v4M12 16h4"/></svg>
             </span>
             <h3>Isenção de Imposto de Renda</h3>
-            <p>Assessoria para aposentados e pensionistas com patologias previstas na legislação, da análise à condução do processo.</p>
-            <a class="card-link" href="#contato">Quero entender meu direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
+            <p>Você pode ter direito à isenção e ainda não saber. Realizamos a análise gratuita do seu caso e oferecemos assessoria completa para aposentados e pensionistas que possuem patologias previstas em lei.</p>
+            <a class="card-link" href="#contato">Quero saber se tenho direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="service-card reveal">
             <span class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/><path d="M9 12h6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6z"/><circle cx="11" cy="11" r="2.3"/><path d="m13 13 4 4M16 15l1-1"/></svg>
             </span>
             <h3>Isenção de IPVA</h3>
-            <p>Orientação e acompanhamento da solicitação, conforme os critérios aplicáveis ao seu caso.</p>
+            <p>Livre-se da cobrança do IPVA no seu veículo 0km ou usado. Benefício válido tanto para condutores quanto para não condutores (através de tutores/responsáveis). Cuidamos do seu pedido do início ao fim.</p>
             <a class="card-link" href="#contato">Analisar meu caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </article>
 
@@ -1671,37 +2057,37 @@
 
           <article class="service-card reveal">
             <span class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 14h8M8 18h5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3V2h6v1M12 8v6M9 11h6M8 17h8"/></svg>
             </span>
-            <h3>Laudo Médico do Detran</h3>
-            <p>Auxílio nas etapas para obtenção do laudo, incluindo orientação sobre clínicas e procedimentos.</p>
+            <h3>Laudo Pericial (Condutor e Não Condutor)</h3>
+            <p>Contamos com parcerias com clínicas e médicos especialistas capacitados, seguindo os protocolos periciais do DETRAN para realizar a avaliação individualizada de cada paciente.</p>
             <a class="card-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="service-card reveal">
             <span class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 17V7h3a3 3 0 0 1 0 6h-3M10 13h5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="10" cy="9" r="2"/><path d="M7 16c.4-2 1.4-3 3-3s2.6 1 3 3M15 8h2M15 12h2M15 16h2"/></svg>
             </span>
             <h3>Credencial de Estacionamento</h3>
-            <p>Orientação para solicitar a credencial e acessar as vagas destinadas a quem possui esse direito.</p>
+            <p>Orientação e assessoria completa para a solicitação da credencial de estacionamento, garantindo que você tenha acesso às vagas exclusivas destinadas às pessoas que possuem esse direito.</p>
             <a class="card-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="service-card reveal">
             <span class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="m7 7 10 10M17 7 7 17"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 15h15l-1-4-3-3H8l-3 3-1 4Z"/><circle cx="7" cy="15" r="1.4"/><circle cx="15" cy="15" r="1.4"/><path d="M16 5h5M19 2l3 3-3 3M16 19l2 2 4-5"/></svg>
             </span>
-            <h3>Liberação de Rodízio Municipal</h3>
-            <p>Assessoria para solicitação da autorização necessária nos casos previstos pelas regras municipais.</p>
+            <h3>Dispensa de Rodízio Municipal</h3>
+            <p>Mais liberdade para circular e menos preocupação. A Alcance Isenções oferece assessoria para solicitar a autorização de dispensa do Rodízio Municipal de São Paulo para quem se enquadra nas condições previstas em lei.</p>
             <a class="card-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="service-card reveal">
             <span class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M6 18h12M7 18V9M17 18V9M4 9h16L12 3Z"/><path d="M10 13h4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v17M7 6h10M4 20h16M7 7l-4 7h8L7 7ZM17 7l-4 7h8l-4-7Z"/></svg>
             </span>
-            <h3>Alvará Judicial</h3>
-            <p>Suporte na organização e no encaminhamento do processo, de acordo com a necessidade do cliente.</p>
+            <h3>Assessoria Jurídica Especializada</h3>
+            <p>Contamos com um departamento jurídico próprio para cuidar do seu processo de curatela, tutela e alvará de compra e venda. Garantimos total segurança e acompanhamento completo do seu caso.</p>
             <a class="card-link" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg></a>
           </article>
         </div>
@@ -1726,11 +2112,15 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14 0M13 6l6 6-6 6"/></svg>
             </a>
           </div>
-          <div class="image-placeholder support-photo">
-            <span class="placeholder-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
-              Imagem de apoio<br>Atendimento humanizado / equipe
-            </span>
+          <div class="eligibility-card">
+            <h3>Quem pode ter direito?</h3>
+            <ul class="eligibility-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M10 8h4l1 5h-4l-1-5ZM11 13l-2 7M14 13l3 7M8 14a5 5 0 1 0 8 4"/></svg>Pessoas com deficiência física</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>Pessoas com deficiência visual</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0-1 5.8V15a3 3 0 0 0 3 3h1M15 4a3 3 0 0 1 3 3v1a3 3 0 0 1 1 5.8V15a3 3 0 0 1-3 3h-1M12 3v18M9 8h3M12 16h3"/></svg>Pessoas com deficiência intelectual ou mental</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3h4v4a2 2 0 1 0 4 0V3h5v5h-3a2 2 0 1 0 0 4h3v5h-5a2 2 0 1 1-4 0v4H8v-4H5a2 2 0 1 1 0-4H3V8h5V3Z"/></svg>Pessoas com Transtorno do Espectro Autista (TEA)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="6" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="18" cy="12" r="1" fill="currentColor"/></svg>Outras condições que gerem limitação funcional, conforme a legislação</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1741,15 +2131,21 @@
         <header class="reveal">
           <span class="eyebrow">Por que escolher a Alcance?</span>
           <h2 class="section-title">Confiança se constrói em cada etapa.</h2>
-          <p class="section-lead">Um atendimento próximo, organizado e feito para que você se sinta seguro durante todo o caminho.</p>
+          <p class="section-lead">Um atendimento próximo, organizado e feito para você se sentir seguro.</p>
+          <p class="institutional-copy">Fundada por especialistas com ampla bagagem no setor automotivo, a <strong>Alcance Isenções</strong> une uma equipe capacitada a uma rede parceira de confiança. Cuidamos de cada detalhe com transparência, agilidade e acompanhamento próximo do início ao fim.</p>
+          <div class="institutional-highlights">
+            <div class="institutional-highlight"><strong>Experiência Automotiva</strong><span>Conhecimento aprofundado no mercado e na legislação.</span></div>
+            <div class="institutional-highlight"><strong>Rede Credenciada</strong><span>Parceiros e médicos especializados de confiança.</span></div>
+            <div class="institutional-highlight"><strong>Atendimento Humanizado</strong><span>Acompanhamento transparente em todas as etapas.</span></div>
+          </div>
         </header>
 
         <div class="reasons-grid">
-          <article class="reason-card reveal"><span class="reason-number">01</span><h3>Cuidamos de todo o processo</h3><p>Do levantamento inicial dos documentos até a liberação final.</p></article>
-          <article class="reason-card reveal"><span class="reason-number">02</span><h3>Acompanhamento de verdade</h3><p>Você sabe exatamente em qual etapa o seu processo está.</p></article>
-          <article class="reason-card reveal"><span class="reason-number">03</span><h3>Atendimento humanizado</h3><p>Cada situação é analisada individualmente, com atenção e respeito.</p></article>
-          <article class="reason-card reveal"><span class="reason-number">04</span><h3>Rede de apoio</h3><p>Contato com clínicas credenciadas e relacionamento com vendedores de veículos.</p></article>
-          <article class="reason-card reveal"><span class="reason-number">05</span><h3>Experiência no mercado</h3><p>Conhecimento prático das etapas necessárias para cada solicitação.</p></article>
+          <article class="reason-card reveal"><span class="reason-number">01</span><h3>Mais de 8 anos de experiência</h3><p>Atuamos há mais de 8 anos no mercado de isenções e no setor automotivo, trazendo segurança para cada etapa.</p></article>
+          <article class="reason-card reveal"><span class="reason-number">02</span><h3>Cuidamos de todo o processo</h3><p>Da análise inicial e conferência dos documentos até a conclusão. Você deixa toda a burocracia com a gente.</p></article>
+          <article class="reason-card reveal"><span class="reason-number">03</span><h3>Atendimento personalizado</h3><p>Analisamos sua situação individualmente para oferecer orientação clara e suporte exclusivo para o seu caso.</p></article>
+          <article class="reason-card reveal"><span class="reason-number">04</span><h3>Conhecimento de mercado</h3><p>Orientação precisa e alinhada à legislação para você tomar decisões com total tranquilidade.</p></article>
+          <article class="reason-card reveal"><span class="reason-number">05</span><h3>Rede de parceiros especializados</h3><p>Parceria com clínicas, médicos e profissionais credenciados para acompanhar você do início ao fim.</p></article>
         </div>
       </div>
     </section>
@@ -1758,50 +2154,91 @@
       <div class="container">
         <header class="reveal">
           <span class="eyebrow">Como funciona?</span>
-          <h2 class="section-title">Um caminho claro, do primeiro contato à conclusão.</h2>
-          <p class="section-lead">Você entende o que acontece agora e qual será o próximo passo.</p>
+          <h2 class="section-title">Do primeiro contato à conclusão, você sabe exatamente o que acontece.</h2>
+          <p class="section-lead">Um atendimento claro, personalizado e sem complicação. Nós orientamos você em cada etapa do processo.</p>
         </header>
 
         <div class="steps">
-          <article class="step reveal"><span class="step-number">01</span><h3>Conte seu caso</h3><p>Você entra em contato e explica brevemente sua situação.</p></article>
-          <article class="step reveal"><span class="step-number">02</span><h3>Analisamos seu direito</h3><p>Verificamos quais benefícios e processos podem se aplicar ao seu caso.</p></article>
-          <article class="step reveal"><span class="step-number">03</span><h3>Organizamos os documentos</h3><p>Orientamos você sobre tudo o que será necessário.</p></article>
-          <article class="step reveal"><span class="step-number">04</span><h3>Acompanhamos o processo</h3><p>Você recebe informações sobre o andamento e as próximas etapas.</p></article>
-          <article class="step reveal"><span class="step-number">05</span><h3>Seguimos até a conclusão</h3><p>Todo o caminho fica mais simples, organizado e tranquilo para você.</p></article>
+          <article class="step reveal"><span class="step-number">01</span><h3>Conte seu caso</h3><p>Explique sua situação e o que você precisa. Nossa equipe fará uma análise inicial para entender como podemos ajudar.</p></article>
+          <article class="step reveal"><span class="step-number">02</span><h3>Analisamos seus direitos</h3><p>Verificamos quais isenções, benefícios ou processos podem se aplicar ao seu caso.</p></article>
+          <article class="step reveal"><span class="step-number">03</span><h3>Organizamos a documentação</h3><p>Orientamos você sobre os documentos necessários e preparamos o processo para dar entrada corretamente.</p></article>
+          <article class="step reveal"><span class="step-number">04</span><h3>Acompanhamos o processo</h3><p>Acompanhamos as etapas junto aos órgãos responsáveis e mantemos você informado sobre o andamento.</p></article>
+          <article class="step reveal"><span class="step-number">05</span><h3>Seguimos até a conclusão</h3><p>Você não precisa enfrentar o processo sozinho. Continuamos acompanhando até a finalização e orientamos sobre os próximos passos.</p></article>
         </div>
 
         <div class="process-cta reveal">
-          <p><strong>Não sabe se tem direito?</strong>Você não precisa entender todas as regras antes de falar conosco.</p>
-          <a class="btn btn--primary" href="#contato">Quero uma orientação inicial</a>
+          <p><strong>Não sabe se tem direito?</strong>Faça uma avaliação gratuita com a equipe especializada da Alcance Isenções.</p>
+          <a class="btn btn--dark" href="#contato">Quero uma avaliação gratuita</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="duvidas">
       <div class="container faq-layout">
-        <aside class="faq-aside reveal">
+        <aside class="faq-aside reveal" aria-label="Introdução às dúvidas frequentes">
           <span class="eyebrow">Dúvidas frequentes</span>
-          <h2 class="section-title">Informação clara desde o começo.</h2>
-          <p class="section-lead">Se a sua pergunta não estiver aqui, fale com nossa equipe.</p>
-          <a class="btn btn--dark" href="#contato">Falar com a Alcance</a>
+          <h2 class="section-title">Clareza, segurança e orientação em cada etapa.</h2>
+          <p class="section-lead">Sabemos que o processo de isenções pode gerar muitas dúvidas. Por isso, a Alcance Isenções oferece orientação personalizada para ajudar você a entender seus direitos, identificar as possibilidades de isenção e conduzir cada etapa do processo com mais segurança.</p>
+          <a class="btn btn--dark" href="#contato">Quero minha avaliação</a>
         </aside>
 
         <div class="faq-list reveal">
           <article class="faq-item is-open">
-            <button class="faq-question" type="button" aria-expanded="true">Preciso saber exatamente qual isenção solicitar?</button>
-            <div class="faq-answer"><div><p>Não. Conte sua situação de forma breve e nossa equipe fará uma análise inicial para indicar quais benefícios ou processos podem se aplicar ao seu caso.</p></div></div>
+            <button class="faq-question" type="button" aria-expanded="true">Qual isenção é adequada para o meu caso?</button>
+            <div class="faq-answer"><div><p>Cada pessoa possui uma situação específica. Nossa equipe analisa o seu perfil e orienta sobre as isenções e benefícios que podem ser aplicáveis ao seu caso, de acordo com a legislação vigente.</p></div></div>
           </article>
           <article class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false">A Alcance acompanha todo o processo?</button>
-            <div class="faq-answer"><div><p>Sim. Orientamos a documentação, acompanhamos as etapas e mantemos você informado sobre andamento, pendências e próximos passos até a conclusão.</p></div></div>
+            <div class="faq-answer"><div><p>Sim. Nossa assessoria acompanha as etapas contratadas, desde a organização da documentação até os procedimentos necessários junto aos órgãos responsáveis, mantendo você informado durante o processo.</p></div></div>
           </article>
           <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">Quais documentos preciso apresentar?</button>
-            <div class="faq-answer"><div><p>A lista varia conforme o benefício e a situação de cada pessoa. Após a análise inicial, você recebe uma orientação objetiva sobre os documentos necessários.</p></div></div>
+            <button class="faq-question" type="button" aria-expanded="false">Quais documentos são necessários?</button>
+            <div class="faq-answer"><div><p>A documentação pode variar de acordo com o tipo de isenção solicitada. Após a avaliação inicial, orientamos você sobre quais documentos serão necessários para o seu processo.</p></div></div>
           </article>
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">Como começo meu atendimento?</button>
-            <div class="faq-answer"><div><p>Basta clicar em um dos botões de atendimento e contar brevemente o seu caso. A equipe dará sequência à orientação inicial.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="depoimentos">
+      <div class="container">
+        <header class="testimonials-head reveal">
+          <div>
+            <span class="eyebrow">Depoimentos</span>
+            <h2 class="section-title">Veja o que nossos clientes estão falando</h2>
+          </div>
+          <p class="section-lead">A experiência real de quem já confiou na Alcance Isenções.</p>
+        </header>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 estrelas</span></div>
+            <blockquote>“Simplesmente maravilhosa a assistência que tivemos da Katia, uma pessoa competente, simpática e sempre estava pronta para nos auxiliar e tirar todas as nossas dúvidas. Super recomendo!”</blockquote>
+            <div class="testimonial-author"><span class="testimonial-avatar">LN</span><div><strong>lidiane nascimento</strong><small>Avaliação do Google</small></div></div>
+          </article>
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 estrelas</span></div>
+            <blockquote>“Quero agradecer pelo excelente atendimento que recebi durante todo o meu processo de isenção de IPVA.”</blockquote>
+            <div class="testimonial-author"><span class="testimonial-avatar">CR</span><div><strong>Cláudio Rosa</strong><small>Avaliação do Google</small></div></div>
+          </article>
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 estrelas</span></div>
+            <blockquote>“Atendimento rápido, inteligente e acolhedor! Recomendo demais 👏👏👏👏 Katia é uma profissional excepcional 💎”</blockquote>
+            <div class="testimonial-author"><span class="testimonial-avatar">JN</span><div><strong>Juliana Caminha Noronha</strong><small>Avaliação do Google</small></div></div>
+          </article>
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 estrelas</span></div>
+            <blockquote>“Profissional qualificada, com clareza nas informações, agilidade nos processos e muita eficiência. Conseguimos todas as isenções com tranquilidade.”</blockquote>
+            <div class="testimonial-author"><span class="testimonial-avatar">AS</span><div><strong>Aparecido Marques de Souza</strong><small>Avaliação do Google</small></div></div>
+          </article>
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 estrelas</span></div>
+            <blockquote>“Excelente atendimento! Equipe muito atenciosa, prestativa e resolutiva. Fui muito bem acolhida e tive minhas necessidades atendidas com rapidez e profissionalismo. Recomendo com confiança!”</blockquote>
+            <div class="testimonial-author"><span class="testimonial-avatar">AV</span><div><strong>Ana Paula Szatkoski Vieira</strong><small>Avaliação do Google</small></div></div>
+          </article>
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 estrelas</span></div>
+            <blockquote>“Quero deixar minha total recomendação para esta profissional. Quem me conhece sabe do meu nível de exigência e fiquei extremamente satisfeito com o resultado.”</blockquote>
+            <div class="testimonial-author"><span class="testimonial-avatar">MC</span><div><strong>Mário Augusto de Carvalho (Marinho)</strong><small>Avaliação do Google</small></div></div>
           </article>
         </div>
       </div>
@@ -1811,13 +2248,13 @@
       <div class="container">
         <div class="cta-panel reveal">
           <span class="eyebrow">Dê o primeiro passo</span>
-          <h2 class="section-title">Seu direito não precisa virar uma dor de cabeça.</h2>
-          <p>Tenha ao seu lado uma assessoria especializada para cuidar da burocracia enquanto você acompanha cada etapa com clareza e segurança.</p>
+          <h2 class="section-title">Dê o primeiro passo. O resto, a Alcance cuida com você.</h2>
+          <p>Conte com mais de 8 anos de experiência para conduzir seu processo com clareza, segurança e tranquilidade. Seu direito merece ser respeitado.</p>
           <a class="btn btn--primary js-whatsapp" href="#" aria-label="Solicitar análise pelo WhatsApp">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/><path d="M8.2 8.2c.2-.5.5-.5.8-.5h.3c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.3-.9 1.8-.7.6-1.7.7-2.7.4-1-.3-2.3-.8-3.9-2.2-1.4-1.2-2.4-2.8-2.7-3.8-.4-1-.1-2 .3-2.5.4-.4.8-.5 1.1-.5Z"/></svg>
             Solicitar análise pelo WhatsApp
           </a>
-          <small class="cta-note">Wireframe: configure o número oficial do WhatsApp no código antes da publicação.</small>
+          <small class="cta-note">Experiência para orientar. Segurança para cuidar. Alcance para conquistar.</small>
         </div>
       </div>
     </section>
@@ -1830,7 +2267,7 @@
           <span class="brand-mark" aria-hidden="true">A</span>
           <span>Alcance Isenções</span>
         </a>
-        <p>Assessoria especializada. Atendimento humanizado. Acompanhamento do início ao fim.</p>
+        <p>Experiência para orientar. Segurança para cuidar. Alcance para conquistar.</p>
       </div>
       <div class="footer-column">
         <h3>Navegação</h3>
@@ -1852,7 +2289,7 @@
     </div>
     <div class="container footer-bottom">
       <span>© <span id="current-year"></span> Alcance Isenções. Todos os direitos reservados.</span>
-      <span class="wireframe-note">Wireframe de alta fidelidade</span>
+      <span class="wireframe-note">Seu direito, sem burocracia</span>
     </div>
   </footer>
 

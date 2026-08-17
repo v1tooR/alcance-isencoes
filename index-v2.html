@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alcance Isenções | Assessoria especializada em isenções e benefícios</title>
+  <meta name="description" content="Assessoria especializada em isenções de IPI, ICMS, IPVA e Imposto de Renda, CNH PCD, laudos e benefícios para pessoas com deficiência, aposentados e pensionistas.">
+  <meta name="theme-color" content="#840DA8">
+  <link rel="canonical" href="https://alcanceisencoes.com.br/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Alcance Isenções">
+  <meta property="og:title" content="Alcance Isenções | Seu direito, sem burocracia">
+  <meta property="og:description" content="Cuidamos de toda a burocracia das isenções e benefícios — da análise inicial à liberação final.">
+  <meta property="og:image" content="assets/logo-horizontal.png">
+
+  <link rel="icon" href="assets/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="apple-touch-icon" href="assets/logo-simbolo.png">
+
+  <!-- Performance: abre as conexões críticas antes do parser chegar nelas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="image" href="assets/logo-marca.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/logo-simbolo.png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap">
+
+  <style>
+    /* ==========================================================================
+       1. TOKENS — cores extraídas diretamente dos arquivos originais da logo
+          roxo  #840DA8   laranja  #D84D1C
+       ========================================================================== */
+    :root {
+      /* Marca */
+      --roxo: #840da8;
+      --roxo-vivo: #a12ec4;
+      --roxo-escuro: #5c0977;
+      --roxo-profundo: #2e0640;
+      --roxo-tinta: #1c0327;
+
+      --laranja: #d84d1c;
+      --laranja-acao: #c4451a;   /* versão que passa AA com texto branco */
+      --laranja-claro: #f0855c;
+
+      /* Neutros com temperatura roxa */
+      --tinta: #241a2b;
+      --tinta-suave: #5f5368;
+      --papel: #ffffff;
+      --lavanda: #f8f2fb;
+      --lavanda-2: #efe1f6;
+      --areia: #fdf4ef;
+      --linha: #e7d9ee;
+
+      /* Sombras tingidas de roxo em vez de cinza neutro */
+      --sombra-sm: 0 6px 20px rgba(46, 6, 64, .07);
+      --sombra-md: 0 14px 38px rgba(46, 6, 64, .11);
+      --sombra-lg: 0 28px 70px rgba(46, 6, 64, .17);
+      --sombra-roxa: 0 14px 32px rgba(132, 13, 168, .28);
+      --sombra-laranja: 0 14px 32px rgba(216, 77, 28, .3);
+
+      --raio-sm: 14px;
+      --raio-md: 22px;
+      --raio-lg: 34px;
+
+      --max: 1180px;
+      --altura-header: 84px;
+
+      --easing: cubic-bezier(.22, .61, .36, 1);
+    }
+
+    /* Propriedades tipadas: sem isso o navegador não interpola o valor,
+       e o traço/trilha saltariam de 0 para 1 em vez de crescer. */
+    @property --traco {
+      syntax: "<number>";
+      inherits: true;
+      initial-value: 1;
+    }
+
+    @property --avanco {
+      syntax: "<number>";
+      inherits: true;
+      initial-value: 0;
+    }
+
+    /* ==========================================================================
+       2. RESET E BASE
+       ========================================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--altura-header) + 24px);
+      overflow-x: clip;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      color: var(--tinta);
+      background: var(--papel);
+      /* 17px de base: o público inclui pessoas idosas e com baixa visão */
+      font: 400 17px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.menu-aberto { overflow: hidden; }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img, svg { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    ::selection { color: #fff; background: var(--roxo); }
+
+    :focus-visible {
+      outline: 3px solid var(--roxo);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    section { max-width: 100%; }
+
+    /* impede overflow horizontal em grids */
+    .hero-grid > *, .sobre-grid > *, .apoio-grid > *,
+    .faq-layout > *, .footer-main > * { min-width: 0; }
+
+    .pular-para-conteudo {
+      position: absolute;
+      z-index: 200;
+      top: 10px;
+      left: 50%;
+      padding: 12px 22px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--roxo);
+      font-weight: 700;
+      transform: translate(-50%, -140%);
+      transition: transform .2s var(--easing);
+    }
+    .pular-para-conteudo:focus { transform: translate(-50%, 0); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       3. TIPOGRAFIA E ELEMENTOS COMPARTILHADOS
+       ========================================================================== */
+    .titulo, .hero h1 {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -.03em;
+      line-height: 1.06;
+    }
+
+    .titulo {
+      max-width: 20ch;
+      font-size: clamp(2.05rem, 4.2vw, 3.5rem);
+    }
+
+    .titulo--largo { max-width: 26ch; }
+
+    .destaque {
+      --traco: 1;
+      position: relative;
+      color: var(--roxo);
+      white-space: nowrap;
+    }
+
+    /* traço pintado à mão sob a palavra-chave, na cor de acento da logo */
+    .destaque::after {
+      position: absolute;
+      z-index: -1;
+      right: -.08em; bottom: .06em; left: -.08em;
+      height: .28em;
+      border-radius: 99px;
+      background: linear-gradient(90deg, rgba(216, 77, 28, .26), rgba(216, 77, 28, .4));
+      content: "";
+      transform: rotate(-1deg) scaleX(var(--traco));
+      transform-origin: left center;
+    }
+
+    .chapeu {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--roxo);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .chapeu::before {
+      width: 26px; height: 3px;
+      flex: 0 0 auto;
+      border-radius: 99px;
+      background: var(--laranja);
+      content: "";
+    }
+
+    .apoio-texto, .lead {
+      max-width: 62ch;
+      margin-top: 22px;
+      color: var(--tinta-suave);
+      font-size: 1.06rem;
+    }
+
+    /* --- Botões --- */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 26px;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      transition: transform .25s var(--easing), box-shadow .25s var(--easing),
+                  background-color .25s var(--easing), border-color .25s var(--easing), color .25s var(--easing);
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+    .btn:active { transform: translateY(-1px); }
+
+    .btn svg { width: 20px; height: 20px; flex: 0 0 auto; transition: transform .25s var(--easing); }
+    .btn:hover svg:last-child { transform: translateX(4px); }
+
+    .btn--roxo { color: #fff; background: var(--roxo); box-shadow: var(--sombra-roxa); }
+    .btn--roxo:hover { background: var(--roxo-vivo); box-shadow: 0 18px 40px rgba(132, 13, 168, .36); }
+
+    .btn--laranja { color: #fff; background: var(--laranja-acao); box-shadow: var(--sombra-laranja); }
+    .btn--laranja:hover { background: var(--laranja); box-shadow: 0 18px 40px rgba(216, 77, 28, .38); }
+
+    .btn--contorno { color: var(--roxo); border-color: var(--linha); background: var(--papel); }
+    .btn--contorno:hover { border-color: var(--roxo); background: var(--lavanda); }
+
+    .btn--claro { color: var(--roxo); background: #fff; box-shadow: 0 14px 32px rgba(0, 0, 0, .22); }
+    .btn--claro:hover { background: var(--lavanda); }
+
+    .btn--fantasma { color: #fff; border-color: rgba(255, 255, 255, .4); background: transparent; }
+    .btn--fantasma:hover { border-color: #fff; background: rgba(255, 255, 255, .1); }
+
+    /* --- Seções --- */
+    .secao { position: relative; padding: clamp(80px, 9vw, 120px) 0; }
+    .secao--lavanda { background: var(--lavanda); }
+    .secao--areia { background: var(--areia); }
+
+    .secao--escura {
+      overflow: hidden;
+      color: #fff;
+      background: linear-gradient(160deg, var(--roxo-escuro) 0%, var(--roxo-profundo) 62%, var(--roxo-tinta) 100%);
+    }
+    .secao--escura .chapeu { color: var(--laranja-claro); }
+    .secao--escura .lead, .secao--escura .apoio-texto { color: rgba(255, 255, 255, .74); }
+
+    /* ==========================================================================
+       4. BARRA DE PROGRESSO + HEADER
+       ========================================================================== */
+    .progresso {
+      position: fixed;
+      z-index: 120;
+      top: 0; right: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--roxo), var(--laranja));
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+    }
+
+    .site-header {
+      position: fixed;
+      z-index: 100;
+      top: 0; right: 0; left: 0;
+      height: var(--altura-header);
+      border-bottom: 1px solid transparent;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(14px) saturate(1.4);
+      -webkit-backdrop-filter: blur(14px) saturate(1.4);
+      transition: height .3s var(--easing), background-color .3s var(--easing),
+                  border-color .3s var(--easing), box-shadow .3s var(--easing);
+    }
+
+    .site-header.rolado {
+      height: 70px;
+      border-bottom-color: var(--linha);
+      background: rgba(255, 255, 255, .93);
+      box-shadow: 0 6px 26px rgba(46, 6, 64, .07);
+    }
+
+    .header-inner {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .marca { display: inline-flex; align-items: center; }
+
+    .marca img {
+      width: auto;
+      height: 46px;
+      transition: height .3s var(--easing);
+    }
+
+    .site-header.rolado .marca img { height: 38px; }
+
+    .nav-principal { display: flex; align-items: center; gap: 26px; }
+    .nav-lista { display: flex; align-items: center; gap: 4px; }
+
+    .nav-link {
+      position: relative;
+      display: block;
+      padding: 9px 13px;
+      border-radius: 99px;
+      color: var(--tinta-suave);
+      font-size: .95rem;
+      font-weight: 600;
+      transition: color .2s var(--easing), background-color .2s var(--easing);
+    }
+
+    .nav-link:hover { color: var(--roxo); background: var(--lavanda); }
+
+    .nav-link.ativo { color: var(--roxo); }
+
+    .nav-link.ativo::after {
+      position: absolute;
+      right: 13px; bottom: 3px; left: 13px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--laranja);
+      content: "";
+    }
+
+    .header-cta { min-height: 48px; padding: 13px 22px; font-size: .94rem; }
+
+    .menu-toggle {
+      display: none;
+      width: 48px; height: 48px;
+      border: 1px solid var(--linha);
+      border-radius: 14px;
+      color: var(--roxo);
+      background: var(--papel);
+      cursor: pointer;
+    }
+
+    .menu-toggle span, .menu-toggle::before, .menu-toggle::after {
+      display: block;
+      width: 20px; height: 2px;
+      margin: 4px auto;
+      border-radius: 99px;
+      background: currentColor;
+      content: "";
+      transition: transform .25s var(--easing), opacity .2s var(--easing);
+    }
+
+    .menu-aberto .menu-toggle span { opacity: 0; }
+    .menu-aberto .menu-toggle::before { transform: translateY(6px) rotate(45deg); }
+    .menu-aberto .menu-toggle::after { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ==========================================================================
+       5. HERO
+       ========================================================================== */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: calc(var(--altura-header) + 64px) 0 84px;
+      background:
+        radial-gradient(70% 90% at 88% 6%, rgba(216, 77, 28, .1), transparent 60%),
+        radial-gradient(80% 80% at 6% 96%, rgba(132, 13, 168, .1), transparent 62%),
+        linear-gradient(168deg, var(--lavanda) 0%, #fff 46%, var(--areia) 100%);
+    }
+
+    /* manchas desfocadas nas duas cores da logo, movidas em parallax pelo GSAP */
+    .mancha {
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+    }
+    .mancha--roxa { top: -90px; right: 22%; width: 420px; height: 420px; background: rgba(132, 13, 168, .16); }
+    .mancha--laranja { right: -80px; bottom: -120px; width: 380px; height: 380px; background: rgba(216, 77, 28, .15); }
+
+    .hero-grid {
+      display: grid;
+      align-items: center;
+      grid-template-columns: minmax(0, 1.1fr) minmax(380px, .9fr);
+      gap: clamp(40px, 5vw, 70px);
+    }
+
+    .hero-conteudo { position: relative; z-index: 2; }
+
+    .hero h1 {
+      max-width: 15ch;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      letter-spacing: -.04em;
+      line-height: 1.02;
+    }
+
+    .hero-copy {
+      max-width: 54ch;
+      margin-top: 26px;
+      color: var(--tinta-suave);
+      font-size: clamp(1.06rem, 1.5vw, 1.2rem);
+    }
+    .hero-copy strong { color: var(--tinta); font-weight: 700; }
+
+    .hero-acoes {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-selos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 30px;
+      padding-top: 26px;
+      border-top: 1px solid var(--linha);
+    }
+
+    .selo {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--tinta-suave);
+      font-size: .89rem;
+      font-weight: 600;
+    }
+
+    .selo svg { width: 19px; height: 19px; flex: 0 0 auto; color: var(--roxo); }
+
+    /* --- Palco da marca (ocupa o lugar da foto principal) --- */
+    .hero-visual { position: relative; }
+
+    .palco {
+      position: relative;
+      display: grid;
+      aspect-ratio: 1 / 1;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .95), transparent 55%),
+        linear-gradient(145deg, var(--lavanda-2) 0%, #fff 52%, var(--areia) 100%);
+      box-shadow: var(--sombra-lg), inset 0 0 0 1px rgba(132, 13, 168, .1);
+    }
+
+    /* anéis que ecoam o traço em órbita da logo */
+    .orbita {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .orbita--1 {
+      width: 86%; height: 86%;
+      border: 1.5px dashed rgba(132, 13, 168, .22);
+    }
+    .orbita--2 {
+      width: 70%; height: 70%;
+      border: 1.5px solid rgba(216, 77, 28, .22);
+    }
+
+    .palco-marca {
+      position: relative;
+      z-index: 2;
+      width: 62%;
+      height: auto;
+      filter: drop-shadow(0 20px 34px rgba(46, 6, 64, .2));
+    }
+
+    /* --- Cartão flutuante --- */
+    .cartao-flutuante {
+      position: absolute;
+      bottom: 6%; left: -4%;
+      width: min(280px, 78%);
+      padding: 22px 24px;
+      border: 1px solid var(--linha);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--sombra-md);
+    }
+
+    .cartao-icone {
+      display: grid;
+      width: 44px; height: 44px;
+      margin-bottom: 14px;
+      place-items: center;
+      border-radius: 13px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--roxo), var(--roxo-vivo));
+      box-shadow: var(--sombra-roxa);
+    }
+    .cartao-icone svg { width: 22px; height: 22px; }
+
+    .cartao-flutuante strong {
+      display: block;
+      margin-bottom: 5px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.14rem;
+      font-weight: 600;
+    }
+
+    .cartao-flutuante p { color: var(--tinta-suave); font-size: .87rem; line-height: 1.5; }
+
+    .etiqueta-topo {
+      position: absolute;
+      top: 5%; right: -2%;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--laranja-acao);
+      box-shadow: var(--sombra-laranja);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+    .etiqueta-topo svg { width: 18px; height: 18px; }
+
+    /* ==========================================================================
+       6. BARRA DE CONFIANÇA
+       ========================================================================== */
+    .barra-confianca {
+      position: relative;
+      z-index: 3;
+      color: #fff;
+      background: linear-gradient(100deg, var(--roxo) 0%, var(--roxo-escuro) 55%, var(--roxo-profundo) 100%);
+    }
+
+    .confianca-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+
+    .confianca-item {
+      display: flex;
+      min-height: 120px;
+      align-items: center;
+      gap: 15px;
+      padding: 26px 24px;
+      border-left: 1px solid rgba(255, 255, 255, .14);
+    }
+    .confianca-item:first-child { border-left: 0; }
+
+    .confianca-item svg { width: 27px; height: 27px; flex: 0 0 auto; color: var(--laranja-claro); }
+
+    .confianca-item strong { display: block; margin-bottom: 2px; color: #fff; font-size: .97rem; font-weight: 700; }
+    .confianca-item span { color: rgba(255, 255, 255, .76); font-size: .84rem; line-height: 1.45; }
+
+    /* ==========================================================================
+       7. SOBRE
+       ========================================================================== */
+    .sobre-grid {
+      display: grid;
+      align-items: center;
+      grid-template-columns: .95fr 1.05fr;
+      gap: clamp(48px, 7vw, 96px);
+    }
+
+    .sobre-visual { position: relative; }
+
+    /* Placeholder de foto — trocar por <img> quando as fotos estiverem prontas */
+    .foto-slot {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px dashed rgba(132, 13, 168, .3);
+      border-radius: var(--raio-lg);
+      background:
+        repeating-linear-gradient(135deg, rgba(132, 13, 168, .05) 0 12px, transparent 12px 24px),
+        linear-gradient(150deg, var(--lavanda-2), var(--areia));
+      text-align: center;
+    }
+
+    .foto-slot--sobre { aspect-ratio: 4 / 5; }
+
+    .foto-slot-rotulo {
+      max-width: 240px;
+      padding: 20px;
+      border-radius: 16px;
+      color: var(--roxo-escuro);
+      background: rgba(255, 255, 255, .9);
+      box-shadow: var(--sombra-sm);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .foto-slot-rotulo svg { width: 28px; height: 28px; margin: 0 auto 10px; color: var(--roxo); }
+
+    .nota-lateral {
+      position: absolute;
+      right: -18px; bottom: 26px;
+      width: 250px;
+      padding: 24px;
+      border-radius: 22px;
+      color: #fff;
+      background: linear-gradient(140deg, var(--roxo), var(--roxo-escuro));
+      box-shadow: var(--sombra-lg);
+    }
+
+    .nota-lateral span {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--laranja-claro);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: .7;
+    }
+
+    .nota-lateral p { font-family: "Playfair Display", Georgia, serif; font-size: 1.1rem; line-height: 1.4; }
+
+    .bloco-texto p { margin-top: 20px; color: var(--tinta-suave); font-size: 1.05rem; }
+    .bloco-texto p strong { color: var(--tinta); font-weight: 700; }
+
+    .citacao {
+      margin: 30px 0;
+      padding: 20px 24px;
+      border-left: 4px solid var(--laranja);
+      border-radius: 0 16px 16px 0;
+      color: var(--roxo-escuro);
+      background: var(--lavanda);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       8. SERVIÇOS
+       ========================================================================== */
+    .cabecalho-secao {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 44px;
+      margin-bottom: 52px;
+    }
+    .cabecalho-secao .lead { max-width: 40ch; margin: 0; }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .servico {
+      position: relative;
+      display: flex;
+      min-height: 290px;
+      flex-direction: column;
+      align-items: flex-start;
+      grid-column: span 4;
+      overflow: hidden;
+      padding: 32px;
+      border: 1px solid var(--linha);
+      border-radius: var(--raio-md);
+      background: var(--papel);
+      transition: transform .35s var(--easing), box-shadow .35s var(--easing), border-color .35s var(--easing);
+    }
+
+    /* brilho de acento que sobe ao passar o mouse */
+    .servico::after {
+      position: absolute;
+      right: 0; bottom: 0; left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--roxo), var(--laranja));
+      content: "";
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition: transform .4s var(--easing);
+    }
+
+    .servico:hover {
+      border-color: rgba(132, 13, 168, .28);
+      box-shadow: var(--sombra-lg);
+      transform: translateY(-6px);
+    }
+    .servico:hover::after { transform: scaleX(1); }
+
+    .servico--destaque {
+      grid-column: span 6;
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(145deg, var(--roxo) 0%, var(--roxo-escuro) 70%, var(--roxo-profundo) 100%);
+    }
+    .servico--destaque:hover { border-color: transparent; }
+
+    .servico-icone {
+      display: grid;
+      width: 52px; height: 52px;
+      margin-bottom: 26px;
+      place-items: center;
+      border-radius: 15px;
+      color: var(--roxo);
+      background: var(--lavanda-2);
+      transition: transform .35s var(--easing);
+    }
+    .servico:hover .servico-icone { transform: translateY(-3px) rotate(-4deg); }
+    .servico-icone svg { width: 26px; height: 26px; }
+
+    .servico--destaque .servico-icone { color: #fff; background: rgba(255, 255, 255, .16); }
+
+    .servico h3 {
+      max-width: 22ch;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.42rem;
+      font-weight: 600;
+      line-height: 1.16;
+    }
+
+    .servico p {
+      margin: 13px 0 24px;
+      color: var(--tinta-suave);
+      font-size: .95rem;
+      line-height: 1.55;
+    }
+    .servico--destaque p { max-width: 46ch; color: rgba(255, 255, 255, .78); }
+
+    .link-cartao {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      color: var(--roxo);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+    .servico--destaque .link-cartao { color: var(--laranja-claro); }
+    .link-cartao svg { width: 17px; height: 17px; transition: transform .25s var(--easing); }
+    .servico:hover .link-cartao svg { transform: translateX(5px); }
+
+    /* ==========================================================================
+       9. ACOMPANHAMENTO
+       ========================================================================== */
+    .painel-apoio {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--raio-lg);
+      color: #fff;
+      background: linear-gradient(150deg, var(--roxo-escuro) 0%, var(--roxo-profundo) 60%, var(--roxo-tinta) 100%);
+      box-shadow: var(--sombra-lg);
+    }
+
+    .painel-apoio::before {
+      position: absolute;
+      top: -160px; right: -120px;
+      width: 460px; height: 460px;
+      border: 90px solid rgba(216, 77, 28, .08);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .apoio-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; }
+
+    .apoio-copy { padding: clamp(40px, 6vw, 76px); }
+    .apoio-copy .chapeu { color: var(--laranja-claro); }
+    .apoio-copy > p { max-width: 52ch; margin-top: 22px; color: rgba(255, 255, 255, .78); font-size: 1.04rem; }
+    .apoio-copy > p strong { color: #fff; }
+
+    .lista-checagem {
+      display: grid;
+      margin: 32px 0 36px;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+    }
+
+    .lista-checagem li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: rgba(255, 255, 255, .92);
+      font-size: .93rem;
+      font-weight: 600;
+    }
+    .lista-checagem svg { width: 21px; height: 21px; flex: 0 0 auto; color: var(--laranja-claro); }
+
+    .foto-slot--apoio {
+      min-height: 100%;
+      border: 0;
+      border-radius: 0;
+      background:
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, .05) 0 12px, transparent 12px 24px),
+        linear-gradient(150deg, rgba(132, 13, 168, .5), rgba(28, 3, 39, .8));
+    }
+    .foto-slot--apoio .foto-slot-rotulo {
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .22);
+      box-shadow: none;
+    }
+    .foto-slot--apoio .foto-slot-rotulo svg { color: var(--laranja-claro); }
+
+    /* ==========================================================================
+       10. DIFERENCIAIS
+       ========================================================================== */
+    .motivos-grid {
+      display: grid;
+      margin-top: 54px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .motivo {
+      position: relative;
+      padding: 30px 24px;
+      border: 1px solid var(--linha);
+      border-radius: 20px;
+      background: var(--papel);
+      transition: transform .3s var(--easing), box-shadow .3s var(--easing);
+    }
+    .motivo:hover { box-shadow: var(--sombra-md); transform: translateY(-4px); }
+
+    .motivo-numero {
+      display: block;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--roxo), var(--laranja));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2.3rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .motivo h3 {
+      margin-bottom: 10px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.14rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .motivo p { color: var(--tinta-suave); font-size: .88rem; line-height: 1.55; }
+
+    /* ==========================================================================
+       11. COMO FUNCIONA
+       ========================================================================== */
+    .etapas {
+      position: relative;
+      display: grid;
+      margin-top: 62px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 22px;
+    }
+
+    .trilha {
+      --avanco: 0;
+      position: absolute;
+      z-index: 0;
+      top: 29px; right: 10%; left: 10%;
+      height: 2px;
+      background: rgba(255, 255, 255, .16);
+    }
+
+    /* preenchida progressivamente pelo ScrollTrigger */
+    .trilha::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--laranja-claro), var(--laranja));
+      content: "";
+      transform: scaleX(var(--avanco));
+      transform-origin: 0 50%;
+    }
+
+    .etapa { position: relative; z-index: 1; }
+
+    .etapa-numero {
+      display: grid;
+      width: 58px; height: 58px;
+      margin-bottom: 26px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(140deg, var(--laranja), var(--laranja-acao));
+      box-shadow: 0 0 0 9px var(--roxo-profundo), var(--sombra-laranja);
+      font-size: .95rem;
+      font-weight: 800;
+    }
+
+    .etapa h3 {
+      margin-bottom: 9px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .etapa p { color: rgba(255, 255, 255, .7); font-size: .89rem; line-height: 1.55; }
+
+    .faixa-cta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin-top: 60px;
+      padding: 28px 32px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .07);
+      backdrop-filter: blur(6px);
+    }
+
+    .faixa-cta p { color: rgba(255, 255, 255, .74); font-size: .97rem; }
+    .faixa-cta strong {
+      display: block;
+      color: #fff;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       12. FAQ
+       ========================================================================== */
+    .faq-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(46px, 7vw, 90px); }
+    .faq-aside { align-self: start; position: sticky; top: calc(var(--altura-header) + 32px); }
+    .faq-aside .btn { margin-top: 30px; }
+
+    .faq-lista { border-top: 1px solid var(--linha); }
+    .faq-item { border-bottom: 1px solid var(--linha); }
+
+    .faq-pergunta {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.18rem;
+      font-weight: 600;
+      line-height: 1.35;
+      text-align: left;
+      transition: color .2s var(--easing);
+    }
+    .faq-pergunta:hover { color: var(--roxo); }
+
+    .faq-sinal {
+      position: relative;
+      display: grid;
+      width: 36px; height: 36px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--roxo);
+      background: var(--lavanda-2);
+      transition: transform .3s var(--easing), background-color .3s var(--easing), color .3s var(--easing);
+    }
+    .faq-sinal::before, .faq-sinal::after {
+      position: absolute;
+      border-radius: 99px;
+      background: currentColor;
+      content: "";
+      transition: opacity .3s var(--easing);
+    }
+    .faq-sinal::before { width: 14px; height: 2px; }
+    .faq-sinal::after { width: 2px; height: 14px; }
+
+    .faq-item.aberto .faq-sinal { color: #fff; background: var(--roxo); transform: rotate(135deg); }
+    .faq-item.aberto .faq-sinal::after { opacity: 0; }
+
+    .faq-resposta { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--easing); }
+    .faq-resposta > div { overflow: hidden; }
+    .faq-resposta p { max-width: 68ch; padding-right: 48px; color: var(--tinta-suave); font-size: 1rem; }
+    .faq-item.aberto .faq-resposta { grid-template-rows: 1fr; }
+    .faq-item.aberto .faq-resposta p { padding-bottom: 26px; }
+
+    /* ==========================================================================
+       13. CTA FINAL
+       ========================================================================== */
+    .cta-final { padding: clamp(70px, 8vw, 110px) 0; background: var(--lavanda); }
+
+    .painel-cta {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(46px, 7vw, 88px);
+      border-radius: var(--raio-lg);
+      color: #fff;
+      background: linear-gradient(145deg, var(--roxo) 0%, var(--roxo-escuro) 55%, var(--roxo-tinta) 100%);
+      box-shadow: var(--sombra-lg);
+      text-align: center;
+    }
+
+    .painel-cta::before, .painel-cta::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+    .painel-cta::before {
+      top: -140px; left: -100px;
+      width: 340px; height: 340px;
+      border: 1px solid rgba(255, 255, 255, .12);
+    }
+    .painel-cta::after {
+      right: -120px; bottom: -190px;
+      width: 420px; height: 420px;
+      border: 70px solid rgba(216, 77, 28, .1);
+    }
+
+    .painel-cta > * { position: relative; z-index: 1; }
+    .painel-cta .chapeu { color: var(--laranja-claro); }
+    .painel-cta .titulo { max-width: 22ch; margin: 0 auto; }
+    .painel-cta > p { max-width: 56ch; margin: 24px auto 34px; color: rgba(255, 255, 255, .78); font-size: 1.06rem; }
+
+    .cta-acoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+    .cta-nota { display: block; margin-top: 18px; color: rgba(255, 255, 255, .55); font-size: .8rem; }
+
+    /* ==========================================================================
+       14. RODAPÉ
+       ========================================================================== */
+    .site-footer {
+      color: rgba(255, 255, 255, .72);
+      background: var(--roxo-tinta);
+    }
+
+    .footer-main {
+      display: grid;
+      padding: 70px 0 56px;
+      grid-template-columns: 1.35fr .55fr .75fr;
+      gap: 56px;
+    }
+
+    /* a logo é colorida, então ganha um cartão claro para manter a leitura no fundo escuro */
+    .footer-logo-chip {
+      display: inline-block;
+      padding: 20px 26px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    }
+    .footer-logo-chip img { width: auto; height: 74px; }
+
+    .footer-sobre p { max-width: 46ch; margin-top: 22px; font-size: .93rem; }
+
+    .footer-coluna h3 {
+      margin-bottom: 18px;
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .footer-coluna ul { display: grid; gap: 12px; }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .92rem;
+      transition: color .2s var(--easing);
+    }
+    .footer-link:hover { color: var(--laranja-claro); }
+    .footer-link svg { width: 17px; height: 17px; flex: 0 0 auto; color: var(--laranja-claro); }
+
+    .footer-base {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      font-size: .8rem;
+    }
+
+    .nota-wireframe {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px dashed rgba(255, 255, 255, .26);
+      border-radius: 9px;
+      color: rgba(255, 255, 255, .55);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       15. BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================== */
+    .whatsapp-float {
+      position: fixed;
+      z-index: 95;
+      right: 24px; bottom: 24px;
+      display: grid;
+      width: 62px; height: 62px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--laranja-acao);
+      box-shadow: 0 14px 34px rgba(216, 77, 28, .42);
+      transition: transform .25s var(--easing), background-color .25s var(--easing);
+    }
+    .whatsapp-float:hover { background: var(--laranja); transform: translateY(-4px) scale(1.04); }
+    .whatsapp-float svg { width: 30px; height: 30px; }
+
+    /* pulso suave para chamar atenção sem distrair */
+    .whatsapp-float::after {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(216, 77, 28, .5);
+      content: "";
+      animation: pulso 2.6s var(--easing) infinite;
+    }
+
+    @keyframes pulso {
+      0%   { box-shadow: 0 0 0 0 rgba(216, 77, 28, .5); }
+      60%  { box-shadow: 0 0 0 18px rgba(216, 77, 28, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(216, 77, 28, 0); }
+    }
+
+    .whatsapp-float::before {
+      position: absolute;
+      right: 74px;
+      width: max-content;
+      padding: 9px 14px;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--roxo-profundo);
+      content: "Fale com a Alcance";
+      font-size: .8rem;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: opacity .25s var(--easing), transform .25s var(--easing);
+    }
+    .whatsapp-float:hover::before { opacity: 1; transform: translateX(0); }
+
+    /* ==========================================================================
+       16. ESTADOS INICIAIS DE ANIMAÇÃO
+          Só são aplicados quando o JS confirma que consegue animar — sem JS,
+          ou se o GSAP não carregar, o conteúdo aparece normalmente.
+       ========================================================================== */
+    .anima [data-anim] { opacity: 0; }
+    .anima [data-anim="subir"] { transform: translateY(28px); }
+    .anima [data-anim="palco"] { transform: scale(.94); }
+    .anima .destaque { --traco: 0; }
+
+    /* rede de segurança: se o GSAP falhar, tudo volta a ficar visível */
+    .sem-gsap [data-anim] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: opacity .5s var(--easing);
+    }
+    .sem-gsap .destaque { --traco: 1; }
+    .sem-gsap .trilha { --avanco: 1; }
+
+    /* ==========================================================================
+       17. RESPONSIVO
+       ========================================================================== */
+    @media (max-width: 1080px) {
+      :root { --altura-header: 74px; }
+
+      .menu-toggle { display: block; }
+
+      .nav-principal {
+        position: fixed;
+        top: var(--altura-header); right: 0; left: 0;
+        display: grid;
+        max-height: 0;
+        padding: 0 20px;
+        overflow: hidden;
+        border-bottom: 1px solid transparent;
+        background: #fff;
+        opacity: 0;
+        transition: max-height .35s var(--easing), padding .35s var(--easing), opacity .25s var(--easing);
+      }
+
+      .menu-aberto .nav-principal {
+        max-height: calc(100dvh - var(--altura-header));
+        padding-top: 22px;
+        padding-bottom: 28px;
+        border-bottom-color: var(--linha);
+        opacity: 1;
+        box-shadow: var(--sombra-md);
+      }
+
+      .nav-lista { display: grid; gap: 2px; }
+      .nav-link { padding: 15px 12px; border-radius: 12px; font-size: 1.02rem; }
+      .nav-link.ativo::after { display: none; }
+      .nav-link.ativo { background: var(--lavanda); }
+      .header-cta { width: 100%; margin-top: 14px; }
+
+      .hero-grid { grid-template-columns: 1fr minmax(320px, .82fr); gap: 34px; }
+
+      .confianca-grid { grid-template-columns: 1fr 1fr; }
+      .confianca-item:nth-child(3), .confianca-item:nth-child(4) { border-top: 1px solid rgba(255, 255, 255, .14); }
+      .confianca-item:nth-child(3) { border-left: 0; }
+
+      .servico { grid-column: span 6; }
+
+      .motivos-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .etapas { grid-template-columns: repeat(3, 1fr); gap: 40px 26px; }
+      .trilha { display: none; }
+
+      .faq-aside { position: static; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 52px; }
+      .hero h1 { max-width: 18ch; }
+      .hero-visual { width: min(100%, 520px); margin-inline: auto; }
+      .sobre-grid, .apoio-grid, .faq-layout { grid-template-columns: 1fr; }
+      .foto-slot--apoio { min-height: 380px; order: -1; }
+      .cabecalho-secao { display: block; }
+      .cabecalho-secao .lead { margin-top: 20px; }
+    }
+
+    @media (max-width: 700px) {
+      body { font-size: 16.5px; }
+      .container { width: min(calc(100% - 32px), var(--max)); }
+      .secao { padding: 68px 0; }
+
+      .hero { padding-top: calc(var(--altura-header) + 44px); padding-bottom: 64px; }
+      .hero h1 { font-size: clamp(2.4rem, 10vw, 3.4rem); }
+      .destaque { white-space: normal; }
+      .hero-acoes { display: grid; }
+      .hero-acoes .btn { width: 100%; }
+
+      .cartao-flutuante { left: 0; width: min(260px, 82%); }
+      .etiqueta-topo { top: 2%; right: 0; font-size: .78rem; }
+
+      .motivos-grid, .etapas { grid-template-columns: 1fr 1fr; }
+
+      .nota-lateral { right: 0; width: 210px; padding: 20px; }
+
+      .lista-checagem { grid-template-columns: 1fr; }
+
+      .faixa-cta { align-items: stretch; flex-direction: column; }
+      .faixa-cta .btn { width: 100%; }
+
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-sobre { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 520px) {
+      .titulo { font-size: 2.15rem; }
+      .confianca-grid { grid-template-columns: 1fr; }
+      .confianca-item { min-height: 92px; padding: 20px 4px; border-left: 0; }
+      .confianca-item + .confianca-item { border-top: 1px solid rgba(255, 255, 255, .14); }
+      .servico, .servico--destaque { min-height: auto; grid-column: 1 / -1; padding: 28px; }
+      .motivos-grid, .etapas { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-sobre { grid-column: auto; }
+      .footer-base { align-items: flex-start; flex-direction: column; }
+      .footer-logo-chip img { height: 62px; }
+      .whatsapp-float { right: 16px; bottom: 16px; width: 58px; height: 58px; }
+      .whatsapp-float::before { display: none; }
+      .faq-resposta p { padding-right: 0; }
+    }
+
+    /* ==========================================================================
+       18. MOVIMENTO REDUZIDO
+       ========================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      [data-anim] { opacity: 1 !important; transform: none !important; }
+      .destaque { --traco: 1; }
+      .trilha { --avanco: 1; }
+      .whatsapp-float::after { display: none; }
+    }
+  </style>
+
+  <script>
+    /* Marca o documento como "animável" antes da primeira pintura.
+       Sem JS ou com movimento reduzido, a classe não entra e nada fica escondido. */
+    (function () {
+      var reduz = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduz) document.documentElement.classList.add("anima");
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="progresso" id="progresso" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="marca" href="#inicio" aria-label="Alcance Isenções — ir para o início">
+        <img src="assets/logo-marca.png" alt="Alcance Isenções" width="894" height="255" fetchpriority="high" decoding="async">
+      </a>
+
+      <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu de navegação">
+        <span></span>
+      </button>
+
+      <nav class="nav-principal" id="nav-principal" aria-label="Navegação principal">
+        <ul class="nav-lista">
+          <li><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
+          <li><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+          <li><a class="nav-link" href="#duvidas">Dúvidas</a></li>
+        </ul>
+        <a class="btn btn--roxo header-cta" href="#contato">Analisar meu caso</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <span class="mancha mancha--roxa" data-parallax="0.18" aria-hidden="true"></span>
+      <span class="mancha mancha--laranja" data-parallax="-0.12" aria-hidden="true"></span>
+
+      <div class="container hero-grid">
+        <div class="hero-conteudo">
+          <span class="chapeu" data-anim="subir">Assessoria especializada</span>
+          <h1 data-anim="subir">Seus direitos podem estar <span class="destaque">mais perto</span> do que você imagina.</h1>
+          <p class="hero-copy" data-anim="subir"><strong>Isenções, benefícios e processos para pessoas com deficiência, aposentados e pensionistas.</strong> Cuidamos de tudo — da análise inicial à liberação final.</p>
+
+          <div class="hero-acoes" data-anim="subir">
+            <a class="btn btn--laranja js-whatsapp" href="#contato">
+              Quero analisar meu caso
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--contorno" href="#como-funciona">Entenda como funciona</a>
+          </div>
+
+          <div class="hero-selos" data-anim="subir">
+            <span class="selo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+              Análise individual do seu caso
+            </span>
+            <span class="selo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+              Acompanhamento do início ao fim
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Palco da marca: substituir por <img> da foto principal quando disponível -->
+          <div class="palco" data-anim="palco">
+            <span class="orbita orbita--1" id="orbita-1" aria-hidden="true"></span>
+            <span class="orbita orbita--2" id="orbita-2" aria-hidden="true"></span>
+            <img class="palco-marca" src="assets/logo-simbolo.png" alt="" width="512" height="512" decoding="async" aria-hidden="true">
+          </div>
+
+          <span class="etiqueta-topo" data-anim="subir">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/></svg>
+            Atendimento humanizado
+          </span>
+
+          <aside class="cartao-flutuante" data-anim="subir" aria-label="Destaque de acompanhamento">
+            <span class="cartao-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <strong>Você não está sozinho.</strong>
+            <p>Nossa equipe cuida dos documentos, prazos e etapas junto com você.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONFIANÇA ===================== -->
+    <section class="barra-confianca" aria-label="Principais benefícios do atendimento">
+      <div class="container confianca-grid">
+        <div class="confianca-item" data-anim="subir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span><strong>Análise individual</strong>Cada caso é avaliado com atenção</span>
+        </div>
+        <div class="confianca-item" data-anim="subir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span><strong>Processo seguro</strong>Organização em todas as etapas</span>
+        </div>
+        <div class="confianca-item" data-anim="subir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+          <span><strong>Contato próximo</strong>Você acompanha o andamento</span>
+        </div>
+        <div class="confianca-item" data-anim="subir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span><strong>Mais tranquilidade</strong>Menos burocracia para você</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="secao" id="sobre">
+      <div class="container sobre-grid">
+        <div class="sobre-visual" data-anim="subir">
+          <!-- Placeholder: trocar por <img src="assets/foto-atendimento.jpg" ...> -->
+          <div class="foto-slot foto-slot--sobre">
+            <span class="foto-slot-rotulo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
+              Imagem de apoio<br>Especialista orientando cliente
+            </span>
+          </div>
+          <aside class="nota-lateral">
+            <span aria-hidden="true">“</span>
+            <p>Clareza para você tomar decisões com segurança.</p>
+          </aside>
+        </div>
+
+        <div class="bloco-texto">
+          <span class="chapeu" data-anim="subir">Burocracia não precisa ser um obstáculo</span>
+          <h2 class="titulo" data-anim="subir">Menos burocracia. Mais tranquilidade para você.</h2>
+          <p data-anim="subir">Lidar com documentos, órgãos públicos, clínicas, prazos e exigências pode transformar um direito que deveria ser simples em um processo cansativo.</p>
+          <p data-anim="subir">Na <strong>Alcance Isenções</strong>, você não precisa enfrentar tudo isso sozinho. Nossa equipe acompanha cada etapa, orienta sobre a documentação e mantém você informado.</p>
+          <p class="citacao" data-anim="subir">Você sabe o que está acontecendo do início ao fim.</p>
+          <a class="btn btn--roxo" href="#contato" data-anim="subir">
+            Falar com um especialista
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVIÇOS ===================== -->
+    <section class="secao secao--lavanda" id="servicos">
+      <div class="container">
+        <header class="cabecalho-secao">
+          <div>
+            <span class="chapeu" data-anim="subir">Como podemos ajudar</span>
+            <h2 class="titulo titulo--largo" data-anim="subir">Soluções para cada etapa do seu direito.</h2>
+          </div>
+          <p class="lead" data-anim="subir">Entenda os principais processos em que nossa equipe pode orientar e acompanhar você.</p>
+        </header>
+
+        <div class="servicos-grid">
+          <article class="servico servico--destaque" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><path d="M7 17v2M17 17v2M8 13h8"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg>
+            </span>
+            <h3>Isenção de IPI e ICMS</h3>
+            <p>Assessoria para solicitação das isenções tributárias aplicáveis à aquisição de veículos por pessoas que atendam aos requisitos legais.</p>
+            <a class="link-cartao" href="#contato">Quero saber se tenho direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="servico servico--destaque" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v11H4z"/><path d="M8 7V4h8v3M8 12h8M8 15h5"/></svg>
+            </span>
+            <h3>Isenção de Imposto de Renda</h3>
+            <p>Assessoria para aposentados e pensionistas com patologias previstas na legislação, da análise à condução do processo.</p>
+            <a class="link-cartao" href="#contato">Quero entender meu direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="servico" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/><path d="M9 12h6"/></svg>
+            </span>
+            <h3>Isenção de IPVA</h3>
+            <p>Orientação e acompanhamento da solicitação, conforme os critérios aplicáveis ao seu caso.</p>
+            <a class="link-cartao" href="#contato">Analisar meu caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="servico" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><circle cx="9" cy="10" r="2"/><path d="M7 16h10M13 9h4M13 12h4"/></svg>
+            </span>
+            <h3>Renovação de CNH PCD</h3>
+            <p>Acompanhamento e orientação para tornar a renovação da sua habilitação mais simples e segura.</p>
+            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="servico" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 14h8M8 18h5"/></svg>
+            </span>
+            <h3>Laudo Médico do Detran</h3>
+            <p>Auxílio nas etapas para obtenção do laudo, incluindo orientação sobre clínicas e procedimentos.</p>
+            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="servico" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 17V7h3a3 3 0 0 1 0 6h-3"/></svg>
+            </span>
+            <h3>Credencial de Estacionamento</h3>
+            <p>Orientação para solicitar a credencial e acessar as vagas destinadas a quem possui esse direito.</p>
+            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="servico" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7 7 10 10M17 7 7 17"/></svg>
+            </span>
+            <h3>Liberação de Rodízio Municipal</h3>
+            <p>Assessoria para solicitação da autorização necessária nos casos previstos pelas regras municipais.</p>
+            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="servico" data-anim="subir">
+            <span class="servico-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 18h12M7 18V9M17 18V9M4 9h16L12 3Z"/><path d="M10 13h4"/></svg>
+            </span>
+            <h3>Alvará Judicial</h3>
+            <p>Suporte na organização e no encaminhamento do processo, de acordo com a necessidade do cliente.</p>
+            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ACOMPANHAMENTO ===================== -->
+    <section class="secao">
+      <div class="container">
+        <div class="painel-apoio" data-anim="subir">
+          <div class="apoio-grid">
+            <div class="apoio-copy">
+              <span class="chapeu">Acompanhamento completo</span>
+              <h2 class="titulo titulo--largo">Você não precisa descobrir sozinho o que fazer.</h2>
+              <p>Nosso trabalho não termina em dizer quais documentos apresentar. <strong>Nós acompanhamos o processo.</strong></p>
+              <ul class="lista-checagem">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Documentos necessários</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Etapas do processo</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Andamento atualizado</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Pendências e próximos passos</li>
+              </ul>
+              <a class="btn btn--laranja js-whatsapp" href="#contato">
+                Quero iniciar meu atendimento
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+
+            <!-- Placeholder: trocar por <img src="assets/foto-equipe.jpg" ...> -->
+            <div class="foto-slot foto-slot--apoio">
+              <span class="foto-slot-rotulo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
+                Imagem de apoio<br>Atendimento humanizado / equipe
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DIFERENCIAIS ===================== -->
+    <section class="secao secao--areia" id="diferenciais">
+      <div class="container">
+        <header>
+          <span class="chapeu" data-anim="subir">Por que escolher a Alcance?</span>
+          <h2 class="titulo titulo--largo" data-anim="subir">Confiança se constrói em cada etapa.</h2>
+          <p class="lead" data-anim="subir">Um atendimento próximo, organizado e feito para que você se sinta seguro durante todo o caminho.</p>
+        </header>
+
+        <div class="motivos-grid">
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">01</span><h3>Cuidamos de todo o processo</h3><p>Do levantamento inicial dos documentos até a liberação final.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">02</span><h3>Acompanhamento de verdade</h3><p>Você sabe exatamente em qual etapa o seu processo está.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">03</span><h3>Atendimento humanizado</h3><p>Cada situação é analisada individualmente, com atenção e respeito.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">04</span><h3>Rede de apoio</h3><p>Contato com clínicas credenciadas e relacionamento com vendedores de veículos.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">05</span><h3>Experiência no mercado</h3><p>Conhecimento prático das etapas necessárias para cada solicitação.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COMO FUNCIONA ===================== -->
+    <section class="secao secao--escura" id="como-funciona">
+      <div class="container">
+        <header>
+          <span class="chapeu" data-anim="subir">Como funciona?</span>
+          <h2 class="titulo titulo--largo" data-anim="subir">Um caminho claro, do primeiro contato à conclusão.</h2>
+          <p class="lead" data-anim="subir">Você entende o que acontece agora e qual será o próximo passo.</p>
+        </header>
+
+        <div class="etapas">
+          <span class="trilha" id="trilha" aria-hidden="true"></span>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">01</span><h3>Conte seu caso</h3><p>Você entra em contato e explica brevemente sua situação.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">02</span><h3>Analisamos seu direito</h3><p>Verificamos quais benefícios e processos podem se aplicar ao seu caso.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">03</span><h3>Organizamos os documentos</h3><p>Orientamos você sobre tudo o que será necessário.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">04</span><h3>Acompanhamos o processo</h3><p>Você recebe informações sobre o andamento e as próximas etapas.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">05</span><h3>Seguimos até a conclusão</h3><p>Todo o caminho fica mais simples, organizado e tranquilo para você.</p></article>
+        </div>
+
+        <div class="faixa-cta" data-anim="subir">
+          <p><strong>Não sabe se tem direito?</strong>Você não precisa entender todas as regras antes de falar conosco.</p>
+          <a class="btn btn--laranja js-whatsapp" href="#contato">Quero uma orientação inicial</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DÚVIDAS ===================== -->
+    <section class="secao" id="duvidas">
+      <div class="container faq-layout">
+        <aside class="faq-aside">
+          <span class="chapeu" data-anim="subir">Dúvidas frequentes</span>
+          <h2 class="titulo" data-anim="subir">Informação clara desde o começo.</h2>
+          <p class="lead" data-anim="subir">Se a sua pergunta não estiver aqui, fale com nossa equipe.</p>
+          <a class="btn btn--roxo" href="#contato" data-anim="subir">Falar com a Alcance</a>
+        </aside>
+
+        <div class="faq-lista">
+          <article class="faq-item aberto" data-anim="subir">
+            <h3>
+              <button class="faq-pergunta" type="button" aria-expanded="true">
+                Preciso saber exatamente qual isenção solicitar?
+                <span class="faq-sinal" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-resposta"><div><p>Não. Conte sua situação de forma breve e nossa equipe fará uma análise inicial para indicar quais benefícios ou processos podem se aplicar ao seu caso.</p></div></div>
+          </article>
+
+          <article class="faq-item" data-anim="subir">
+            <h3>
+              <button class="faq-pergunta" type="button" aria-expanded="false">
+                A Alcance acompanha todo o processo?
+                <span class="faq-sinal" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-resposta"><div><p>Sim. Orientamos a documentação, acompanhamos as etapas e mantemos você informado sobre andamento, pendências e próximos passos até a conclusão.</p></div></div>
+          </article>
+
+          <article class="faq-item" data-anim="subir">
+            <h3>
+              <button class="faq-pergunta" type="button" aria-expanded="false">
+                Quais documentos preciso apresentar?
+                <span class="faq-sinal" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-resposta"><div><p>A lista varia conforme o benefício e a situação de cada pessoa. Após a análise inicial, você recebe uma orientação objetiva sobre os documentos necessários.</p></div></div>
+          </article>
+
+          <article class="faq-item" data-anim="subir">
+            <h3>
+              <button class="faq-pergunta" type="button" aria-expanded="false">
+                Como começo meu atendimento?
+                <span class="faq-sinal" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-resposta"><div><p>Basta clicar em um dos botões de atendimento e contar brevemente o seu caso. A equipe dará sequência à orientação inicial.</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="cta-final" id="contato">
+      <div class="container">
+        <div class="painel-cta" data-anim="subir">
+          <span class="chapeu">Dê o primeiro passo</span>
+          <h2 class="titulo">Seu direito não precisa virar uma dor de cabeça.</h2>
+          <p>Tenha ao seu lado uma assessoria especializada para cuidar da burocracia enquanto você acompanha cada etapa com clareza e segurança.</p>
+
+          <div class="cta-acoes">
+            <a class="btn btn--laranja js-whatsapp" href="#" aria-label="Solicitar análise pelo WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/><path d="M8.2 8.2c.2-.5.5-.5.8-.5h.3c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.3-.9 1.8-.7.6-1.7.7-2.7.4-1-.3-2.3-.8-3.9-2.2-1.4-1.2-2.4-2.8-2.7-3.8-.4-1-.1-2 .3-2.5.4-.4.8-.5 1.1-.5Z"/></svg>
+              Solicitar análise pelo WhatsApp
+            </a>
+            <a class="btn btn--fantasma" href="#servicos">Ver todos os serviços</a>
+          </div>
+
+          <small class="cta-nota">Configure o número oficial do WhatsApp no código antes da publicação.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-sobre">
+        <a class="footer-logo-chip" href="#inicio" aria-label="Alcance Isenções — ir para o início">
+          <img src="assets/logo-horizontal.png" alt="Alcance Isenções — assessoria especializada" width="900" height="319" loading="lazy" decoding="async">
+        </a>
+        <p>Assessoria especializada em isenções, benefícios e processos para pessoas com deficiência, aposentados e pensionistas. Atendimento humanizado e acompanhamento do início ao fim.</p>
+      </div>
+
+      <nav class="footer-coluna" aria-label="Navegação do rodapé">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a class="footer-link" href="#servicos">Serviços</a></li>
+          <li><a class="footer-link" href="#diferenciais">Diferenciais</a></li>
+          <li><a class="footer-link" href="#como-funciona">Como funciona</a></li>
+          <li><a class="footer-link" href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-coluna">
+        <h3>Contato</h3>
+        <ul>
+          <li><a class="footer-link js-whatsapp" href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/></svg>
+            WhatsApp: inserir número</a></li>
+          <li><span class="footer-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+            E-mail: inserir endereço</span></li>
+          <li><span class="footer-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Atendimento: inserir horário</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-base">
+      <span>© <span id="ano-atual">2026</span> Alcance Isenções. Todos os direitos reservados.</span>
+      <span class="nota-wireframe">Versão com identidade visual aplicada</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float js-whatsapp" href="#" aria-label="Falar com a Alcance pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/><path d="M8.2 8.2c.2-.5.5-.5.8-.5h.3c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.3-.9 1.8-.7.6-1.7.7-2.7.4-1-.3-2.3-.8-3.9-2.2-1.4-1.2-2.4-2.8-2.7-3.8-.4-1-.1-2 .3-2.5.4-.4.8-.5 1.1-.5Z"/></svg>
+  </a>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Alcance Isenções",
+    "description": "Assessoria especializada em isenções, benefícios e processos para pessoas com deficiência, aposentados e pensionistas.",
+    "areaServed": "BR",
+    "logo": "assets/logo-horizontal.png",
+    "knowsAbout": ["Isenção de IPI", "Isenção de ICMS", "Isenção de IPVA", "Isenção de Imposto de Renda", "CNH PCD", "Laudo médico do Detran", "Credencial de estacionamento", "Alvará judicial"]
+  }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+
+  <script>
+    /* =========================================================================
+       CONFIGURAÇÃO
+       Informe o número com DDI + DDD, somente dígitos. Ex.: "5511999999999"
+       ========================================================================= */
+    var WHATSAPP_NUMERO = "";
+    var WHATSAPP_MENSAGEM = "Olá! Vim pelo site da Alcance Isenções e gostaria de analisar meu caso.";
+
+    /* "defer" não tem efeito em script inline: este bloco roda no momento em que
+       o parser chega nele. Esperamos o DOMContentLoaded, que só dispara depois
+       que os scripts externos com defer (GSAP e ScrollTrigger) já executaram. */
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", iniciar);
+    } else {
+      iniciar();
+    }
+
+    function iniciar() {
+      "use strict";
+
+      var raiz = document.documentElement;
+      var reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* ---------------------------------------------------------------------
+         Menu mobile
+         --------------------------------------------------------------------- */
+      var toggle = document.getElementById("menu-toggle");
+      var navItens = document.querySelectorAll(".nav-link, .header-cta");
+
+      function fecharMenu() {
+        document.body.classList.remove("menu-aberto");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menu de navegação");
+      }
+
+      toggle.addEventListener("click", function () {
+        var aberto = document.body.classList.toggle("menu-aberto");
+        toggle.setAttribute("aria-expanded", String(aberto));
+        toggle.setAttribute("aria-label", aberto ? "Fechar menu de navegação" : "Abrir menu de navegação");
+      });
+
+      navItens.forEach(function (item) { item.addEventListener("click", fecharMenu); });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && document.body.classList.contains("menu-aberto")) {
+          fecharMenu();
+          toggle.focus();
+        }
+      });
+
+      /* ---------------------------------------------------------------------
+         FAQ (accordion acessível)
+         --------------------------------------------------------------------- */
+      document.querySelectorAll(".faq-pergunta").forEach(function (botao) {
+        botao.addEventListener("click", function () {
+          var item = botao.closest(".faq-item");
+          var jaAberto = item.classList.contains("aberto");
+
+          document.querySelectorAll(".faq-item").forEach(function (faq) {
+            faq.classList.remove("aberto");
+            faq.querySelector(".faq-pergunta").setAttribute("aria-expanded", "false");
+          });
+
+          if (!jaAberto) {
+            item.classList.add("aberto");
+            botao.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+
+      /* ---------------------------------------------------------------------
+         Links de WhatsApp
+         --------------------------------------------------------------------- */
+      var alvo = WHATSAPP_NUMERO
+        ? "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(WHATSAPP_MENSAGEM)
+        : null;
+
+      document.querySelectorAll(".js-whatsapp").forEach(function (link) {
+        if (alvo) {
+          link.href = alvo;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        } else if (link.getAttribute("href") === "#") {
+          // sem número configurado: leva para a seção de contato em vez de quebrar
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.getElementById("contato").scrollIntoView({ behavior: reduzMovimento ? "auto" : "smooth" });
+          });
+        }
+      });
+
+      /* ---------------------------------------------------------------------
+         Header compacto + barra de progresso (sem depender do GSAP)
+         --------------------------------------------------------------------- */
+      var header = document.getElementById("site-header");
+      var progresso = document.getElementById("progresso");
+      var pendente = false;
+
+      function aoRolar() {
+        var y = window.scrollY;
+        header.classList.toggle("rolado", y > 24);
+
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        progresso.style.transform = "scaleX(" + (total > 0 ? Math.min(y / total, 1) : 0) + ")";
+        pendente = false;
+      }
+
+      window.addEventListener("scroll", function () {
+        if (!pendente) { pendente = true; requestAnimationFrame(aoRolar); }
+      }, { passive: true });
+
+      aoRolar();
+
+      document.getElementById("ano-atual").textContent = new Date().getFullYear();
+
+      /* ---------------------------------------------------------------------
+         Animações — GSAP + ScrollTrigger
+         Se o GSAP não carregar (CDN fora do ar, bloqueio de rede), a classe
+         "sem-gsap" devolve todo o conteúdo ao estado visível.
+         --------------------------------------------------------------------- */
+      function semAnimacao() {
+        raiz.classList.remove("anima");
+        raiz.classList.add("sem-gsap");
+      }
+
+      if (reduzMovimento || !window.gsap || !window.ScrollTrigger) {
+        semAnimacao();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      var animaveis = gsap.utils.toArray("[data-anim]");
+
+      // Entrada do hero: um único timeline encadeado, sem ScrollTrigger
+      var noHero = animaveis.filter(function (el) { return el.closest(".hero"); });
+      var foraDoHero = animaveis.filter(function (el) { return !el.closest(".hero"); });
+
+      var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.to(".hero .palco", { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }, 0)
+        .to(noHero.filter(function (el) { return el.dataset.anim === "subir"; }), {
+          opacity: 1, y: 0, duration: .8, stagger: .09
+        }, .15)
+        .to(".hero .destaque", { "--traco": 1, duration: .6, ease: "power2.inOut" }, .9);
+
+      // Reveals por scroll — em lote, para não criar um trigger por elemento
+      ScrollTrigger.batch(foraDoHero, {
+        start: "top 88%",
+        once: true,
+        onEnter: function (lote) {
+          gsap.to(lote, { opacity: 1, y: 0, duration: .75, stagger: .08, ease: "power3.out" });
+        }
+      });
+
+      // Traço sob a palavra-chave nas demais seções
+      gsap.utils.toArray(".destaque").forEach(function (el) {
+        if (el.closest(".hero")) return;
+        gsap.to(el, {
+          "--traco": 1, duration: .6, ease: "power2.inOut",
+          scrollTrigger: { trigger: el, start: "top 85%", once: true }
+        });
+      });
+
+      // Parallax suave nas manchas de cor do hero
+      gsap.utils.toArray("[data-parallax]").forEach(function (el) {
+        gsap.to(el, {
+          yPercent: parseFloat(el.dataset.parallax) * 100,
+          ease: "none",
+          scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: .6 }
+        });
+      });
+
+      // Órbitas do palco girando devagar, em sentidos opostos
+      gsap.to("#orbita-1", { rotation: 360, duration: 46, ease: "none", repeat: -1 });
+      gsap.to("#orbita-2", { rotation: -360, duration: 34, ease: "none", repeat: -1 });
+
+      // Trilha de "Como funciona" preenchida conforme a seção é percorrida
+      var trilha = document.getElementById("trilha");
+      if (trilha) {
+        gsap.to(trilha, {
+          "--avanco": 1, ease: "none",
+          scrollTrigger: { trigger: ".etapas", start: "top 72%", end: "bottom 68%", scrub: .5 }
+        });
+      }
+
+      // Item de menu ativo conforme a seção visível
+      var links = {};
+      document.querySelectorAll(".nav-link").forEach(function (link) {
+        links[link.getAttribute("href").slice(1)] = link;
+      });
+
+      Object.keys(links).forEach(function (id) {
+        var secao = document.getElementById(id);
+        if (!secao) return;
+
+        function marcar(ativo) {
+          Object.keys(links).forEach(function (k) { links[k].classList.remove("ativo"); });
+          if (ativo) links[id].classList.add("ativo");
+        }
+
+        ScrollTrigger.create({
+          trigger: secao,
+          start: "top 42%",
+          end: "bottom 42%",
+          onToggle: function (self) { if (self.isActive) marcar(true); }
+        });
+      });
+
+      // Recalcula posições quando as fontes terminam de carregar
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+      }
+    }
+  </script>
+</body>
+</html>
