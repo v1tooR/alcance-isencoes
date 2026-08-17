@@ -381,6 +381,49 @@
       line-height: .98;
     }
 
+    .hero h1.hero-offer-title {
+      max-width: 760px;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      font-weight: 950;
+      letter-spacing: -.065em;
+      line-height: .88;
+      text-transform: uppercase;
+    }
+
+    .hero-offer-title small {
+      display: block;
+      margin-bottom: 11px;
+      font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+      font-weight: 500;
+      letter-spacing: -.025em;
+      line-height: 1.25;
+      text-transform: none;
+    }
+
+    .hero-offer-title small strong {
+      font-weight: 900;
+    }
+
+    .hero-offer-title > span {
+      display: block;
+    }
+
+    .hero-offer-title > span::after {
+      display: none;
+    }
+
+    .hero-rights-message {
+      max-width: 650px;
+      margin-top: 22px;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 2vw, 1.6rem);
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.25;
+    }
+
     .hero h1 span {
       position: relative;
       color: var(--brand-2);
@@ -1853,7 +1896,8 @@
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <span class="eyebrow">Assessoria especializada</span>
-          <h1>Você pode ter <span>direitos</span> que ainda não conhece.</h1>
+          <h1 class="hero-offer-title"><small>Compre seu <strong>veículo 0km</strong> com</small><span>Isenção de impostos</span></h1>
+          <p class="hero-rights-message">Você pode ter direitos que ainda não conhece.</p>
           <p class="hero-copy">Descubra quais benefícios e isenções podem se aplicar ao seu caso. Atendimento especializado para <strong>pessoas com deficiência, aposentados e pensionistas</strong>, com acompanhamento em todas as etapas do processo.</p>
 
           <ul class="hero-benefits">
