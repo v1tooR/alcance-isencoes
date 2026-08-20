@@ -1339,15 +1339,15 @@
       gap: 56px;
     }
 
-    /* a logo é colorida: ganha um cartão claro para manter a leitura no escuro */
     .footer-logo-chip {
-      display: inline-block;
-      padding: 20px 26px;
-      border-radius: 20px;
-      background: #fff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+      display: inline-flex;
+      align-items: center;
     }
-    .footer-logo-chip img { width: auto; height: 74px; }
+    .footer-logo-chip img {
+      width: auto;
+      height: 74px;
+      filter: brightness(0) invert(1);
+    }
 
     .footer-sobre p { max-width: 46ch; margin-top: 22px; font-size: .93rem; }
 
