@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alcance Isenções | Assessoria especializada em isenções e benefícios</title>
-  <meta name="description" content="Assessoria especializada em isenções de IPI, ICMS, IPVA e Imposto de Renda, CNH PCD, laudos e benefícios para pessoas com deficiência, aposentados e pensionistas.">
+  <title>Alcance Isenções | Isenção de impostos na compra do seu veículo 0km</title>
+  <meta name="description" content="Assessoria especializada em isenção de IPI, ICMS, IPVA e Imposto de Renda, CNH PCD, laudo pericial e benefícios para pessoas com deficiência, aposentados e pensionistas. Avaliação gratuita do seu caso.">
   <meta name="theme-color" content="#840DA8">
   <link rel="canonical" href="https://alcanceisencoes.com.br/">
 
@@ -12,9 +12,10 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Alcance Isenções">
   <meta property="og:title" content="Alcance Isenções | Seu direito, sem burocracia">
-  <meta property="og:description" content="Cuidamos de toda a burocracia das isenções e benefícios — da análise inicial à liberação final.">
+  <meta property="og:description" content="Compre seu veículo 0km com isenção de impostos. Cuidamos de toda a burocracia — da análise inicial à liberação final.">
   <meta property="og:image" content="assets/logo-horizontal.png">
 
+  <link rel="icon" href="assets/logo-simbolo.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-96.png" sizes="96x96" type="image/png">
   <link rel="apple-touch-icon" href="assets/logo-simbolo.png">
 
@@ -22,18 +23,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" as="image" href="assets/logo-marca.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/logo-simbolo.png">
+  <link rel="dns-prefetch" href="https://cdn.simpleicons.org">
+  <link rel="dns-prefetch" href="https://cdn.worldvectorlogo.com">
+  <link rel="preload" as="image" href="assets/logo-marca.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/foto-chaves-720.webp" imagesrcset="assets/foto-chaves-480.webp 480w, assets/foto-chaves-720.webp 720w, assets/foto-chaves-960.webp 960w" imagesizes="(min-width: 900px) 40vw, 92vw" fetchpriority="high">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 
   <style>
     /* ==========================================================================
-       1. TOKENS — cores extraídas diretamente dos arquivos originais da logo
-          roxo  #840DA8   laranja  #D84D1C
+       1. TOKENS — cores extraídas dos arquivos originais da logo
+          roxo #840DA8   laranja #D84D1C
        ========================================================================== */
     :root {
-      /* Marca */
       --roxo: #840da8;
       --roxo-vivo: #a12ec4;
       --roxo-escuro: #5c0977;
@@ -41,10 +43,9 @@
       --roxo-tinta: #1c0327;
 
       --laranja: #d84d1c;
-      --laranja-acao: #c4451a;   /* versão que passa AA com texto branco */
+      --laranja-acao: #c4451a;   /* passa AA com texto branco */
       --laranja-claro: #f0855c;
 
-      /* Neutros com temperatura roxa */
       --tinta: #241a2b;
       --tinta-suave: #5f5368;
       --papel: #ffffff;
@@ -52,8 +53,8 @@
       --lavanda-2: #efe1f6;
       --areia: #fdf4ef;
       --linha: #e7d9ee;
+      --ouro: #d99700;
 
-      /* Sombras tingidas de roxo em vez de cinza neutro */
       --sombra-sm: 0 6px 20px rgba(46, 6, 64, .07);
       --sombra-md: 0 14px 38px rgba(46, 6, 64, .11);
       --sombra-lg: 0 28px 70px rgba(46, 6, 64, .17);
@@ -70,8 +71,7 @@
       --easing: cubic-bezier(.22, .61, .36, 1);
     }
 
-    /* Propriedades tipadas: sem isso o navegador não interpola o valor,
-       e o traço/trilha saltariam de 0 para 1 em vez de crescer. */
+    /* Propriedades tipadas: sem isso o navegador não interpola o valor. */
     @property --traco {
       syntax: "<number>";
       inherits: true;
@@ -125,9 +125,8 @@
     .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
     section { max-width: 100%; }
 
-    /* impede overflow horizontal em grids */
     .hero-grid > *, .sobre-grid > *, .apoio-grid > *,
-    .faq-layout > *, .footer-main > * { min-width: 0; }
+    .faq-layout > *, .footer-main > *, .institucional-grid > * { min-width: 0; }
 
     .pular-para-conteudo {
       position: absolute;
@@ -154,18 +153,14 @@
     }
 
     /* ==========================================================================
-       3. TIPOGRAFIA E ELEMENTOS COMPARTILHADOS
+       3. TIPOGRAFIA E COMPONENTES COMPARTILHADOS
        ========================================================================== */
-    .titulo, .hero h1 {
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-      font-weight: 500;
-      letter-spacing: -.03em;
-      line-height: 1.06;
-    }
-
     .titulo {
       max-width: 20ch;
       font-size: clamp(2.05rem, 4.2vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1.04;
     }
 
     .titulo--largo { max-width: 26ch; }
@@ -177,14 +172,14 @@
       white-space: nowrap;
     }
 
-    /* traço pintado à mão sob a palavra-chave, na cor de acento da logo */
+    /* traço pintado sob a palavra-chave, na cor de acento da logo */
     .destaque::after {
       position: absolute;
       z-index: -1;
       right: -.08em; bottom: .06em; left: -.08em;
       height: .28em;
       border-radius: 99px;
-      background: linear-gradient(90deg, rgba(216, 77, 28, .26), rgba(216, 77, 28, .4));
+      background: linear-gradient(90deg, rgba(216, 77, 28, .26), rgba(216, 77, 28, .42));
       content: "";
       transform: rotate(-1deg) scaleX(var(--traco));
       transform-origin: left center;
@@ -211,7 +206,7 @@
       content: "";
     }
 
-    .apoio-texto, .lead {
+    .lead {
       max-width: 62ch;
       margin-top: 22px;
       color: var(--tinta-suave);
@@ -270,7 +265,27 @@
       background: linear-gradient(160deg, var(--roxo-escuro) 0%, var(--roxo-profundo) 62%, var(--roxo-tinta) 100%);
     }
     .secao--escura .chapeu { color: var(--laranja-claro); }
-    .secao--escura .lead, .secao--escura .apoio-texto { color: rgba(255, 255, 255, .74); }
+    .secao--escura .lead { color: rgba(255, 255, 255, .74); }
+
+    .cabecalho-secao {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 44px;
+      margin-bottom: 52px;
+    }
+    .cabecalho-secao .lead { max-width: 40ch; margin: 0; }
+
+    /* --- Fotos --- */
+    .foto {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--raio-lg);
+      background: var(--lavanda-2);
+      box-shadow: var(--sombra-lg);
+    }
+    .foto img { width: 100%; height: 100%; object-fit: cover; }
+    .foto--retrato { aspect-ratio: 4 / 5; }
 
     /* ==========================================================================
        4. BARRA DE PROGRESSO + HEADER
@@ -310,47 +325,40 @@
       height: 100%;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
+      gap: 24px;
     }
 
     .marca { display: inline-flex; align-items: center; }
-
-    .marca img {
-      width: auto;
-      height: 46px;
-      transition: height .3s var(--easing);
-    }
-
+    .marca img { width: auto; height: 46px; transition: height .3s var(--easing); }
     .site-header.rolado .marca img { height: 38px; }
 
-    .nav-principal { display: flex; align-items: center; gap: 26px; }
-    .nav-lista { display: flex; align-items: center; gap: 4px; }
+    .nav-principal { display: flex; align-items: center; gap: 22px; }
+    .nav-lista { display: flex; align-items: center; gap: 2px; }
 
     .nav-link {
       position: relative;
       display: block;
-      padding: 9px 13px;
+      padding: 9px 12px;
       border-radius: 99px;
       color: var(--tinta-suave);
-      font-size: .95rem;
+      font-size: .93rem;
       font-weight: 600;
       transition: color .2s var(--easing), background-color .2s var(--easing);
     }
 
     .nav-link:hover { color: var(--roxo); background: var(--lavanda); }
-
     .nav-link.ativo { color: var(--roxo); }
 
     .nav-link.ativo::after {
       position: absolute;
-      right: 13px; bottom: 3px; left: 13px;
+      right: 12px; bottom: 3px; left: 12px;
       height: 2px;
       border-radius: 99px;
       background: var(--laranja);
       content: "";
     }
 
-    .header-cta { min-height: 48px; padding: 13px 22px; font-size: .94rem; }
+    .header-cta { min-height: 48px; padding: 13px 20px; font-size: .92rem; }
 
     .menu-toggle {
       display: none;
@@ -383,14 +391,14 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: calc(var(--altura-header) + 64px) 0 84px;
+      padding: calc(var(--altura-header) + 60px) 0 80px;
       background:
         radial-gradient(70% 90% at 88% 6%, rgba(216, 77, 28, .1), transparent 60%),
         radial-gradient(80% 80% at 6% 96%, rgba(132, 13, 168, .1), transparent 62%),
         linear-gradient(168deg, var(--lavanda) 0%, #fff 46%, var(--areia) 100%);
     }
 
-    /* manchas desfocadas nas duas cores da logo, movidas em parallax pelo GSAP */
+    /* manchas nas duas cores da marca, movidas em parallax pelo GSAP */
     .mancha {
       position: absolute;
       z-index: -1;
@@ -404,132 +412,164 @@
     .hero-grid {
       display: grid;
       align-items: center;
-      grid-template-columns: minmax(0, 1.1fr) minmax(380px, .9fr);
-      gap: clamp(40px, 5vw, 70px);
+      grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
+      gap: clamp(40px, 5vw, 68px);
     }
 
     .hero-conteudo { position: relative; z-index: 2; }
 
-    .hero h1 {
-      max-width: 15ch;
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
-      letter-spacing: -.04em;
-      line-height: 1.02;
+    /* Título de oferta: o mais pesado da escala, em caixa alta, para separar
+       a chamada comercial dos títulos de seção. */
+    .titulo-oferta {
+      max-width: 14ch;
+      font-size: clamp(2.5rem, 5.1vw, 4.3rem);
+      font-weight: 900;
+      letter-spacing: -.045em;
+      line-height: .92;
+      text-transform: uppercase;
+    }
+
+    .titulo-oferta small {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--tinta-suave);
+      font-size: clamp(1.02rem, 1.5vw, 1.24rem);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1.3;
+      text-transform: none;
+    }
+
+    .titulo-oferta small strong { color: var(--tinta); font-weight: 800; }
+
+    .titulo-oferta .linha-forte { display: block; color: var(--roxo); }
+
+    .hero-direitos {
+      max-width: 30ch;
+      margin-top: 20px;
+      font-size: clamp(1.2rem, 1.9vw, 1.55rem);
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.25;
     }
 
     .hero-copy {
       max-width: 54ch;
-      margin-top: 26px;
+      margin-top: 16px;
       color: var(--tinta-suave);
-      font-size: clamp(1.06rem, 1.5vw, 1.2rem);
+      font-size: clamp(1.02rem, 1.4vw, 1.1rem);
     }
     .hero-copy strong { color: var(--tinta); font-weight: 700; }
+
+    .hero-beneficios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-beneficios li {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 15px 9px 10px;
+      border: 1px solid var(--linha);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: var(--sombra-sm);
+      font-size: .87rem;
+      font-weight: 700;
+    }
+
+    .hero-beneficios svg {
+      width: 20px; height: 20px;
+      flex: 0 0 auto;
+      padding: 4px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--roxo);
+    }
 
     .hero-acoes {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 14px;
-      margin-top: 34px;
-    }
-
-    .hero-selos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 22px;
       margin-top: 30px;
-      padding-top: 26px;
-      border-top: 1px solid var(--linha);
     }
 
-    .selo {
-      display: inline-flex;
+    .micro-prova {
+      display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 13px;
+      margin-top: 26px;
+      padding-top: 24px;
+      border-top: 1px solid var(--linha);
       color: var(--tinta-suave);
       font-size: .89rem;
       font-weight: 600;
     }
 
-    .selo svg { width: 19px; height: 19px; flex: 0 0 auto; color: var(--roxo); }
+    .pilha-avatares { display: flex; padding-left: 8px; }
 
-    /* --- Palco da marca (ocupa o lugar da foto principal) --- */
+    .avatar {
+      display: grid;
+      width: 34px; height: 34px;
+      margin-left: -8px;
+      place-items: center;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--roxo);
+      font-size: .62rem;
+      font-weight: 800;
+    }
+    .avatar:nth-child(2) { background: var(--roxo-escuro); }
+    .avatar:nth-child(3) { background: var(--laranja-acao); }
+
+    /* --- Palco da foto principal --- */
     .hero-visual { position: relative; }
+
+    /* anéis que ecoam o traço em órbita da logo, agora em volta da foto */
+    .orbita {
+      position: absolute;
+      top: 50%; left: 50%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      /* translate é propriedade própria: não conflita com o transform do GSAP */
+      translate: -50% -50%;
+      pointer-events: none;
+    }
+    .orbita--1 { width: 104%; border: 1.5px dashed rgba(132, 13, 168, .26); }
+    .orbita--2 {
+      width: 115%;
+      border: 2px solid rgba(216, 77, 28, .22);
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
 
     .palco {
       position: relative;
-      display: grid;
+      z-index: 1;
       aspect-ratio: 1 / 1;
-      place-items: center;
       overflow: hidden;
       border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
-      background:
-        radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .95), transparent 55%),
-        linear-gradient(145deg, var(--lavanda-2) 0%, #fff 52%, var(--areia) 100%);
+      background: linear-gradient(145deg, var(--lavanda-2), var(--areia));
       box-shadow: var(--sombra-lg), inset 0 0 0 1px rgba(132, 13, 168, .1);
     }
 
-    /* anéis que ecoam o traço em órbita da logo */
-    .orbita {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
+    .palco img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Reenquadra a foto sem perder a chave e libera o rosto do cartão. */
+      transform: translateX(13%) scale(1.26);
     }
-    .orbita--1 {
-      width: 86%; height: 86%;
-      border: 1.5px dashed rgba(132, 13, 168, .22);
-    }
-    .orbita--2 {
-      width: 70%; height: 70%;
-      border: 1.5px solid rgba(216, 77, 28, .22);
-    }
-
-    .palco-marca {
-      position: relative;
-      z-index: 2;
-      width: 62%;
-      height: auto;
-      filter: drop-shadow(0 20px 34px rgba(46, 6, 64, .2));
-    }
-
-    /* --- Cartão flutuante --- */
-    .cartao-flutuante {
-      position: absolute;
-      bottom: 6%; left: -4%;
-      width: min(280px, 78%);
-      padding: 22px 24px;
-      border: 1px solid var(--linha);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, .96);
-      backdrop-filter: blur(8px);
-      box-shadow: var(--sombra-md);
-    }
-
-    .cartao-icone {
-      display: grid;
-      width: 44px; height: 44px;
-      margin-bottom: 14px;
-      place-items: center;
-      border-radius: 13px;
-      color: #fff;
-      background: linear-gradient(135deg, var(--roxo), var(--roxo-vivo));
-      box-shadow: var(--sombra-roxa);
-    }
-    .cartao-icone svg { width: 22px; height: 22px; }
-
-    .cartao-flutuante strong {
-      display: block;
-      margin-bottom: 5px;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.14rem;
-      font-weight: 600;
-    }
-
-    .cartao-flutuante p { color: var(--tinta-suave); font-size: .87rem; line-height: 1.5; }
 
     .etiqueta-topo {
       position: absolute;
-      top: 5%; right: -2%;
+      z-index: 2;
+      top: 3%; right: -2%;
       display: inline-flex;
       align-items: center;
       gap: 9px;
@@ -543,8 +583,114 @@
     }
     .etiqueta-topo svg { width: 18px; height: 18px; }
 
+    .cartao-flutuante {
+      position: absolute;
+      z-index: 2;
+      bottom: -4%; left: -13%;
+      width: min(290px, 82%);
+      padding: 22px 24px;
+      border: 1px solid var(--linha);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--sombra-md);
+    }
+
+    .cartao-icone {
+      display: grid;
+      width: 44px; height: 44px;
+      margin-bottom: 13px;
+      place-items: center;
+      border-radius: 13px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--roxo), var(--roxo-vivo));
+      box-shadow: var(--sombra-roxa);
+    }
+    .cartao-icone svg { width: 22px; height: 22px; }
+
+    .cartao-flutuante strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+    }
+
+    .cartao-flutuante p { color: var(--tinta-suave); font-size: .85rem; line-height: 1.5; }
+
+    .link-cartao {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--roxo);
+      font-size: .85rem;
+      font-weight: 700;
+    }
+    .link-cartao svg { width: 16px; height: 16px; transition: transform .25s var(--easing); }
+    .link-cartao:hover svg { transform: translateX(4px); }
+
     /* ==========================================================================
-       6. BARRA DE CONFIANÇA
+       6. MONTADORAS (marquee)
+       ========================================================================== */
+    .marcas {
+      overflow: hidden;
+      padding: 26px 0;
+      border-top: 1px solid var(--linha);
+      border-bottom: 1px solid var(--linha);
+      background: #fff;
+    }
+
+    .marcas-titulo {
+      margin-bottom: 18px;
+      color: var(--tinta-suave);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .marcas-janela {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .marcas-trilho {
+      display: flex;
+      width: max-content;
+      animation: marcas-rolar 38s linear infinite;
+    }
+    .marcas:hover .marcas-trilho { animation-play-state: paused; }
+
+    .marcas-grupo { display: flex; align-items: center; }
+
+    .marca-parceira {
+      display: grid;
+      width: 158px; min-width: 158px;
+      height: 56px;
+      place-items: center;
+      padding: 8px 22px;
+      border-right: 1px solid var(--linha);
+    }
+
+    .marca-parceira img {
+      width: auto;
+      max-width: 112px;
+      height: 32px;
+      object-fit: contain;
+      opacity: .5;
+      filter: grayscale(1);
+      transition: opacity .25s var(--easing), filter .25s var(--easing);
+    }
+    .marca-parceira:hover img { opacity: 1; filter: grayscale(0); }
+
+    @keyframes marcas-rolar { to { transform: translateX(-50%); } }
+
+    /* ==========================================================================
+       7. BARRA DE CONFIANÇA
        ========================================================================== */
     .barra-confianca {
       position: relative;
@@ -566,12 +712,11 @@
     .confianca-item:first-child { border-left: 0; }
 
     .confianca-item svg { width: 27px; height: 27px; flex: 0 0 auto; color: var(--laranja-claro); }
-
     .confianca-item strong { display: block; margin-bottom: 2px; color: #fff; font-size: .97rem; font-weight: 700; }
     .confianca-item span { color: rgba(255, 255, 255, .76); font-size: .84rem; line-height: 1.45; }
 
     /* ==========================================================================
-       7. SOBRE
+       8. SOBRE
        ========================================================================== */
     .sobre-grid {
       display: grid;
@@ -582,40 +727,9 @@
 
     .sobre-visual { position: relative; }
 
-    /* Placeholder de foto — trocar por <img> quando as fotos estiverem prontas */
-    .foto-slot {
-      position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border: 1px dashed rgba(132, 13, 168, .3);
-      border-radius: var(--raio-lg);
-      background:
-        repeating-linear-gradient(135deg, rgba(132, 13, 168, .05) 0 12px, transparent 12px 24px),
-        linear-gradient(150deg, var(--lavanda-2), var(--areia));
-      text-align: center;
-    }
-
-    .foto-slot--sobre { aspect-ratio: 4 / 5; }
-
-    .foto-slot-rotulo {
-      max-width: 240px;
-      padding: 20px;
-      border-radius: 16px;
-      color: var(--roxo-escuro);
-      background: rgba(255, 255, 255, .9);
-      box-shadow: var(--sombra-sm);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      line-height: 1.5;
-      text-transform: uppercase;
-    }
-    .foto-slot-rotulo svg { width: 28px; height: 28px; margin: 0 auto 10px; color: var(--roxo); }
-
     .nota-lateral {
       position: absolute;
-      right: -18px; bottom: 26px;
+      right: -18px; bottom: 28px;
       width: 250px;
       padding: 24px;
       border-radius: 22px;
@@ -628,13 +742,11 @@
       display: block;
       margin-bottom: 2px;
       color: var(--laranja-claro);
-      font-family: "Playfair Display", Georgia, serif;
       font-size: 3rem;
-      font-weight: 600;
+      font-weight: 800;
       line-height: .7;
     }
-
-    .nota-lateral p { font-family: "Playfair Display", Georgia, serif; font-size: 1.1rem; line-height: 1.4; }
+    .nota-lateral p { font-size: 1.08rem; font-weight: 600; letter-spacing: -.015em; line-height: 1.42; }
 
     .bloco-texto p { margin-top: 20px; color: var(--tinta-suave); font-size: 1.05rem; }
     .bloco-texto p strong { color: var(--tinta); font-weight: 700; }
@@ -651,17 +763,8 @@
     }
 
     /* ==========================================================================
-       8. SERVIÇOS
+       9. SERVIÇOS
        ========================================================================== */
-    .cabecalho-secao {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 44px;
-      margin-bottom: 52px;
-    }
-    .cabecalho-secao .lead { max-width: 40ch; margin: 0; }
-
     .servicos-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -671,7 +774,7 @@
     .servico {
       position: relative;
       display: flex;
-      min-height: 290px;
+      min-height: 300px;
       flex-direction: column;
       align-items: flex-start;
       grid-column: span 4;
@@ -683,7 +786,6 @@
       transition: transform .35s var(--easing), box-shadow .35s var(--easing), border-color .35s var(--easing);
     }
 
-    /* brilho de acento que sobe ao passar o mouse */
     .servico::after {
       position: absolute;
       right: 0; bottom: 0; left: 0;
@@ -722,15 +824,14 @@
     }
     .servico:hover .servico-icone { transform: translateY(-3px) rotate(-4deg); }
     .servico-icone svg { width: 26px; height: 26px; }
-
     .servico--destaque .servico-icone { color: #fff; background: rgba(255, 255, 255, .16); }
 
     .servico h3 {
-      max-width: 22ch;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.42rem;
-      font-weight: 600;
-      line-height: 1.16;
+      max-width: 24ch;
+      font-size: 1.38rem;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.18;
     }
 
     .servico p {
@@ -739,23 +840,71 @@
       font-size: .95rem;
       line-height: 1.55;
     }
-    .servico--destaque p { max-width: 46ch; color: rgba(255, 255, 255, .78); }
+    .servico p strong { color: var(--tinta); font-weight: 800; }
+    .servico--destaque p { max-width: 46ch; color: rgba(255, 255, 255, .8); }
+    .servico--destaque p strong { color: var(--laranja-claro); }
 
-    .link-cartao {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: auto;
-      color: var(--roxo);
-      font-size: .92rem;
-      font-weight: 700;
-    }
+    .servico .link-cartao { margin-top: auto; font-size: .92rem; }
     .servico--destaque .link-cartao { color: var(--laranja-claro); }
-    .link-cartao svg { width: 17px; height: 17px; transition: transform .25s var(--easing); }
     .servico:hover .link-cartao svg { transform: translateX(5px); }
 
+    .slider-controles {
+      --progresso-slider: 0;
+      display: none;
+    }
+
+    .slider-seta {
+      display: grid;
+      width: 48px; height: 48px;
+      place-items: center;
+      border: 1px solid var(--linha);
+      border-radius: 50%;
+      color: var(--roxo);
+      background: rgba(255, 255, 255, .9);
+      box-shadow: var(--sombra-sm);
+      cursor: pointer;
+      transition: color .2s var(--easing), border-color .2s var(--easing),
+                  background-color .2s var(--easing), transform .2s var(--easing), opacity .2s var(--easing);
+    }
+    .slider-seta:hover:not(:disabled) {
+      border-color: var(--roxo);
+      color: #fff;
+      background: var(--roxo);
+      transform: translateY(-2px);
+    }
+    .slider-seta:disabled { opacity: .38; cursor: default; }
+    .slider-seta svg { width: 20px; height: 20px; }
+
+    .slider-contador {
+      display: inline-flex;
+      min-width: 54px;
+      align-items: baseline;
+      gap: 4px;
+      color: var(--tinta-suave);
+      font-size: .82rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .slider-contador strong { color: var(--roxo); font-size: 1.16rem; }
+
+    .slider-progresso {
+      height: 4px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(132, 13, 168, .12);
+    }
+    .slider-progresso span {
+      display: block;
+      width: 100%; height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--roxo), var(--laranja));
+      transform: scaleX(var(--progresso-slider));
+      transform-origin: 0 50%;
+      transition: transform .3s var(--easing);
+    }
+
     /* ==========================================================================
-       9. ACOMPANHAMENTO
+       10. ACOMPANHAMENTO + QUEM TEM DIREITO
        ========================================================================== */
     .painel-apoio {
       position: relative;
@@ -799,28 +948,88 @@
     }
     .lista-checagem svg { width: 21px; height: 21px; flex: 0 0 auto; color: var(--laranja-claro); }
 
-    .foto-slot--apoio {
-      min-height: 100%;
-      border: 0;
-      border-radius: 0;
+    .cartao-elegibilidade {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(38px, 5vw, 62px);
+      border-left: 1px solid rgba(255, 255, 255, .12);
       background:
-        repeating-linear-gradient(135deg, rgba(255, 255, 255, .05) 0 12px, transparent 12px 24px),
-        linear-gradient(150deg, rgba(132, 13, 168, .5), rgba(28, 3, 39, .8));
+        radial-gradient(circle at 100% 0, rgba(216, 77, 28, .16), transparent 42%),
+        rgba(255, 255, 255, .05);
     }
-    .foto-slot--apoio .foto-slot-rotulo {
-      color: #fff;
-      background: rgba(255, 255, 255, .12);
-      border: 1px solid rgba(255, 255, 255, .22);
-      box-shadow: none;
+
+    .cartao-elegibilidade h3 {
+      margin-bottom: 28px;
+      color: var(--laranja-claro);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
     }
-    .foto-slot--apoio .foto-slot-rotulo svg { color: var(--laranja-claro); }
+
+    .lista-elegibilidade { display: grid; gap: 16px; }
+
+    .lista-elegibilidade li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: rgba(255, 255, 255, .92);
+      font-size: .93rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .lista-elegibilidade svg {
+      width: 48px; height: 48px;
+      flex: 0 0 auto;
+      padding: 11px;
+      border: 1px solid rgba(240, 133, 92, .42);
+      border-radius: 50%;
+      color: #ff956c;
+      background: linear-gradient(145deg, rgba(240, 133, 92, .14), rgba(255, 255, 255, .035));
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .035), 0 8px 20px rgba(28, 3, 39, .18);
+    }
 
     /* ==========================================================================
-       10. DIFERENCIAIS
+       11. DIFERENCIAIS + INSTITUCIONAL
        ========================================================================== */
+    .institucional-grid {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(44px, 6vw, 80px);
+      margin-bottom: 56px;
+    }
+
+    .institucional-copy { margin-top: 22px; color: var(--tinta-suave); font-size: 1.04rem; }
+    .institucional-copy strong { color: var(--tinta); font-weight: 700; }
+
+    .institucional-destaques {
+      display: grid;
+      margin-top: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .institucional-destaque {
+      padding: 20px;
+      border: 1px solid var(--linha);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .institucional-destaque strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -.015em;
+    }
+    .institucional-destaque span { color: var(--tinta-suave); font-size: .82rem; line-height: 1.45; }
+
     .motivos-grid {
       display: grid;
-      margin-top: 54px;
       grid-template-columns: repeat(5, 1fr);
       gap: 18px;
     }
@@ -842,24 +1051,23 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      font-family: "Playfair Display", Georgia, serif;
       font-size: 2.3rem;
-      font-weight: 600;
+      font-weight: 800;
+      letter-spacing: -.035em;
       line-height: 1;
     }
 
     .motivo h3 {
       margin-bottom: 10px;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.14rem;
-      font-weight: 600;
-      line-height: 1.25;
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: -.018em;
+      line-height: 1.28;
     }
-
     .motivo p { color: var(--tinta-suave); font-size: .88rem; line-height: 1.55; }
 
     /* ==========================================================================
-       11. COMO FUNCIONA
+       12. COMO FUNCIONA
        ========================================================================== */
     .etapas {
       position: relative;
@@ -878,17 +1086,22 @@
       background: rgba(255, 255, 255, .16);
     }
 
-    /* preenchida progressivamente pelo ScrollTrigger */
     .trilha::after {
       position: absolute;
       inset: 0;
+      border-radius: inherit;
       background: linear-gradient(90deg, var(--laranja-claro), var(--laranja));
       content: "";
       transform: scaleX(var(--avanco));
       transform-origin: 0 50%;
+      will-change: transform;
     }
 
-    .etapa { position: relative; z-index: 1; }
+    .etapa {
+      --avanco: 0;
+      position: relative;
+      z-index: 1;
+    }
 
     .etapa-numero {
       display: grid;
@@ -901,17 +1114,18 @@
       box-shadow: 0 0 0 9px var(--roxo-profundo), var(--sombra-laranja);
       font-size: .95rem;
       font-weight: 800;
+      transform-origin: 50% 50%;
+      will-change: transform;
     }
 
     .etapa h3 {
       margin-bottom: 9px;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      line-height: 1.25;
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: -.018em;
+      line-height: 1.28;
     }
-
-    .etapa p { color: rgba(255, 255, 255, .7); font-size: .89rem; line-height: 1.55; }
+    .etapa p { color: rgba(255, 255, 255, .7); font-size: .88rem; line-height: 1.55; }
 
     .faixa-cta {
       position: relative;
@@ -932,16 +1146,16 @@
     .faixa-cta strong {
       display: block;
       color: #fff;
-      font-family: "Playfair Display", Georgia, serif;
       font-size: 1.2rem;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: -.02em;
     }
 
     /* ==========================================================================
-       12. FAQ
+       13. DÚVIDAS
        ========================================================================== */
     .faq-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(46px, 7vw, 90px); }
-    .faq-aside { align-self: start; position: sticky; top: calc(var(--altura-header) + 32px); }
+    .faq-aside { position: sticky; top: calc(var(--altura-header) + 32px); align-self: start; }
     .faq-aside .btn { margin-top: 30px; }
 
     .faq-lista { border-top: 1px solid var(--linha); }
@@ -957,10 +1171,10 @@
       border: 0;
       background: transparent;
       cursor: pointer;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.18rem;
-      font-weight: 600;
-      line-height: 1.35;
+      font-size: 1.16rem;
+      font-weight: 700;
+      letter-spacing: -.018em;
+      line-height: 1.4;
       text-align: left;
       transition: color .2s var(--easing);
     }
@@ -997,54 +1211,126 @@
     .faq-item.aberto .faq-resposta p { padding-bottom: 26px; }
 
     /* ==========================================================================
-       13. CTA FINAL
+       14. DEPOIMENTOS
+       ========================================================================== */
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .depoimento {
+      position: relative;
+      display: flex;
+      min-height: 270px;
+      flex-direction: column;
+      padding: 30px;
+      border: 1px solid var(--linha);
+      border-radius: 20px;
+      background: var(--papel);
+      box-shadow: var(--sombra-sm);
+      transition: transform .3s var(--easing), box-shadow .3s var(--easing);
+    }
+    .depoimento:hover { box-shadow: var(--sombra-md); transform: translateY(-4px); }
+
+    .depoimento-estrelas { color: var(--ouro); font-size: 1rem; letter-spacing: .1em; }
+
+    .depoimento blockquote {
+      margin: 18px 0 24px;
+      color: var(--tinta-suave);
+      font-size: .93rem;
+      line-height: 1.6;
+    }
+
+    .depoimento-autor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--linha);
+    }
+
+    .depoimento-avatar {
+      display: grid;
+      width: 40px; height: 40px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(140deg, var(--roxo), var(--roxo-escuro));
+      font-size: .8rem;
+      font-weight: 800;
+    }
+
+    .depoimento-autor strong { display: block; font-size: .89rem; font-weight: 700; line-height: 1.3; }
+    .depoimento-autor small { color: var(--tinta-suave); font-size: .74rem; }
+
+    /* ==========================================================================
+       15. CTA FINAL
        ========================================================================== */
     .cta-final { padding: clamp(70px, 8vw, 110px) 0; background: var(--lavanda); }
 
     .painel-cta {
       position: relative;
+      isolation: isolate;
       overflow: hidden;
       padding: clamp(46px, 7vw, 88px);
       border-radius: var(--raio-lg);
       color: #fff;
-      background: linear-gradient(145deg, var(--roxo) 0%, var(--roxo-escuro) 55%, var(--roxo-tinta) 100%);
+      background: var(--roxo-escuro);
       box-shadow: var(--sombra-lg);
       text-align: center;
     }
 
-    .painel-cta::before, .painel-cta::after {
+    /* foto de fundo + véu roxo: mantém o texto acima de 7:1 de contraste */
+    .painel-cta > .painel-cta-fundo {
       position: absolute;
+      z-index: -2;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .painel-cta > .painel-cta-veu {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(132, 13, 168, .93) 0%, rgba(92, 9, 119, .95) 45%, rgba(28, 3, 39, .96) 100%);
+    }
+
+    .painel-cta::after {
+      position: absolute;
+      z-index: -1;
+      right: -120px; bottom: -190px;
+      width: 420px; height: 420px;
+      border: 70px solid rgba(216, 77, 28, .12);
       border-radius: 50%;
       content: "";
       pointer-events: none;
     }
-    .painel-cta::before {
-      top: -140px; left: -100px;
-      width: 340px; height: 340px;
-      border: 1px solid rgba(255, 255, 255, .12);
-    }
-    .painel-cta::after {
-      right: -120px; bottom: -190px;
-      width: 420px; height: 420px;
-      border: 70px solid rgba(216, 77, 28, .1);
-    }
 
-    .painel-cta > * { position: relative; z-index: 1; }
     .painel-cta .chapeu { color: var(--laranja-claro); }
     .painel-cta .titulo { max-width: 22ch; margin: 0 auto; }
-    .painel-cta > p { max-width: 56ch; margin: 24px auto 34px; color: rgba(255, 255, 255, .78); font-size: 1.06rem; }
+    .painel-cta > p { max-width: 56ch; margin: 24px auto 34px; color: rgba(255, 255, 255, .82); font-size: 1.06rem; }
 
     .cta-acoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 
-    .cta-nota { display: block; margin-top: 18px; color: rgba(255, 255, 255, .55); font-size: .8rem; }
+    .cta-nota {
+      display: block;
+      max-width: 46ch;
+      margin: 26px auto 0;
+      color: rgba(255, 255, 255, .72);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
     /* ==========================================================================
-       14. RODAPÉ
+       16. RODAPÉ
        ========================================================================== */
-    .site-footer {
-      color: rgba(255, 255, 255, .72);
-      background: var(--roxo-tinta);
-    }
+    .site-footer { color: rgba(255, 255, 255, .72); background: var(--roxo-tinta); }
 
     .footer-main {
       display: grid;
@@ -1053,7 +1339,7 @@
       gap: 56px;
     }
 
-    /* a logo é colorida, então ganha um cartão claro para manter a leitura no fundo escuro */
+    /* a logo é colorida: ganha um cartão claro para manter a leitura no escuro */
     .footer-logo-chip {
       display: inline-block;
       padding: 20px 26px;
@@ -1095,22 +1381,22 @@
       font-size: .8rem;
     }
 
-    .nota-wireframe {
+    .assinatura {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
-      border: 1px dashed rgba(255, 255, 255, .26);
-      border-radius: 9px;
-      color: rgba(255, 255, 255, .55);
-      font-size: .7rem;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, .68);
+      font-size: .72rem;
       font-weight: 700;
       letter-spacing: .05em;
       text-transform: uppercase;
     }
 
     /* ==========================================================================
-       15. BOTÃO FLUTUANTE DE WHATSAPP
+       17. BOTÃO FLUTUANTE DE WHATSAPP
        ========================================================================== */
     .whatsapp-float {
       position: fixed;
@@ -1128,7 +1414,6 @@
     .whatsapp-float:hover { background: var(--laranja); transform: translateY(-4px) scale(1.04); }
     .whatsapp-float svg { width: 30px; height: 30px; }
 
-    /* pulso suave para chamar atenção sem distrair */
     .whatsapp-float::after {
       position: absolute;
       inset: 0;
@@ -1163,9 +1448,9 @@
     .whatsapp-float:hover::before { opacity: 1; transform: translateX(0); }
 
     /* ==========================================================================
-       16. ESTADOS INICIAIS DE ANIMAÇÃO
-          Só são aplicados quando o JS confirma que consegue animar — sem JS,
-          ou se o GSAP não carregar, o conteúdo aparece normalmente.
+       18. ESTADOS INICIAIS DE ANIMAÇÃO
+          Aplicados só quando o JS confirma que consegue animar. Sem JS, ou se o
+          GSAP não carregar, o conteúdo aparece normalmente.
        ========================================================================== */
     .anima [data-anim] { opacity: 0; }
     .anima [data-anim="subir"] { transform: translateY(28px); }
@@ -1179,12 +1464,18 @@
       transition: opacity .5s var(--easing);
     }
     .sem-gsap .destaque { --traco: 1; }
-    .sem-gsap .trilha { --avanco: 1; }
+    .sem-gsap .trilha,
+    .sem-gsap .etapa { --avanco: 1; }
 
     /* ==========================================================================
-       17. RESPONSIVO
+       19. RESPONSIVO
        ========================================================================== */
-    @media (max-width: 1080px) {
+    @media (max-width: 1120px) {
+      .nav-link { padding: 9px 9px; font-size: .89rem; }
+      .header-cta { padding: 13px 16px; font-size: .88rem; }
+    }
+
+    @media (max-width: 1020px) {
       :root { --altura-header: 74px; }
 
       .menu-toggle { display: block; }
@@ -1217,7 +1508,7 @@
       .nav-link.ativo { background: var(--lavanda); }
       .header-cta { width: 100%; margin-top: 14px; }
 
-      .hero-grid { grid-template-columns: 1fr minmax(320px, .82fr); gap: 34px; }
+      .hero-grid { grid-template-columns: 1fr minmax(300px, .8fr); gap: 34px; }
 
       .confianca-grid { grid-template-columns: 1fr 1fr; }
       .confianca-item:nth-child(3), .confianca-item:nth-child(4) { border-top: 1px solid rgba(255, 255, 255, .14); }
@@ -1225,20 +1516,61 @@
 
       .servico { grid-column: span 6; }
 
+      .institucional-grid { grid-template-columns: 1fr; }
       .motivos-grid { grid-template-columns: repeat(3, 1fr); }
+      .depoimentos-grid { grid-template-columns: repeat(2, 1fr); }
 
-      .etapas { grid-template-columns: repeat(3, 1fr); gap: 40px 26px; }
+      .etapas {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 50px;
+      }
+
       .trilha { display: none; }
+
+      .etapa {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 660px);
+        column-gap: 24px;
+        padding-bottom: 34px;
+      }
+
+      .etapa:not(:last-child)::before,
+      .etapa:not(:last-child)::after {
+        position: absolute;
+        z-index: -1;
+        top: 58px; bottom: 0; left: 28px;
+        width: 2px;
+        border-radius: 99px;
+        content: "";
+      }
+
+      .etapa:not(:last-child)::before { background: rgba(255, 255, 255, .16); }
+      .etapa:not(:last-child)::after {
+        background: linear-gradient(180deg, var(--laranja-claro), var(--laranja));
+        transform: scaleY(var(--avanco));
+        transform-origin: 50% 0;
+        will-change: transform;
+      }
+
+      .etapa-numero {
+        grid-row: 1 / span 2;
+        margin-bottom: 0;
+      }
+
+      .etapa h3 { align-self: center; margin-bottom: 6px; }
+      .etapa p { grid-column: 2; max-width: 62ch; }
+      .faixa-cta { margin-top: 26px; }
 
       .faq-aside { position: static; }
     }
 
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 52px; }
-      .hero h1 { max-width: 18ch; }
-      .hero-visual { width: min(100%, 520px); margin-inline: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .titulo-oferta { max-width: 18ch; }
+      .hero-visual { width: min(100%, 460px); margin-inline: auto; }
       .sobre-grid, .apoio-grid, .faq-layout { grid-template-columns: 1fr; }
-      .foto-slot--apoio { min-height: 380px; order: -1; }
+      .cartao-elegibilidade { border-top: 1px solid rgba(255, 255, 255, .12); border-left: 0; }
       .cabecalho-secao { display: block; }
       .cabecalho-secao .lead { margin-top: 20px; }
     }
@@ -1248,20 +1580,94 @@
       .container { width: min(calc(100% - 32px), var(--max)); }
       .secao { padding: 68px 0; }
 
-      .hero { padding-top: calc(var(--altura-header) + 44px); padding-bottom: 64px; }
-      .hero h1 { font-size: clamp(2.4rem, 10vw, 3.4rem); }
+      .hero { padding-top: calc(var(--altura-header) + 40px); padding-bottom: 64px; }
+      .titulo-oferta { font-size: clamp(2.3rem, 10vw, 3.2rem); }
       .destaque { white-space: normal; }
       .hero-acoes { display: grid; }
       .hero-acoes .btn { width: 100%; }
 
-      .cartao-flutuante { left: 0; width: min(260px, 82%); }
-      .etiqueta-topo { top: 2%; right: 0; font-size: .78rem; }
+      .hero-visual { margin-bottom: 210px; }
+      .cartao-flutuante {
+        top: calc(100% - 52px);
+        bottom: auto;
+        left: 12px;
+        width: calc(100% - 24px);
+      }
+      .etiqueta-topo { top: 1%; right: 0; font-size: .78rem; }
 
-      .motivos-grid, .etapas { grid-template-columns: 1fr 1fr; }
-
+      .institucional-destaques { grid-template-columns: 1fr 1fr; }
       .nota-lateral { right: 0; width: 210px; padding: 20px; }
-
       .lista-checagem { grid-template-columns: 1fr; }
+
+      .servicos-grid {
+        display: flex;
+        margin-inline: -16px;
+        padding: 4px 16px 22px;
+        gap: 16px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-behavior: smooth;
+        scroll-padding-inline: 16px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .servicos-grid::-webkit-scrollbar { display: none; }
+
+      .servico,
+      .servico--destaque {
+        min-height: 360px;
+        flex: 0 0 calc(100% - 48px);
+        grid-column: auto;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+
+      .servico:hover { box-shadow: none; transform: none; }
+      .servico:hover .servico-icone { transform: none; }
+
+      .slider-controles {
+        display: grid;
+        grid-template-columns: 48px 54px minmax(64px, 1fr) 48px;
+        align-items: center;
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .motivos-grid,
+      .depoimentos-grid {
+        display: flex;
+        margin-inline: -16px;
+        padding: 4px 16px 22px;
+        gap: 16px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-behavior: smooth;
+        scroll-padding-inline: 16px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .motivos-grid::-webkit-scrollbar,
+      .depoimentos-grid::-webkit-scrollbar { display: none; }
+
+      .motivo {
+        min-height: 260px;
+        flex: 0 0 calc(100% - 48px);
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+
+      .motivo:hover { box-shadow: none; transform: none; }
+
+      .depoimento {
+        min-height: 330px;
+        flex: 0 0 calc(100% - 48px);
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+
+      .depoimento:hover { box-shadow: var(--sombra-sm); transform: none; }
 
       .faixa-cta { align-items: stretch; flex-direction: column; }
       .faixa-cta .btn { width: 100%; }
@@ -1275,8 +1681,17 @@
       .confianca-grid { grid-template-columns: 1fr; }
       .confianca-item { min-height: 92px; padding: 20px 4px; border-left: 0; }
       .confianca-item + .confianca-item { border-top: 1px solid rgba(255, 255, 255, .14); }
-      .servico, .servico--destaque { min-height: auto; grid-column: 1 / -1; padding: 28px; }
-      .motivos-grid, .etapas { grid-template-columns: 1fr; }
+      .servico, .servico--destaque { min-height: 360px; padding: 28px; }
+      .institucional-destaques { grid-template-columns: 1fr; }
+      .etapa {
+        grid-template-columns: 52px minmax(0, 1fr);
+        column-gap: 18px;
+        padding-bottom: 30px;
+      }
+      .etapa-numero { width: 52px; height: 52px; font-size: .84rem; }
+      .etapa:not(:last-child)::before,
+      .etapa:not(:last-child)::after { top: 52px; left: 25px; }
+      .etapa h3 { font-size: 1.08rem; }
       .footer-main { grid-template-columns: 1fr; }
       .footer-sobre { grid-column: auto; }
       .footer-base { align-items: flex-start; flex-direction: column; }
@@ -1287,10 +1702,13 @@
     }
 
     /* ==========================================================================
-       18. MOVIMENTO REDUZIDO
+       20. MOVIMENTO REDUZIDO
        ========================================================================== */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      .servicos-grid,
+      .motivos-grid,
+      .depoimentos-grid { scroll-behavior: auto; }
 
       *, *::before, *::after {
         transition-duration: .01ms !important;
@@ -1302,6 +1720,11 @@
       .destaque { --traco: 1; }
       .trilha { --avanco: 1; }
       .whatsapp-float::after { display: none; }
+
+      /* marquee vira lista rolável em vez de animação contínua */
+      .marcas-janela { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+      .marcas-trilho { animation: none; }
+      .marcas-grupo[aria-hidden="true"] { display: none; }
     }
   </style>
 
@@ -1323,7 +1746,7 @@
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="marca" href="#inicio" aria-label="Alcance Isenções — ir para o início">
-        <img src="assets/logo-marca.png" alt="Alcance Isenções" width="894" height="255" fetchpriority="high" decoding="async">
+        <img src="assets/logo-marca.svg" alt="Alcance Isenções" width="1374" height="398" fetchpriority="high" decoding="async">
       </a>
 
       <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu de navegação">
@@ -1335,9 +1758,10 @@
           <li><a class="nav-link" href="#servicos">Serviços</a></li>
           <li><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
           <li><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+          <li><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
           <li><a class="nav-link" href="#duvidas">Dúvidas</a></li>
         </ul>
-        <a class="btn btn--roxo header-cta" href="#contato">Analisar meu caso</a>
+        <a class="btn btn--roxo header-cta" href="#contato">Avaliação gratuita</a>
       </nav>
     </div>
   </header>
@@ -1351,35 +1775,48 @@
       <div class="container hero-grid">
         <div class="hero-conteudo">
           <span class="chapeu" data-anim="subir">Assessoria especializada</span>
-          <h1 data-anim="subir">Seus direitos podem estar <span class="destaque">mais perto</span> do que você imagina.</h1>
-          <p class="hero-copy" data-anim="subir"><strong>Isenções, benefícios e processos para pessoas com deficiência, aposentados e pensionistas.</strong> Cuidamos de tudo — da análise inicial à liberação final.</p>
+
+          <h1 class="titulo-oferta" data-anim="subir">
+            <small>Compre seu <strong>veículo 0km</strong> com</small>
+            <span class="linha-forte">Isenção de <span class="destaque">impostos</span></span>
+          </h1>
+
+          <p class="hero-direitos" data-anim="subir">Você pode ter direitos que ainda não conhece.</p>
+
+          <p class="hero-copy" data-anim="subir">Descubra quais benefícios e isenções podem se aplicar ao seu caso. Atendimento especializado para <strong>pessoas com deficiência, aposentados e pensionistas</strong>, com acompanhamento em todas as etapas do processo.</p>
+
+          <ul class="hero-beneficios" data-anim="subir">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg>Isenção de IPI</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg>Isenção de ICMS</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg>Isenção de IPVA</li>
+          </ul>
 
           <div class="hero-acoes" data-anim="subir">
             <a class="btn btn--laranja js-whatsapp" href="#contato">
-              Quero analisar meu caso
+              Quero uma avaliação gratuita
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a class="btn btn--contorno" href="#como-funciona">Entenda como funciona</a>
           </div>
 
-          <div class="hero-selos" data-anim="subir">
-            <span class="selo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
-              Análise individual do seu caso
-            </span>
-            <span class="selo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
-              Acompanhamento do início ao fim
-            </span>
+          <div class="micro-prova" data-anim="subir">
+            <div class="pilha-avatares" aria-hidden="true">
+              <span class="avatar">PCD</span><span class="avatar">AP</span><span class="avatar">+</span>
+            </div>
+            <span>Orientação clara e acompanhamento do início ao fim</span>
           </div>
         </div>
 
         <div class="hero-visual">
-          <!-- Palco da marca: substituir por <img> da foto principal quando disponível -->
+          <span class="orbita orbita--1" id="orbita-1" aria-hidden="true"></span>
+          <span class="orbita orbita--2" id="orbita-2" aria-hidden="true"></span>
+
           <div class="palco" data-anim="palco">
-            <span class="orbita orbita--1" id="orbita-1" aria-hidden="true"></span>
-            <span class="orbita orbita--2" id="orbita-2" aria-hidden="true"></span>
-            <img class="palco-marca" src="assets/logo-simbolo.png" alt="" width="512" height="512" decoding="async" aria-hidden="true">
+            <img src="assets/foto-chaves-720.webp"
+                 srcset="assets/foto-chaves-480.webp 480w, assets/foto-chaves-720.webp 720w, assets/foto-chaves-960.webp 960w"
+                 sizes="(min-width: 900px) 40vw, 92vw"
+                 alt="Homem sorrindo no banco do motorista, segurando a chave do carro novo"
+                 width="720" height="720" fetchpriority="high" decoding="async">
           </div>
 
           <span class="etiqueta-topo" data-anim="subir">
@@ -1387,13 +1824,51 @@
             Atendimento humanizado
           </span>
 
-          <aside class="cartao-flutuante" data-anim="subir" aria-label="Destaque de acompanhamento">
+          <aside class="cartao-flutuante" data-anim="subir" aria-label="Avaliação gratuita">
             <span class="cartao-icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
             </span>
-            <strong>Você não está sozinho.</strong>
-            <p>Nossa equipe cuida dos documentos, prazos e etapas junto com você.</p>
+            <strong>Avaliação gratuita do seu caso</strong>
+            <p>Analisamos o seu direito a isenções ou benefícios. Nossa equipe cuida de toda a documentação e etapas junto com você.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Quero minha avaliação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MONTADORAS ===================== -->
+    <section class="marcas" aria-label="Montadoras e marcas parceiras">
+      <p class="marcas-titulo">Marcas que fazem parte da sua escolha</p>
+      <div class="marcas-janela">
+        <div class="marcas-trilho">
+          <div class="marcas-grupo">
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/jeep" alt="Jeep" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/nissan" alt="Nissan" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/volkswagen" alt="Volkswagen" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/toyota" alt="Toyota" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.worldvectorlogo.com/logos/byd-1.svg" alt="BYD" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/citroen" alt="Citroën" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/fiat" alt="FIAT" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/chevrolet" alt="Chevrolet" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/peugeot" alt="Peugeot" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/renault" alt="Renault" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/hyundai" alt="Hyundai" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.worldvectorlogo.com/logos/gwm-1.svg" alt="GWM" width="112" height="32" loading="lazy" decoding="async"></span>
+          </div>
+          <div class="marcas-grupo" aria-hidden="true">
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/jeep" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/nissan" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/volkswagen" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/toyota" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.worldvectorlogo.com/logos/byd-1.svg" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/citroen" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/fiat" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/chevrolet" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/peugeot" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/renault" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.simpleicons.org/hyundai" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+            <span class="marca-parceira"><img src="https://cdn.worldvectorlogo.com/logos/gwm-1.svg" alt="" width="112" height="32" loading="lazy" decoding="async"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -1403,19 +1878,19 @@
       <div class="container confianca-grid">
         <div class="confianca-item" data-anim="subir">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
-          <span><strong>Análise individual</strong>Cada caso é avaliado com atenção</span>
+          <span><strong>Análise personalizada</strong>Seu caso merece atenção especial</span>
         </div>
         <div class="confianca-item" data-anim="subir">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span><strong>Processo seguro</strong>Organização em todas as etapas</span>
+          <span><strong>Segurança em cada etapa</strong>Cuidamos de todo o processo</span>
         </div>
         <div class="confianca-item" data-anim="subir">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
-          <span><strong>Contato próximo</strong>Você acompanha o andamento</span>
+          <span><strong>Acompanhamento de perto</strong>Você sempre sabe o andamento</span>
         </div>
         <div class="confianca-item" data-anim="subir">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <span><strong>Mais tranquilidade</strong>Menos burocracia para você</span>
+          <span><strong>Mais tranquilidade</strong>Nós cuidamos da burocracia</span>
         </div>
       </div>
     </section>
@@ -1424,14 +1899,14 @@
     <section class="secao" id="sobre">
       <div class="container sobre-grid">
         <div class="sobre-visual" data-anim="subir">
-          <!-- Placeholder: trocar por <img src="assets/foto-atendimento.jpg" ...> -->
-          <div class="foto-slot foto-slot--sobre">
-            <span class="foto-slot-rotulo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
-              Imagem de apoio<br>Especialista orientando cliente
-            </span>
-          </div>
-          <aside class="nota-lateral">
+          <figure class="foto foto--retrato">
+            <img src="assets/foto-atendimento-600.webp"
+                 srcset="assets/foto-atendimento-400.webp 400w, assets/foto-atendimento-600.webp 600w, assets/foto-atendimento-800.webp 800w"
+                 sizes="(min-width: 900px) 42vw, 92vw"
+                 alt="Especialista da Alcance Isenções sorrindo ao telefone enquanto atende um cliente"
+                 width="600" height="750" loading="lazy" decoding="async">
+          </figure>
+          <aside class="nota-lateral" aria-label="Mensagem sobre clareza">
             <span aria-hidden="true">“</span>
             <p>Clareza para você tomar decisões com segurança.</p>
           </aside>
@@ -1440,10 +1915,9 @@
         <div class="bloco-texto">
           <span class="chapeu" data-anim="subir">Burocracia não precisa ser um obstáculo</span>
           <h2 class="titulo" data-anim="subir">Menos burocracia. Mais tranquilidade para você.</h2>
-          <p data-anim="subir">Lidar com documentos, órgãos públicos, clínicas, prazos e exigências pode transformar um direito que deveria ser simples em um processo cansativo.</p>
-          <p data-anim="subir">Na <strong>Alcance Isenções</strong>, você não precisa enfrentar tudo isso sozinho. Nossa equipe acompanha cada etapa, orienta sobre a documentação e mantém você informado.</p>
-          <p class="citacao" data-anim="subir">Você sabe o que está acontecendo do início ao fim.</p>
-          <a class="btn btn--roxo" href="#contato" data-anim="subir">
+          <p data-anim="subir">Conquistar seu direito não precisa ser cansativo. Na <strong>Alcance Isenções</strong>, cuidamos de toda a documentação, prazos e órgãos públicos para você não ter dor de cabeça. Você foca no que importa, e nós cuidamos do resto.</p>
+          <p class="citacao" data-anim="subir">Acompanhamento do início ao fim do processo.</p>
+          <a class="btn btn--roxo js-whatsapp" href="#contato" data-anim="subir">
             Falar com um especialista
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -1462,32 +1936,32 @@
           <p class="lead" data-anim="subir">Entenda os principais processos em que nossa equipe pode orientar e acompanhar você.</p>
         </header>
 
-        <div class="servicos-grid">
+        <div class="servicos-grid" id="servicos-slider">
           <article class="servico servico--destaque" data-anim="subir">
             <span class="servico-icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><path d="M7 17v2M17 17v2M8 13h8"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg>
             </span>
-            <h3>Isenção de IPI e ICMS</h3>
-            <p>Assessoria para solicitação das isenções tributárias aplicáveis à aquisição de veículos por pessoas que atendam aos requisitos legais.</p>
-            <a class="link-cartao" href="#contato">Quero saber se tenho direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <h3>Isenção de IPI, ICMS e IPVA</h3>
+            <p>A Alcance Isenções oferece assessoria completa com segurança e qualidade para o seu processo. Obtenha <strong>até 30% de desconto</strong> na compra do seu veículo 0km.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Quero saber se tenho direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="servico servico--destaque" data-anim="subir">
             <span class="servico-icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v11H4z"/><path d="M8 7V4h8v3M8 12h8M8 15h5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v4h4M9 11h6M9 15h2M14 14v4M12 16h4"/></svg>
             </span>
             <h3>Isenção de Imposto de Renda</h3>
-            <p>Assessoria para aposentados e pensionistas com patologias previstas na legislação, da análise à condução do processo.</p>
-            <a class="link-cartao" href="#contato">Quero entender meu direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p>Você pode ter direito à isenção e ainda não saber. Realizamos a análise gratuita do seu caso e oferecemos assessoria completa para aposentados e pensionistas que possuem patologias previstas em lei.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Quero saber se tenho direito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="servico" data-anim="subir">
             <span class="servico-icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/><path d="M9 12h6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6z"/><circle cx="11" cy="11" r="2.3"/><path d="m13 13 4 4M16 15l1-1"/></svg>
             </span>
             <h3>Isenção de IPVA</h3>
-            <p>Orientação e acompanhamento da solicitação, conforme os critérios aplicáveis ao seu caso.</p>
-            <a class="link-cartao" href="#contato">Analisar meu caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p>Livre-se da cobrança do IPVA no seu veículo 0km ou usado. Benefício válido tanto para condutores quanto para não condutores (através de tutores ou responsáveis). Cuidamos do seu pedido do início ao fim.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Analisar meu caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="servico" data-anim="subir">
@@ -1496,49 +1970,64 @@
             </span>
             <h3>Renovação de CNH PCD</h3>
             <p>Acompanhamento e orientação para tornar a renovação da sua habilitação mais simples e segura.</p>
-            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="link-cartao js-whatsapp" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="servico" data-anim="subir">
             <span class="servico-icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 14h8M8 18h5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3V2h6v1M12 8v6M9 11h6M8 17h8"/></svg>
             </span>
-            <h3>Laudo Médico do Detran</h3>
-            <p>Auxílio nas etapas para obtenção do laudo, incluindo orientação sobre clínicas e procedimentos.</p>
-            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <h3>Laudo Pericial (condutor e não condutor)</h3>
+            <p>Contamos com parcerias com clínicas e médicos especialistas capacitados, seguindo os protocolos periciais do Detran para realizar a avaliação individualizada de cada paciente.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="servico" data-anim="subir">
             <span class="servico-icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 17V7h3a3 3 0 0 1 0 6h-3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><circle cx="10" cy="9" r="2"/><path d="M7 16c.4-2 1.4-3 3-3s2.6 1 3 3M15 8h2M15 12h2M15 16h2"/></svg>
             </span>
             <h3>Credencial de Estacionamento</h3>
-            <p>Orientação para solicitar a credencial e acessar as vagas destinadas a quem possui esse direito.</p>
-            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p>Orientação e assessoria completa para a solicitação da credencial de estacionamento, garantindo que você tenha acesso às vagas exclusivas destinadas a quem possui esse direito.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="servico" data-anim="subir">
             <span class="servico-icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7 7 10 10M17 7 7 17"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h15l-1-4-3-3H8l-3 3-1 4Z"/><circle cx="7" cy="15" r="1.4"/><circle cx="15" cy="15" r="1.4"/><path d="M16 5h5M19 2l3 3-3 3M16 19l2 2 4-5"/></svg>
             </span>
-            <h3>Liberação de Rodízio Municipal</h3>
-            <p>Assessoria para solicitação da autorização necessária nos casos previstos pelas regras municipais.</p>
-            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <h3>Dispensa de Rodízio Municipal</h3>
+            <p>Mais liberdade para circular e menos preocupação. Assessoria para solicitar a autorização de dispensa do Rodízio Municipal de São Paulo para quem se enquadra nas condições previstas em lei.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
 
           <article class="servico" data-anim="subir">
             <span class="servico-icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 18h12M7 18V9M17 18V9M4 9h16L12 3Z"/><path d="M10 13h4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v17M7 6h10M4 20h16M7 7l-4 7h8L7 7ZM17 7l-4 7h8l-4-7Z"/></svg>
             </span>
-            <h3>Alvará Judicial</h3>
-            <p>Suporte na organização e no encaminhamento do processo, de acordo com a necessidade do cliente.</p>
-            <a class="link-cartao" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <h3>Assessoria Jurídica Especializada</h3>
+            <p>Contamos com um departamento jurídico próprio para cuidar do seu processo de curatela, tutela e alvará de compra e venda. Garantimos total segurança e acompanhamento completo do seu caso.</p>
+            <a class="link-cartao js-whatsapp" href="#contato">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
+        </div>
+
+        <div class="slider-controles" id="servicos-slider-controles" role="group" aria-label="Controles das soluções">
+          <button class="slider-seta" id="servicos-anterior" type="button" aria-label="Ver solução anterior" aria-controls="servicos-slider" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <span class="slider-contador" aria-live="polite" aria-atomic="true">
+            <strong id="servicos-atual">01</strong>
+            <span aria-hidden="true">/</span>
+            <span id="servicos-total">08</span>
+          </span>
+          <span class="slider-progresso" aria-hidden="true"><span></span></span>
+          <button class="slider-seta" id="servicos-proximo" type="button" aria-label="Ver próxima solução" aria-controls="servicos-slider">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- ===================== ACOMPANHAMENTO ===================== -->
+    <!-- ===================== ACOMPANHAMENTO + QUEM TEM DIREITO ===================== -->
     <section class="secao">
       <div class="container">
         <div class="painel-apoio" data-anim="subir">
@@ -1559,12 +2048,15 @@
               </a>
             </div>
 
-            <!-- Placeholder: trocar por <img src="assets/foto-equipe.jpg" ...> -->
-            <div class="foto-slot foto-slot--apoio">
-              <span class="foto-slot-rotulo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-4 4 3 3-2 6 4"/></svg>
-                Imagem de apoio<br>Atendimento humanizado / equipe
-              </span>
+            <div class="cartao-elegibilidade">
+              <h3>Quem pode ter direito?</h3>
+              <ul class="lista-elegibilidade">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="4.5" r="1.8"/><path d="M11.5 8.5h3.2l1.2 5.5h3.6M12.3 8.5l-1 5.5M9.5 11.5a5 5 0 1 0 5.4 6.5M15.9 14l2.4 6h2.2"/></svg>Pessoas com deficiência física</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.4-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.4 5.5-9.5 5.5S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.6"/></svg>Pessoas com deficiência visual</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 4A2.5 2.5 0 0 0 7 6.5v.6a3.3 3.3 0 0 0-1.4 5.8A3 3 0 0 0 8 17.8V18a2 2 0 0 0 4 0V6.5A2.5 2.5 0 0 0 9.5 4ZM14.5 4A2.5 2.5 0 0 1 17 6.5v.6a3.3 3.3 0 0 1 1.4 5.8 3 3 0 0 1-2.4 4.9V18a2 2 0 0 1-4 0"/><path d="M8 9.5h1.5A2.5 2.5 0 0 1 12 12M16 9.5h-1.5A2.5 2.5 0 0 0 12 12M8.5 15H10M15.5 15H14"/></svg>Pessoas com deficiência intelectual ou mental</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8c-2.5 0-4.1 2-6 4s-3.5 4-6 4a4 4 0 0 1 0-8c2.5 0 4.1 2 6 4s3.5 4 6 4a4 4 0 0 0 0-8Z"/></svg>Pessoas com Transtorno do Espectro Autista (TEA)</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 8.5v7M8.5 12h7"/></svg>Outras condições que gerem limitação funcional, conforme a legislação</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1574,18 +2066,50 @@
     <!-- ===================== DIFERENCIAIS ===================== -->
     <section class="secao secao--areia" id="diferenciais">
       <div class="container">
-        <header>
-          <span class="chapeu" data-anim="subir">Por que escolher a Alcance?</span>
-          <h2 class="titulo titulo--largo" data-anim="subir">Confiança se constrói em cada etapa.</h2>
-          <p class="lead" data-anim="subir">Um atendimento próximo, organizado e feito para que você se sinta seguro durante todo o caminho.</p>
-        </header>
+        <div class="institucional-grid">
+          <header>
+            <span class="chapeu" data-anim="subir">Por que escolher a Alcance?</span>
+            <h2 class="titulo titulo--largo" data-anim="subir">Confiança se constrói em cada etapa.</h2>
+            <p class="lead" data-anim="subir">Um atendimento próximo, organizado e feito para você se sentir seguro.</p>
+            <p class="institucional-copy" data-anim="subir">Fundada por especialistas com ampla bagagem no setor automotivo, a <strong>Alcance Isenções</strong> une uma equipe capacitada a uma rede parceira de confiança. Cuidamos de cada detalhe com transparência, agilidade e acompanhamento próximo do início ao fim.</p>
 
-        <div class="motivos-grid">
-          <article class="motivo" data-anim="subir"><span class="motivo-numero">01</span><h3>Cuidamos de todo o processo</h3><p>Do levantamento inicial dos documentos até a liberação final.</p></article>
-          <article class="motivo" data-anim="subir"><span class="motivo-numero">02</span><h3>Acompanhamento de verdade</h3><p>Você sabe exatamente em qual etapa o seu processo está.</p></article>
-          <article class="motivo" data-anim="subir"><span class="motivo-numero">03</span><h3>Atendimento humanizado</h3><p>Cada situação é analisada individualmente, com atenção e respeito.</p></article>
-          <article class="motivo" data-anim="subir"><span class="motivo-numero">04</span><h3>Rede de apoio</h3><p>Contato com clínicas credenciadas e relacionamento com vendedores de veículos.</p></article>
-          <article class="motivo" data-anim="subir"><span class="motivo-numero">05</span><h3>Experiência no mercado</h3><p>Conhecimento prático das etapas necessárias para cada solicitação.</p></article>
+            <div class="institucional-destaques" data-anim="subir">
+              <div class="institucional-destaque"><strong>Experiência Automotiva</strong><span>Conhecimento aprofundado no mercado e na legislação.</span></div>
+              <div class="institucional-destaque"><strong>Rede Credenciada</strong><span>Parceiros e médicos especializados de confiança.</span></div>
+              <div class="institucional-destaque"><strong>Atendimento Humanizado</strong><span>Acompanhamento transparente em todas as etapas.</span></div>
+            </div>
+          </header>
+
+          <figure class="foto foto--retrato" data-anim="subir">
+            <img src="assets/foto-familia-720.webp"
+                 srcset="assets/foto-familia-480.webp 480w, assets/foto-familia-720.webp 720w, assets/foto-familia-960.webp 960w"
+                 sizes="(min-width: 1020px) 36vw, 92vw"
+                 alt="Casal comemorando ao lado do carro novo em uma concessionária"
+                 width="720" height="900" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="motivos-grid" id="motivos-slider">
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">01</span><h3>Mais de 8 anos de experiência</h3><p>Atuamos há mais de 8 anos no mercado de isenções e no setor automotivo, trazendo segurança para cada etapa.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">02</span><h3>Cuidamos de todo o processo</h3><p>Da análise inicial e conferência dos documentos até a conclusão. Você deixa toda a burocracia com a gente.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">03</span><h3>Atendimento personalizado</h3><p>Analisamos sua situação individualmente para oferecer orientação clara e suporte exclusivo para o seu caso.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">04</span><h3>Conhecimento de mercado</h3><p>Orientação precisa e alinhada à legislação para você tomar decisões com total tranquilidade.</p></article>
+          <article class="motivo" data-anim="subir"><span class="motivo-numero">05</span><h3>Rede de parceiros especializados</h3><p>Parceria com clínicas, médicos e profissionais credenciados para acompanhar você do início ao fim.</p></article>
+        </div>
+
+        <div class="slider-controles" id="motivos-slider-controles" role="group" aria-label="Controles dos diferenciais">
+          <button class="slider-seta" id="motivos-anterior" type="button" aria-label="Ver diferencial anterior" aria-controls="motivos-slider" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <span class="slider-contador" aria-live="polite" aria-atomic="true">
+            <strong id="motivos-atual">01</strong>
+            <span aria-hidden="true">/</span>
+            <span id="motivos-total">05</span>
+          </span>
+          <span class="slider-progresso" aria-hidden="true"><span></span></span>
+          <button class="slider-seta" id="motivos-proximo" type="button" aria-label="Ver próximo diferencial" aria-controls="motivos-slider">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -1595,22 +2119,88 @@
       <div class="container">
         <header>
           <span class="chapeu" data-anim="subir">Como funciona?</span>
-          <h2 class="titulo titulo--largo" data-anim="subir">Um caminho claro, do primeiro contato à conclusão.</h2>
-          <p class="lead" data-anim="subir">Você entende o que acontece agora e qual será o próximo passo.</p>
+          <h2 class="titulo titulo--largo" data-anim="subir">Do primeiro contato à conclusão, você sabe exatamente o que acontece.</h2>
+          <p class="lead" data-anim="subir">Um atendimento claro, personalizado e sem complicação. Nós orientamos você em cada etapa do processo.</p>
         </header>
 
         <div class="etapas">
           <span class="trilha" id="trilha" aria-hidden="true"></span>
-          <article class="etapa" data-anim="subir"><span class="etapa-numero">01</span><h3>Conte seu caso</h3><p>Você entra em contato e explica brevemente sua situação.</p></article>
-          <article class="etapa" data-anim="subir"><span class="etapa-numero">02</span><h3>Analisamos seu direito</h3><p>Verificamos quais benefícios e processos podem se aplicar ao seu caso.</p></article>
-          <article class="etapa" data-anim="subir"><span class="etapa-numero">03</span><h3>Organizamos os documentos</h3><p>Orientamos você sobre tudo o que será necessário.</p></article>
-          <article class="etapa" data-anim="subir"><span class="etapa-numero">04</span><h3>Acompanhamos o processo</h3><p>Você recebe informações sobre o andamento e as próximas etapas.</p></article>
-          <article class="etapa" data-anim="subir"><span class="etapa-numero">05</span><h3>Seguimos até a conclusão</h3><p>Todo o caminho fica mais simples, organizado e tranquilo para você.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">01</span><h3>Conte seu caso</h3><p>Explique sua situação e o que você precisa. Nossa equipe fará uma análise inicial para entender como podemos ajudar.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">02</span><h3>Analisamos seus direitos</h3><p>Verificamos quais isenções, benefícios ou processos podem se aplicar ao seu caso.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">03</span><h3>Organizamos a documentação</h3><p>Orientamos você sobre os documentos necessários e preparamos o processo para dar entrada corretamente.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">04</span><h3>Acompanhamos o processo</h3><p>Acompanhamos as etapas junto aos órgãos responsáveis e mantemos você informado sobre o andamento.</p></article>
+          <article class="etapa" data-anim="subir"><span class="etapa-numero">05</span><h3>Seguimos até a conclusão</h3><p>Você não precisa enfrentar o processo sozinho. Continuamos acompanhando até a finalização e orientamos sobre os próximos passos.</p></article>
         </div>
 
         <div class="faixa-cta" data-anim="subir">
-          <p><strong>Não sabe se tem direito?</strong>Você não precisa entender todas as regras antes de falar conosco.</p>
-          <a class="btn btn--laranja js-whatsapp" href="#contato">Quero uma orientação inicial</a>
+          <p><strong>Não sabe se tem direito?</strong>Faça uma avaliação gratuita com a equipe especializada da Alcance Isenções.</p>
+          <a class="btn btn--laranja js-whatsapp" href="#contato">Quero uma avaliação gratuita</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DEPOIMENTOS ===================== -->
+    <section class="secao secao--lavanda" id="depoimentos">
+      <div class="container">
+        <header class="cabecalho-secao">
+          <div>
+            <span class="chapeu" data-anim="subir">Depoimentos</span>
+            <h2 class="titulo titulo--largo" data-anim="subir">Veja o que nossos clientes estão falando</h2>
+          </div>
+          <p class="lead" data-anim="subir">A experiência real de quem já confiou na Alcance Isenções.</p>
+        </header>
+
+        <div class="depoimentos-grid" id="depoimentos-slider">
+          <article class="depoimento" data-anim="subir">
+            <div class="depoimento-estrelas"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 de 5 estrelas</span></div>
+            <blockquote>“Simplesmente maravilhosa a assistência que tivemos da Katia, uma pessoa competente, simpática e sempre estava pronta para nos auxiliar e tirar todas as nossas dúvidas. Super recomendo!”</blockquote>
+            <div class="depoimento-autor"><span class="depoimento-avatar" aria-hidden="true">LN</span><div><strong>Lidiane Nascimento</strong><small>Avaliação do Google</small></div></div>
+          </article>
+
+          <article class="depoimento" data-anim="subir">
+            <div class="depoimento-estrelas"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 de 5 estrelas</span></div>
+            <blockquote>“Quero agradecer pelo excelente atendimento que recebi durante todo o meu processo de isenção de IPVA.”</blockquote>
+            <div class="depoimento-autor"><span class="depoimento-avatar" aria-hidden="true">CR</span><div><strong>Cláudio Rosa</strong><small>Avaliação do Google</small></div></div>
+          </article>
+
+          <article class="depoimento" data-anim="subir">
+            <div class="depoimento-estrelas"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 de 5 estrelas</span></div>
+            <blockquote>“Atendimento rápido, inteligente e acolhedor! Recomendo demais. Katia é uma profissional excepcional.”</blockquote>
+            <div class="depoimento-autor"><span class="depoimento-avatar" aria-hidden="true">JN</span><div><strong>Juliana Caminha Noronha</strong><small>Avaliação do Google</small></div></div>
+          </article>
+
+          <article class="depoimento" data-anim="subir">
+            <div class="depoimento-estrelas"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 de 5 estrelas</span></div>
+            <blockquote>“Profissional qualificada, com clareza nas informações, agilidade nos processos e muita eficiência. Conseguimos todas as isenções com tranquilidade.”</blockquote>
+            <div class="depoimento-autor"><span class="depoimento-avatar" aria-hidden="true">AS</span><div><strong>Aparecido Marques de Souza</strong><small>Avaliação do Google</small></div></div>
+          </article>
+
+          <article class="depoimento" data-anim="subir">
+            <div class="depoimento-estrelas"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 de 5 estrelas</span></div>
+            <blockquote>“Excelente atendimento! Equipe muito atenciosa, prestativa e resolutiva. Fui muito bem acolhida e tive minhas necessidades atendidas com rapidez e profissionalismo. Recomendo com confiança!”</blockquote>
+            <div class="depoimento-autor"><span class="depoimento-avatar" aria-hidden="true">AV</span><div><strong>Ana Paula Szatkoski Vieira</strong><small>Avaliação do Google</small></div></div>
+          </article>
+
+          <article class="depoimento" data-anim="subir">
+            <div class="depoimento-estrelas"><span aria-hidden="true">★★★★★</span><span class="sr-only">5 de 5 estrelas</span></div>
+            <blockquote>“Quero deixar minha total recomendação para esta profissional. Quem me conhece sabe do meu nível de exigência e fiquei extremamente satisfeito com o resultado.”</blockquote>
+            <div class="depoimento-autor"><span class="depoimento-avatar" aria-hidden="true">MC</span><div><strong>Mário Augusto de Carvalho</strong><small>Avaliação do Google</small></div></div>
+          </article>
+        </div>
+
+        <div class="slider-controles" id="depoimentos-slider-controles" role="group" aria-label="Controles dos depoimentos">
+          <button class="slider-seta" id="depoimentos-anterior" type="button" aria-label="Ver depoimento anterior" aria-controls="depoimentos-slider" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <span class="slider-contador" aria-live="polite" aria-atomic="true">
+            <strong id="depoimentos-atual">01</strong>
+            <span aria-hidden="true">/</span>
+            <span id="depoimentos-total">06</span>
+          </span>
+          <span class="slider-progresso" aria-hidden="true"><span></span></span>
+          <button class="slider-seta" id="depoimentos-proximo" type="button" aria-label="Ver próximo depoimento" aria-controls="depoimentos-slider">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -1618,22 +2208,22 @@
     <!-- ===================== DÚVIDAS ===================== -->
     <section class="secao" id="duvidas">
       <div class="container faq-layout">
-        <aside class="faq-aside">
+        <aside class="faq-aside" aria-label="Introdução às dúvidas frequentes">
           <span class="chapeu" data-anim="subir">Dúvidas frequentes</span>
-          <h2 class="titulo" data-anim="subir">Informação clara desde o começo.</h2>
-          <p class="lead" data-anim="subir">Se a sua pergunta não estiver aqui, fale com nossa equipe.</p>
-          <a class="btn btn--roxo" href="#contato" data-anim="subir">Falar com a Alcance</a>
+          <h2 class="titulo" data-anim="subir">Clareza, segurança e orientação em cada etapa.</h2>
+          <p class="lead" data-anim="subir">Sabemos que o processo de isenções pode gerar muitas dúvidas. Por isso, a Alcance Isenções oferece orientação personalizada para ajudar você a entender seus direitos, identificar as possibilidades de isenção e conduzir cada etapa com mais segurança.</p>
+          <a class="btn btn--roxo js-whatsapp" href="#contato" data-anim="subir">Quero minha avaliação</a>
         </aside>
 
         <div class="faq-lista">
           <article class="faq-item aberto" data-anim="subir">
             <h3>
               <button class="faq-pergunta" type="button" aria-expanded="true">
-                Preciso saber exatamente qual isenção solicitar?
+                Qual isenção é adequada para o meu caso?
                 <span class="faq-sinal" aria-hidden="true"></span>
               </button>
             </h3>
-            <div class="faq-resposta"><div><p>Não. Conte sua situação de forma breve e nossa equipe fará uma análise inicial para indicar quais benefícios ou processos podem se aplicar ao seu caso.</p></div></div>
+            <div class="faq-resposta"><div><p>Cada pessoa possui uma situação específica. Nossa equipe analisa o seu perfil e orienta sobre as isenções e benefícios que podem ser aplicáveis ao seu caso, de acordo com a legislação vigente.</p></div></div>
           </article>
 
           <article class="faq-item" data-anim="subir">
@@ -1643,27 +2233,17 @@
                 <span class="faq-sinal" aria-hidden="true"></span>
               </button>
             </h3>
-            <div class="faq-resposta"><div><p>Sim. Orientamos a documentação, acompanhamos as etapas e mantemos você informado sobre andamento, pendências e próximos passos até a conclusão.</p></div></div>
+            <div class="faq-resposta"><div><p>Sim. Nossa assessoria acompanha as etapas contratadas, desde a organização da documentação até os procedimentos necessários junto aos órgãos responsáveis, mantendo você informado durante o processo.</p></div></div>
           </article>
 
           <article class="faq-item" data-anim="subir">
             <h3>
               <button class="faq-pergunta" type="button" aria-expanded="false">
-                Quais documentos preciso apresentar?
+                Quais documentos são necessários?
                 <span class="faq-sinal" aria-hidden="true"></span>
               </button>
             </h3>
-            <div class="faq-resposta"><div><p>A lista varia conforme o benefício e a situação de cada pessoa. Após a análise inicial, você recebe uma orientação objetiva sobre os documentos necessários.</p></div></div>
-          </article>
-
-          <article class="faq-item" data-anim="subir">
-            <h3>
-              <button class="faq-pergunta" type="button" aria-expanded="false">
-                Como começo meu atendimento?
-                <span class="faq-sinal" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="faq-resposta"><div><p>Basta clicar em um dos botões de atendimento e contar brevemente o seu caso. A equipe dará sequência à orientação inicial.</p></div></div>
+            <div class="faq-resposta"><div><p>A documentação pode variar de acordo com o tipo de isenção solicitada. Após a avaliação inicial, orientamos você sobre quais documentos serão necessários para o seu processo.</p></div></div>
           </article>
         </div>
       </div>
@@ -1673,19 +2253,26 @@
     <section class="cta-final" id="contato">
       <div class="container">
         <div class="painel-cta" data-anim="subir">
+          <img class="painel-cta-fundo"
+               src="assets/foto-entrega-1440.webp"
+               srcset="assets/foto-entrega-960.webp 960w, assets/foto-entrega-1440.webp 1440w, assets/foto-entrega-1780.webp 1780w"
+               sizes="(min-width: 1220px) 1180px, 100vw"
+               alt="" width="1440" height="720" loading="lazy" decoding="async" aria-hidden="true">
+          <span class="painel-cta-veu" aria-hidden="true"></span>
+
           <span class="chapeu">Dê o primeiro passo</span>
-          <h2 class="titulo">Seu direito não precisa virar uma dor de cabeça.</h2>
-          <p>Tenha ao seu lado uma assessoria especializada para cuidar da burocracia enquanto você acompanha cada etapa com clareza e segurança.</p>
+          <h2 class="titulo">Dê o primeiro passo. O resto, a Alcance cuida com você.</h2>
+          <p>Conte com mais de 8 anos de experiência para conduzir seu processo com clareza, segurança e tranquilidade. Seu direito merece ser respeitado.</p>
 
           <div class="cta-acoes">
-            <a class="btn btn--laranja js-whatsapp" href="#" aria-label="Solicitar análise pelo WhatsApp">
+            <a class="btn btn--laranja js-whatsapp" href="#" aria-label="Solicitar avaliação gratuita pelo WhatsApp">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/><path d="M8.2 8.2c.2-.5.5-.5.8-.5h.3c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.3-.9 1.8-.7.6-1.7.7-2.7.4-1-.3-2.3-.8-3.9-2.2-1.4-1.2-2.4-2.8-2.7-3.8-.4-1-.1-2 .3-2.5.4-.4.8-.5 1.1-.5Z"/></svg>
-              Solicitar análise pelo WhatsApp
+              Solicitar avaliação pelo WhatsApp
             </a>
             <a class="btn btn--fantasma" href="#servicos">Ver todos os serviços</a>
           </div>
 
-          <small class="cta-nota">Configure o número oficial do WhatsApp no código antes da publicação.</small>
+          <small class="cta-nota">Experiência para orientar. Segurança para cuidar. Alcance para conquistar.</small>
         </div>
       </div>
     </section>
@@ -1696,9 +2283,9 @@
     <div class="container footer-main">
       <div class="footer-sobre">
         <a class="footer-logo-chip" href="#inicio" aria-label="Alcance Isenções — ir para o início">
-          <img src="assets/logo-horizontal.png" alt="Alcance Isenções — assessoria especializada" width="900" height="319" loading="lazy" decoding="async">
+          <img src="assets/logo-horizontal.svg" alt="Alcance Isenções — assessoria especializada" width="1374" height="495" loading="lazy" decoding="async">
         </a>
-        <p>Assessoria especializada em isenções, benefícios e processos para pessoas com deficiência, aposentados e pensionistas. Atendimento humanizado e acompanhamento do início ao fim.</p>
+        <p>Experiência para orientar. Segurança para cuidar. Alcance para conquistar.</p>
       </div>
 
       <nav class="footer-coluna" aria-label="Navegação do rodapé">
@@ -1707,6 +2294,7 @@
           <li><a class="footer-link" href="#servicos">Serviços</a></li>
           <li><a class="footer-link" href="#diferenciais">Diferenciais</a></li>
           <li><a class="footer-link" href="#como-funciona">Como funciona</a></li>
+          <li><a class="footer-link" href="#depoimentos">Depoimentos</a></li>
           <li><a class="footer-link" href="#duvidas">Dúvidas</a></li>
         </ul>
       </nav>
@@ -1729,7 +2317,7 @@
 
     <div class="container footer-base">
       <span>© <span id="ano-atual">2026</span> Alcance Isenções. Todos os direitos reservados.</span>
-      <span class="nota-wireframe">Versão com identidade visual aplicada</span>
+      <span class="assinatura">Seu direito, sem burocracia</span>
     </div>
   </footer>
 
@@ -1743,9 +2331,10 @@
     "@type": "ProfessionalService",
     "name": "Alcance Isenções",
     "description": "Assessoria especializada em isenções, benefícios e processos para pessoas com deficiência, aposentados e pensionistas.",
+    "slogan": "Experiência para orientar. Segurança para cuidar. Alcance para conquistar.",
     "areaServed": "BR",
     "logo": "assets/logo-horizontal.png",
-    "knowsAbout": ["Isenção de IPI", "Isenção de ICMS", "Isenção de IPVA", "Isenção de Imposto de Renda", "CNH PCD", "Laudo médico do Detran", "Credencial de estacionamento", "Alvará judicial"]
+    "knowsAbout": ["Isenção de IPI", "Isenção de ICMS", "Isenção de IPVA", "Isenção de Imposto de Renda", "CNH PCD", "Laudo pericial do Detran", "Credencial de estacionamento", "Dispensa de rodízio municipal", "Curatela e tutela", "Alvará judicial"]
   }
   </script>
 
@@ -1758,7 +2347,7 @@
        Informe o número com DDI + DDD, somente dígitos. Ex.: "5511999999999"
        ========================================================================= */
     var WHATSAPP_NUMERO = "";
-    var WHATSAPP_MENSAGEM = "Olá! Vim pelo site da Alcance Isenções e gostaria de analisar meu caso.";
+    var WHATSAPP_MENSAGEM = "Olá! Vim pelo site da Alcance Isenções e gostaria de uma avaliação gratuita do meu caso.";
 
     /* "defer" não tem efeito em script inline: este bloco roda no momento em que
        o parser chega nele. Esperamos o DOMContentLoaded, que só dispara depois
@@ -1820,6 +2409,164 @@
             botao.setAttribute("aria-expanded", "true");
           }
         });
+      });
+
+      /* ---------------------------------------------------------------------
+         Sliders de cards no mobile
+         --------------------------------------------------------------------- */
+      var mediaSlidersMobile = window.matchMedia("(max-width: 700px)");
+
+      function criarSliderMobile(opcoes) {
+        var slider = document.getElementById(opcoes.prefixo + "-slider");
+        var controles = document.getElementById(opcoes.prefixo + "-slider-controles");
+        if (!slider || !controles) return;
+
+        var cards = Array.from(slider.querySelectorAll(opcoes.seletorCards));
+        var botaoAnterior = document.getElementById(opcoes.prefixo + "-anterior");
+        var botaoProximo = document.getElementById(opcoes.prefixo + "-proximo");
+        var contadorAtual = document.getElementById(opcoes.prefixo + "-atual");
+        var contadorTotal = document.getElementById(opcoes.prefixo + "-total");
+        var indiceAtual = 0;
+        var atualizacaoPendente = false;
+        var observadorSlider = null;
+
+        function formatarIndice(numero) {
+          return String(numero).padStart(2, "0");
+        }
+
+        function definirEstado(indice) {
+          indiceAtual = Math.max(0, Math.min(indice, cards.length - 1));
+          contadorAtual.textContent = formatarIndice(indiceAtual + 1);
+          contadorTotal.textContent = formatarIndice(cards.length);
+          botaoAnterior.disabled = indiceAtual === 0;
+          botaoProximo.disabled = indiceAtual === cards.length - 1;
+          controles.style.setProperty("--progresso-slider", String((indiceAtual + 1) / cards.length));
+
+          cards.forEach(function (card, indiceCard) {
+            if (indiceCard === indiceAtual) card.setAttribute("aria-current", "true");
+            else card.removeAttribute("aria-current");
+          });
+        }
+
+        function encontrarCardCentral() {
+          var area = slider.getBoundingClientRect();
+          var centro = area.left + area.width / 2;
+          var menorDistancia = Infinity;
+          var maisProximo = 0;
+
+          cards.forEach(function (card, indiceCard) {
+            var caixa = card.getBoundingClientRect();
+            var distancia = Math.abs(caixa.left + caixa.width / 2 - centro);
+            if (distancia < menorDistancia) {
+              menorDistancia = distancia;
+              maisProximo = indiceCard;
+            }
+          });
+
+          return maisProximo;
+        }
+
+        function atualizarAoRolar() {
+          if (!mediaSlidersMobile.matches || atualizacaoPendente) return;
+          atualizacaoPendente = true;
+          requestAnimationFrame(function () {
+            definirEstado(encontrarCardCentral());
+            atualizacaoPendente = false;
+          });
+        }
+
+        function irPara(indice) {
+          var destino = Math.max(0, Math.min(indice, cards.length - 1));
+          var area = slider.getBoundingClientRect();
+          var card = cards[destino].getBoundingClientRect();
+          var esquerda = slider.scrollLeft + card.left - area.left - (area.width - card.width) / 2;
+
+          definirEstado(destino);
+          slider.scrollTo({
+            left: esquerda,
+            behavior: reduzMovimento ? "auto" : "smooth"
+          });
+        }
+
+        function configurar() {
+          if (mediaSlidersMobile.matches) {
+            slider.setAttribute("tabindex", "0");
+            slider.setAttribute("role", "region");
+            slider.setAttribute("aria-roledescription", "carrossel");
+            slider.setAttribute("aria-label", opcoes.rotuloCarrossel);
+            controles.removeAttribute("aria-hidden");
+
+            cards.forEach(function (card, indiceCard) {
+              card.setAttribute("role", "group");
+              card.setAttribute("aria-roledescription", "slide");
+              card.setAttribute(
+                "aria-label",
+                opcoes.rotuloItem + " " + (indiceCard + 1) + " de " + cards.length
+              );
+            });
+
+            requestAnimationFrame(function () { definirEstado(encontrarCardCentral()); });
+          } else {
+            slider.removeAttribute("tabindex");
+            slider.removeAttribute("role");
+            slider.removeAttribute("aria-roledescription");
+            slider.removeAttribute("aria-label");
+            controles.setAttribute("aria-hidden", "true");
+            slider.scrollLeft = 0;
+
+            cards.forEach(function (card) {
+              card.removeAttribute("role");
+              card.removeAttribute("aria-roledescription");
+              card.removeAttribute("aria-label");
+              card.removeAttribute("aria-current");
+            });
+          }
+        }
+
+        botaoAnterior.addEventListener("click", function () { irPara(indiceAtual - 1); });
+        botaoProximo.addEventListener("click", function () { irPara(indiceAtual + 1); });
+        slider.addEventListener("scroll", atualizarAoRolar, { passive: true });
+        slider.addEventListener("keydown", function (e) {
+          if (e.target !== slider || !mediaSlidersMobile.matches) return;
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            irPara(indiceAtual - 1);
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            irPara(indiceAtual + 1);
+          }
+        });
+
+        if (mediaSlidersMobile.addEventListener) mediaSlidersMobile.addEventListener("change", configurar);
+        else mediaSlidersMobile.addListener(configurar);
+
+        if (window.ResizeObserver) {
+          observadorSlider = new ResizeObserver(atualizarAoRolar);
+          observadorSlider.observe(slider);
+        }
+
+        configurar();
+      }
+
+      criarSliderMobile({
+        prefixo: "servicos",
+        seletorCards: ".servico",
+        rotuloCarrossel: "Soluções oferecidas pela Alcance",
+        rotuloItem: "Solução"
+      });
+
+      criarSliderMobile({
+        prefixo: "motivos",
+        seletorCards: ".motivo",
+        rotuloCarrossel: "Diferenciais da Alcance",
+        rotuloItem: "Diferencial"
+      });
+
+      criarSliderMobile({
+        prefixo: "depoimentos",
+        seletorCards: ".depoimento",
+        rotuloCarrossel: "Depoimentos de clientes da Alcance",
+        rotuloItem: "Depoimento"
       });
 
       /* ---------------------------------------------------------------------
@@ -1885,16 +2632,17 @@
       gsap.registerPlugin(ScrollTrigger);
 
       var animaveis = gsap.utils.toArray("[data-anim]");
+      var noHero = animaveis.filter(function (el) { return el.closest(".hero"); });
+      var foraDoHero = animaveis.filter(function (el) {
+        return !el.closest(".hero") && !el.closest("#como-funciona");
+      });
 
       // Entrada do hero: um único timeline encadeado, sem ScrollTrigger
-      var noHero = animaveis.filter(function (el) { return el.closest(".hero"); });
-      var foraDoHero = animaveis.filter(function (el) { return !el.closest(".hero"); });
-
       var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       tl.to(".hero .palco", { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }, 0)
         .to(noHero.filter(function (el) { return el.dataset.anim === "subir"; }), {
-          opacity: 1, y: 0, duration: .8, stagger: .09
+          opacity: 1, y: 0, duration: .8, stagger: .08
         }, .15)
         .to(".hero .destaque", { "--traco": 1, duration: .6, ease: "power2.inOut" }, .9);
 
@@ -1925,16 +2673,92 @@
         });
       });
 
-      // Órbitas do palco girando devagar, em sentidos opostos
+      // Órbitas girando devagar, em sentidos opostos
       gsap.to("#orbita-1", { rotation: 360, duration: 46, ease: "none", repeat: -1 });
       gsap.to("#orbita-2", { rotation: -360, duration: 34, ease: "none", repeat: -1 });
 
-      // Trilha de "Como funciona" preenchida conforme a seção é percorrida
-      var trilha = document.getElementById("trilha");
-      if (trilha) {
-        gsap.to(trilha, {
-          "--avanco": 1, ease: "none",
-          scrollTrigger: { trigger: ".etapas", start: "top 72%", end: "bottom 68%", scrub: .5 }
+      // Entrada encadeada da timeline: horizontal no desktop e vertical em telas menores.
+      var secaoEtapas = document.getElementById("como-funciona");
+      if (secaoEtapas) {
+        var cabecalhoEtapas = gsap.utils.toArray("#como-funciona header [data-anim]");
+        var itensEtapas = gsap.utils.toArray("#como-funciona .etapa");
+        var numerosEtapas = gsap.utils.toArray("#como-funciona .etapa-numero");
+        var faixaEtapas = secaoEtapas.querySelector(".faixa-cta");
+        var trilha = document.getElementById("trilha");
+        var mediaEtapas = gsap.matchMedia();
+
+        mediaEtapas.add("(min-width: 1021px)", function () {
+          gsap.set(numerosEtapas, { scale: .58 });
+
+          var entradaDesktop = gsap.timeline({
+            defaults: { ease: "power3.out" },
+            scrollTrigger: {
+              trigger: secaoEtapas,
+              start: "top 70%",
+              once: true
+            }
+          });
+
+          entradaDesktop
+            .to(cabecalhoEtapas, { opacity: 1, y: 0, duration: .58, stagger: .07 })
+            .to(itensEtapas[0], { opacity: 1, y: 0, duration: .44 }, "-=.12")
+            .to(numerosEtapas[0], { scale: 1, duration: .44, ease: "back.out(1.9)" }, "<");
+
+          itensEtapas.slice(1).forEach(function (item, indice) {
+            var progresso = (indice + 1) / (itensEtapas.length - 1);
+
+            entradaDesktop
+              .to(trilha, { "--avanco": progresso, duration: .3, ease: "power2.inOut" }, "-=.06")
+              .to(item, { opacity: 1, y: 0, duration: .42 }, "-=.18")
+              .to(numerosEtapas[indice + 1], {
+                scale: 1,
+                duration: .42,
+                ease: "back.out(1.9)"
+              }, "<");
+          });
+
+          entradaDesktop.to(faixaEtapas, { opacity: 1, y: 0, duration: .52 }, "-=.1");
+        });
+
+        mediaEtapas.add("(max-width: 1020px)", function () {
+          gsap.set(itensEtapas, { x: 22, y: 0 });
+          gsap.set(numerosEtapas, { scale: .58 });
+
+          var entradaVertical = gsap.timeline({
+            defaults: { ease: "power3.out" },
+            scrollTrigger: {
+              trigger: secaoEtapas,
+              start: "top 76%",
+              once: true
+            }
+          });
+
+          entradaVertical.to(cabecalhoEtapas, {
+            opacity: 1,
+            y: 0,
+            duration: .52,
+            stagger: .07
+          });
+
+          itensEtapas.forEach(function (item, indice) {
+            entradaVertical
+              .to(item, { opacity: 1, x: 0, duration: .4 }, indice ? "-=.12" : "-=.08")
+              .to(numerosEtapas[indice], {
+                scale: 1,
+                duration: .4,
+                ease: "back.out(1.9)"
+              }, "<");
+
+            if (indice < itensEtapas.length - 1) {
+              entradaVertical.to(item, {
+                "--avanco": 1,
+                duration: .24,
+                ease: "power2.inOut"
+              }, "-=.18");
+            }
+          });
+
+          entradaVertical.to(faixaEtapas, { opacity: 1, y: 0, duration: .48 }, "-=.1");
         });
       }
 
@@ -1948,16 +2772,15 @@
         var secao = document.getElementById(id);
         if (!secao) return;
 
-        function marcar(ativo) {
-          Object.keys(links).forEach(function (k) { links[k].classList.remove("ativo"); });
-          if (ativo) links[id].classList.add("ativo");
-        }
-
         ScrollTrigger.create({
           trigger: secao,
           start: "top 42%",
           end: "bottom 42%",
-          onToggle: function (self) { if (self.isActive) marcar(true); }
+          onToggle: function (self) {
+            if (!self.isActive) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove("ativo"); });
+            links[id].classList.add("ativo");
+          }
         });
       });
 
