@@ -4,584 +4,511 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Encontre o atendimento da Alcance Isenções ideal para o seu caso.">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#840DA8">
   <title>Alcance Isenções | Links</title>
 
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Alcance Isenções">
+  <meta property="og:title" content="Alcance Isenções | Seus direitos, sem complicação">
+  <meta property="og:description" content="Escolha o atendimento ideal para o seu caso e fale com a nossa equipe.">
+  <meta property="og:image" content="assets/logo-horizontal.png">
+
+  <link rel="icon" href="assets/logo-simbolo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="apple-touch-icon" href="assets/logo-simbolo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/foto-passeio-capa-720.webp" imagesrcset="assets/foto-passeio-capa-720.webp 720w, assets/foto-passeio-capa-1080.webp 1080w, assets/foto-passeio-capa-1400.webp 1400w" imagesizes="(min-width: 712px) 680px, calc(100vw - 32px)" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..900&display=swap">
+
   <style>
+    /* ==========================================================================
+       Mesmos tokens do site: cores tiradas dos arquivos originais da logo
+       roxo #840DA8   laranja #D84D1C
+       ========================================================================== */
     :root {
-      --black: #111111;
-      --ink: #202020;
-      --muted: #656565;
-      --line: #d5d5d5;
-      --soft: #f1f1f1;
-      --paper: #ffffff;
-      --shadow: 0 14px 34px rgba(0, 0, 0, .09);
-      --radius: 18px;
+      --roxo: #840da8;
+      --roxo-vivo: #a12ec4;
+      --roxo-escuro: #5c0977;
+      --roxo-profundo: #2e0640;
+      --roxo-tinta: #1c0327;
+
+      --laranja: #d84d1c;
+      --laranja-acao: #c4451a;
+      --laranja-claro: #f0855c;
+
+      --tinta: #241a2b;
+      --tinta-suave: #5f5368;
+      --papel: #ffffff;
+      --lavanda: #f8f2fb;
+      --lavanda-2: #efe1f6;
+      --areia: #fdf4ef;
+      --linha: #e7d9ee;
+
+      --sombra-sm: 0 6px 20px rgba(46, 6, 64, .07);
+      --sombra-md: 0 14px 38px rgba(46, 6, 64, .11);
+      --sombra-lg: 0 28px 70px rgba(46, 6, 64, .17);
+      --sombra-roxa: 0 14px 32px rgba(132, 13, 168, .28);
+      --sombra-laranja: 0 14px 32px rgba(216, 77, 28, .3);
+
+      --raio-sm: 14px;
+      --raio-md: 22px;
+      --raio-lg: 30px;
+
       --max: 680px;
+      --easing: cubic-bezier(.22, .61, .36, 1);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      background: #e8e8e8;
-      scroll-behavior: smooth;
-    }
+    html { -webkit-text-size-adjust: 100%; }
 
     body {
-      min-height: 100vh;
-      color: var(--ink);
+      min-height: 100dvh;
+      color: var(--tinta);
       background:
-        linear-gradient(rgba(0, 0, 0, .025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, .025) 1px, transparent 1px),
-        var(--soft);
-      background-size: 28px 28px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
+        radial-gradient(70% 50% at 50% 0, rgba(132, 13, 168, .12), transparent 62%),
+        radial-gradient(60% 40% at 100% 100%, rgba(216, 77, 28, .1), transparent 60%),
+        linear-gradient(170deg, var(--lavanda) 0%, #fff 42%, var(--areia) 100%);
+      /* 17px de base: o público inclui pessoas idosas e com baixa visão */
+      font: 400 17px/1.55 "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      letter-spacing: -.011em;
       -webkit-font-smoothing: antialiased;
     }
 
-    a,
-    button {
-      color: inherit;
-      font: inherit;
-      -webkit-tap-highlight-color: transparent;
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img, svg { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    ::selection { color: #fff; background: var(--roxo); }
+
+    :focus-visible {
+      outline: 3px solid var(--roxo);
+      outline-offset: 3px;
+      border-radius: 6px;
     }
 
-    a {
-      text-decoration: none;
-    }
-
-    button {
-      border: 0;
-      cursor: pointer;
-    }
-
-    svg {
-      display: block;
-      width: 24px;
-      height: 24px;
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
 
     .page-shell {
-      position: relative;
-      width: min(100%, var(--max));
-      min-height: 100vh;
+      width: min(calc(100% - 32px), var(--max));
       margin-inline: auto;
-      padding: 22px 20px 34px;
-      background: var(--paper);
-      box-shadow: 0 0 60px rgba(0, 0, 0, .08);
+      padding: 20px 0 46px;
     }
 
+    /* ---------- topo ---------- */
     .topbar {
       display: flex;
-      min-height: 44px;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
-    .wireframe-tag {
+    .selo-topo {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      color: #777;
-      font-size: .68rem;
+      gap: 9px;
+      color: var(--roxo);
+      font-size: .72rem;
       font-weight: 800;
-      letter-spacing: .08em;
+      letter-spacing: .07em;
       text-transform: uppercase;
     }
 
-    .wireframe-tag::before {
-      width: 18px;
-      height: 1px;
-      background: #aaa;
+    .selo-topo::before {
+      width: 22px; height: 3px;
+      border-radius: 99px;
+      background: var(--laranja);
       content: "";
     }
 
     .share-button {
       display: grid;
-      width: 44px;
-      height: 44px;
+      width: 46px; height: 46px;
       place-items: center;
-      border: 1px solid var(--line);
+      border: 1px solid var(--linha);
       border-radius: 50%;
-      background: white;
-      transition: transform .2s ease, background .2s ease;
+      color: var(--roxo);
+      background: rgba(255, 255, 255, .8);
+      backdrop-filter: blur(8px);
+      transition: transform .25s var(--easing), background-color .25s var(--easing), border-color .25s var(--easing);
+    }
+    .share-button:hover { border-color: var(--roxo); background: var(--lavanda); transform: translateY(-2px); }
+    .share-button svg { width: 21px; height: 21px; }
+
+    /* ---------- capa + marca ---------- */
+    .capa {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 2 / 1;
+      border-radius: var(--raio-lg);
+      background: var(--lavanda-2);
+      box-shadow: var(--sombra-md);
+    }
+    .capa img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* leve escurecimento no pé para o cartão da logo assentar sobre a foto */
+    .capa::after {
+      position: absolute;
+      right: 0; bottom: 0; left: 0;
+      height: 38%;
+      background: linear-gradient(to top, rgba(28, 3, 39, .34), transparent);
+      content: "";
+      pointer-events: none;
     }
 
-    .share-button:hover {
-      background: var(--soft);
-      transform: translateY(-2px);
-    }
-
-    .share-button svg {
-      width: 19px;
-      height: 19px;
-    }
-
-    .profile {
-      display: grid;
-      justify-items: center;
-      padding: 21px 0 27px;
+    .perfil {
+      position: relative;
+      z-index: 1;
+      margin-top: -38px;
       text-align: center;
     }
 
-    .brand-mark {
-      position: relative;
-      display: grid;
-      width: 76px;
-      height: 76px;
-      margin-bottom: 18px;
-      place-items: center;
-      border: 2px solid var(--black);
-      border-radius: 24px 24px 24px 7px;
-      color: white;
-      background: var(--black);
-      box-shadow: 7px 7px 0 #d9d9d9;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.2rem;
-      font-weight: 700;
+    /* a logo é colorida, então vem sobre um cartão claro para manter a leitura */
+    .marca-chip {
+      display: inline-block;
+      padding: 14px 22px;
+      border: 1px solid var(--linha);
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: var(--sombra-md);
+    }
+    .marca-chip img { width: auto; height: 44px; }
+
+    .perfil h1 {
+      margin-top: 22px;
+      font-size: clamp(1.7rem, 6.6vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -.05em;
+      line-height: 1.08;
     }
 
-    .profile h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 8vw, 2.75rem);
-      font-weight: 500;
-      letter-spacing: -.045em;
-      line-height: 1;
-    }
-
-    .profile h2 {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: .93rem;
-      font-weight: 650;
-    }
-
-    .profile strong {
-      display: block;
-      max-width: 510px;
-      margin-top: 17px;
-      color: var(--black);
-      font-size: .97rem;
+    .perfil p {
+      max-width: 46ch;
+      margin: 12px auto 0;
+      color: var(--tinta-suave);
+      font-size: .98rem;
       line-height: 1.55;
     }
 
-    .profile-proof {
+    .selos {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 7px;
-      margin-top: 17px;
+      gap: 8px;
+      margin-top: 20px;
     }
 
-    .proof-pill {
-      padding: 6px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: #555;
-      background: #fafafa;
-      font-size: .68rem;
-      font-weight: 750;
-    }
-
-    .section-intro {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin: 4px 0 13px;
-    }
-
-    .section-intro h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.35rem;
-      line-height: 1.15;
-    }
-
-    .section-intro span {
-      color: #7a7a7a;
-      font-size: .68rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .service-list {
-      display: grid;
-      gap: 10px;
-      list-style: none;
-    }
-
-    .service-link {
-      display: grid;
-      min-height: 88px;
+    .selo {
+      display: inline-flex;
       align-items: center;
-      grid-template-columns: 46px minmax(0, 1fr) 30px;
-      gap: 15px;
-      padding: 15px 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: white;
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+      gap: 7px;
+      padding: 8px 14px;
+      border: 1px solid var(--linha);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: var(--sombra-sm);
+      font-size: .8rem;
+      font-weight: 700;
     }
 
-    .service-link:hover {
-      border-color: #777;
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
+    .selo svg { width: 15px; height: 15px; color: var(--roxo); }
+
+    /* ---------- títulos de bloco ---------- */
+    .intro {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 42px 0 16px;
     }
 
-    .service-link:focus-visible,
-    .primary-cta:focus-visible,
-    .site-link:focus-visible,
-    .share-button:focus-visible {
-      outline: 3px solid #aaa;
-      outline-offset: 3px;
+    .intro h2 {
+      font-size: 1.28rem;
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.2;
     }
 
-    .service-link--primary {
-      color: white;
-      border-color: var(--black);
-      background: var(--black);
+    .intro span {
+      flex: 0 0 auto;
+      color: var(--tinta-suave);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
     }
 
-    .service-icon {
+    /* ---------- lista de serviços ---------- */
+    .servicos { display: grid; gap: 12px; }
+
+    .servico-link {
+      position: relative;
       display: grid;
-      width: 46px;
-      height: 46px;
+      align-items: center;
+      grid-template-columns: 52px minmax(0, 1fr) 24px;
+      gap: 15px;
+      overflow: hidden;
+      padding: 17px 18px;
+      border: 1px solid var(--linha);
+      border-radius: var(--raio-md);
+      background: var(--papel);
+      box-shadow: var(--sombra-sm);
+      transition: transform .25s var(--easing), box-shadow .25s var(--easing), border-color .25s var(--easing);
+    }
+
+    .servico-link::after {
+      position: absolute;
+      top: 0; bottom: 0; left: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--roxo), var(--laranja));
+      content: "";
+      transform: scaleY(0);
+      transform-origin: 50% 0;
+      transition: transform .3s var(--easing);
+    }
+
+    .servico-link:hover {
+      border-color: rgba(132, 13, 168, .3);
+      box-shadow: var(--sombra-md);
+      transform: translateY(-3px);
+    }
+    .servico-link:hover::after { transform: scaleY(1); }
+
+    .servico-icone {
+      display: grid;
+      width: 52px; height: 52px;
       place-items: center;
-      border-radius: 14px;
-      color: var(--black);
-      background: var(--soft);
+      border-radius: 15px;
+      color: var(--roxo);
+      background: var(--lavanda-2);
+      transition: transform .25s var(--easing);
     }
+    .servico-link:hover .servico-icone { transform: rotate(-4deg); }
+    .servico-icone svg { width: 25px; height: 25px; }
 
-    .service-link--primary .service-icon {
-      color: var(--black);
-      background: white;
-    }
-
-    .service-icon svg {
-      width: 23px;
-      height: 23px;
-    }
-
-    .service-copy {
-      min-width: 0;
-    }
-
-    .service-copy h3 {
-      margin-bottom: 3px;
-      font-size: .93rem;
-      font-weight: 850;
+    .servico-copy h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      letter-spacing: -.028em;
       line-height: 1.25;
     }
 
-    .service-copy p {
-      overflow: hidden;
-      color: var(--muted);
-      font-size: .75rem;
-      line-height: 1.42;
-      text-overflow: ellipsis;
+    .servico-copy p {
+      margin-top: 3px;
+      color: var(--tinta-suave);
+      font-size: .85rem;
+      line-height: 1.45;
     }
 
-    .service-link--primary .service-copy p {
-      color: rgba(255, 255, 255, .68);
-    }
+    .seta { color: var(--roxo); transition: transform .25s var(--easing); }
+    .seta svg { width: 20px; height: 20px; }
+    .servico-link:hover .seta { transform: translateX(4px); }
 
-    .link-arrow {
-      display: grid;
-      width: 30px;
-      height: 30px;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      transition: transform .2s ease;
+    /* primeiro item: o carro-chefe, em roxo cheio */
+    .servico-link--destaque {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(140deg, var(--roxo) 0%, var(--roxo-escuro) 72%, var(--roxo-profundo) 100%);
+      box-shadow: var(--sombra-roxa);
     }
+    .servico-link--destaque:hover { border-color: transparent; box-shadow: 0 18px 40px rgba(132, 13, 168, .36); }
+    .servico-link--destaque::after { background: var(--laranja-claro); }
+    .servico-link--destaque .servico-icone { color: #fff; background: rgba(255, 255, 255, .17); }
+    .servico-link--destaque .servico-copy p { color: rgba(255, 255, 255, .8); }
+    .servico-link--destaque .seta { color: var(--laranja-claro); }
 
-    .service-link--primary .link-arrow {
-      border-color: rgba(255, 255, 255, .35);
-    }
-
-    .link-arrow svg {
-      width: 15px;
-      height: 15px;
-    }
-
-    .service-link:hover .link-arrow {
-      transform: translateX(3px);
-    }
-
-    .help-card {
+    /* ---------- cartão de ajuda ---------- */
+    .cartao-ajuda {
       position: relative;
       overflow: hidden;
-      margin-top: 24px;
-      padding: 29px 25px;
-      border-radius: 24px;
-      color: white;
-      background: var(--black);
+      margin-top: 30px;
+      padding: clamp(26px, 6vw, 34px);
+      border-radius: var(--raio-lg);
+      color: #fff;
+      background: linear-gradient(150deg, var(--roxo-escuro) 0%, var(--roxo-profundo) 62%, var(--roxo-tinta) 100%);
+      box-shadow: var(--sombra-lg);
       text-align: center;
     }
 
-    .help-card::before,
-    .help-card::after {
+    .cartao-ajuda::before {
       position: absolute;
-      border: 1px solid rgba(255, 255, 255, .12);
+      top: -120px; right: -90px;
+      width: 300px; height: 300px;
+      border: 60px solid rgba(216, 77, 28, .1);
       border-radius: 50%;
       content: "";
+      pointer-events: none;
     }
 
-    .help-card::before {
-      top: -65px;
-      left: -50px;
-      width: 150px;
-      height: 150px;
+    .cartao-ajuda > * { position: relative; z-index: 1; }
+
+    .cartao-ajuda h2 {
+      font-size: clamp(1.35rem, 5.4vw, 1.62rem);
+      font-weight: 800;
+      letter-spacing: -.042em;
+      line-height: 1.12;
     }
 
-    .help-card::after {
-      right: -70px;
-      bottom: -90px;
-      width: 190px;
-      height: 190px;
+    .cartao-ajuda p {
+      max-width: 40ch;
+      margin: 12px auto 22px;
+      color: rgba(255, 255, 255, .8);
+      font-size: .95rem;
+      line-height: 1.55;
     }
 
-    .help-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .help-card h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.68rem;
-      font-weight: 500;
-      letter-spacing: -.03em;
-      line-height: 1.05;
-    }
-
-    .help-card > p {
-      max-width: 480px;
-      margin: 11px auto 19px;
-      color: rgba(255, 255, 255, .68);
-      font-size: .8rem;
-    }
-
-    .primary-cta {
+    .cta-whatsapp {
       display: inline-flex;
-      min-height: 51px;
+      width: 100%;
+      min-height: 56px;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      padding: 14px 21px;
+      gap: 10px;
+      padding: 15px 24px;
       border-radius: 999px;
-      color: var(--black);
-      background: white;
-      font-size: .84rem;
-      font-weight: 850;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .primary-cta:hover {
-      box-shadow: 0 9px 24px rgba(0, 0, 0, .24);
-      transform: translateY(-2px);
-    }
-
-    .primary-cta svg {
-      width: 19px;
-      height: 19px;
-    }
-
-    .trust-card {
-      margin-top: 24px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: #f7f7f7;
-    }
-
-    .trust-card h2 {
-      margin-bottom: 16px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.38rem;
-      font-weight: 500;
-      letter-spacing: -.02em;
-    }
-
-    .trust-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 18px;
-      list-style: none;
-    }
-
-    .trust-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      color: #505050;
-      font-size: .76rem;
+      color: #fff;
+      background: var(--laranja-acao);
+      box-shadow: var(--sombra-laranja);
+      font-size: 1rem;
       font-weight: 700;
-      line-height: 1.35;
+      letter-spacing: -.015em;
+      transition: transform .25s var(--easing), background-color .25s var(--easing), box-shadow .25s var(--easing);
+    }
+    .cta-whatsapp:hover { background: var(--laranja); box-shadow: 0 18px 40px rgba(216, 77, 28, .38); transform: translateY(-3px); }
+    .cta-whatsapp svg { width: 22px; height: 22px; flex: 0 0 auto; }
+
+    /* ---------- cartão de confiança ---------- */
+    .cartao-confianca {
+      margin-top: 16px;
+      padding: clamp(24px, 5.5vw, 32px);
+      border: 1px solid var(--linha);
+      border-radius: var(--raio-lg);
+      background: var(--papel);
+      box-shadow: var(--sombra-sm);
+    }
+
+    .cartao-confianca h2 {
+      margin-bottom: 18px;
+      font-size: 1.24rem;
+      font-weight: 700;
+      letter-spacing: -.032em;
+    }
+
+    .lista-confianca { display: grid; gap: 11px; }
+
+    .lista-confianca li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: .93rem;
+      font-weight: 600;
     }
 
     .check {
       display: grid;
-      width: 18px;
-      height: 18px;
+      width: 24px; height: 24px;
       flex: 0 0 auto;
-      margin-top: 1px;
       place-items: center;
       border-radius: 50%;
-      color: white;
-      background: var(--black);
+      color: #fff;
+      background: var(--laranja-acao);
     }
+    .check svg { width: 13px; height: 13px; }
 
-    .check svg {
-      width: 11px;
-      height: 11px;
-    }
-
-    .trust-statement {
+    .frase-confianca {
       margin-top: 20px;
-      padding-top: 17px;
-      border-top: 1px solid var(--line);
-      color: var(--black);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.08rem;
+      padding: 15px 18px;
+      border-left: 4px solid var(--laranja);
+      border-radius: 0 14px 14px 0;
+      color: var(--roxo-escuro);
+      background: var(--lavanda);
+      font-size: .97rem;
       font-weight: 700;
-      text-align: center;
+      letter-spacing: -.02em;
     }
 
-    .site-link {
+    /* ---------- link para o site ---------- */
+    .link-site {
       display: flex;
-      min-height: 58px;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      margin-top: 12px;
-      padding: 12px 17px;
-      border: 1px dashed #999;
-      border-radius: 16px;
-      color: #444;
-      background: white;
-      font-size: .78rem;
-      font-weight: 800;
-      transition: background .2s ease;
+      gap: 16px;
+      margin-top: 16px;
+      padding: 18px 22px;
+      border: 1px solid var(--linha);
+      border-radius: var(--raio-md);
+      background: rgba(255, 255, 255, .7);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      transition: transform .25s var(--easing), border-color .25s var(--easing), background-color .25s var(--easing);
     }
+    .link-site:hover { border-color: var(--roxo); background: #fff; transform: translateY(-2px); }
+    .link-site svg { width: 20px; height: 20px; flex: 0 0 auto; color: var(--roxo); transition: transform .25s var(--easing); }
+    .link-site:hover svg { transform: translateX(4px); }
 
-    .site-link:hover {
-      background: var(--soft);
-    }
-
-    .site-link svg {
-      width: 17px;
-      height: 17px;
-    }
-
+    /* ---------- rodapé ---------- */
     footer {
       display: grid;
       justify-items: center;
-      gap: 8px;
-      padding: 27px 0 2px;
-      color: #777;
-      font-size: .65rem;
+      gap: 6px;
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 1px solid var(--linha);
+      color: var(--tinta-suave);
       text-align: center;
     }
 
-    footer strong {
-      color: #444;
-      font-size: .7rem;
-      letter-spacing: .03em;
-    }
+    footer img { width: auto; height: 30px; opacity: .9; }
+    footer span { font-size: .78rem; }
+    footer .assinatura { margin-top: 4px; color: var(--roxo); font-size: .74rem; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; }
 
+    /* ---------- aviso ---------- */
     .toast {
       position: fixed;
-      z-index: 10;
-      right: 20px;
-      bottom: 20px;
-      left: 20px;
-      width: min(calc(100% - 40px), 420px);
-      margin-inline: auto;
-      padding: 12px 16px;
-      border-radius: 12px;
-      color: white;
-      background: var(--black);
-      box-shadow: var(--shadow);
-      font-size: .78rem;
-      font-weight: 750;
-      text-align: center;
+      z-index: 50;
+      bottom: 20px; left: 50%;
+      width: max-content;
+      max-width: calc(100% - 32px);
+      padding: 13px 20px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--roxo-profundo);
+      box-shadow: var(--sombra-lg);
+      font-size: .86rem;
+      font-weight: 600;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(14px);
-      transition: opacity .2s ease, transform .2s ease;
+      transform: translate(-50%, 14px);
+      transition: opacity .25s var(--easing), transform .25s var(--easing);
     }
+    .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
-    .toast.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (max-width: 520px) {
-      .page-shell {
-        padding: 16px 14px 28px;
-      }
-
-      .wireframe-tag {
-        font-size: .62rem;
-      }
-
-      .profile {
-        padding-top: 17px;
-      }
-
-      .profile strong {
-        font-size: .9rem;
-      }
-
-      .section-intro {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .service-link {
-        min-height: 94px;
-        grid-template-columns: 44px minmax(0, 1fr) 28px;
-        gap: 11px;
-        padding: 13px 12px;
-      }
-
-      .service-icon {
-        width: 44px;
-        height: 44px;
-      }
-
-      .service-copy h3 {
-        font-size: .86rem;
-      }
-
-      .service-copy p {
-        font-size: .7rem;
-      }
-
-      .trust-list {
-        grid-template-columns: 1fr;
-      }
-
-      .primary-cta {
-        width: 100%;
-      }
+    @media (max-width: 420px) {
+      .servico-link { grid-template-columns: 46px minmax(0, 1fr) 20px; gap: 12px; padding: 15px 15px; }
+      .servico-icone { width: 46px; height: 46px; border-radius: 13px; }
+      .servico-icone svg { width: 22px; height: 22px; }
+      .marca-chip { padding: 12px 18px; }
+      .marca-chip img { height: 38px; }
+      .intro { display: block; }
+      .intro span { display: block; margin-top: 6px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
       }
     }
   </style>
@@ -590,107 +517,118 @@
 <body>
   <main class="page-shell">
     <header class="topbar">
-      <span class="wireframe-tag">Link na bio</span>
+      <span class="selo-topo">Link na bio</span>
       <button class="share-button" type="button" aria-label="Compartilhar esta página">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.5-4.4M8.2 13.2l7.5 4.4"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.5-4.4M8.2 13.2l7.5 4.4"/></svg>
       </button>
     </header>
 
-    <section class="profile" aria-labelledby="page-title">
-      <div class="brand-mark" aria-hidden="true">A</div>
-      <h1 id="page-title">Alcance Isenções</h1>
-      <h2>Seus direitos, sem complicação.</h2>
-      <strong>Assessoria especializada em isenções e benefícios. Cuidamos de todo o processo, do levantamento dos documentos até a liberação final.</strong>
-      <div class="profile-proof" aria-label="Diferenciais do atendimento">
-        <span class="proof-pill">Atendimento humanizado</span>
-        <span class="proof-pill">Acompanhamento completo</span>
-        <span class="proof-pill">Orientação especializada</span>
+    <div class="capa">
+      <img src="assets/foto-passeio-capa-720.webp"
+           srcset="assets/foto-passeio-capa-720.webp 720w, assets/foto-passeio-capa-1080.webp 1080w, assets/foto-passeio-capa-1400.webp 1400w"
+           sizes="(min-width: 712px) 680px, calc(100vw - 32px)"
+           alt="Homem em cadeira de rodas e mulher guardando uma bolsa no porta-malas do carro, com um cachorro sentado no bagageiro, ao fim de tarde"
+           width="720" height="360" fetchpriority="high" decoding="async">
+    </div>
+
+    <section class="perfil" aria-labelledby="page-title">
+      <span class="marca-chip">
+        <img src="assets/logo-marca.svg" alt="Alcance Isenções" width="1374" height="398" decoding="async">
+      </span>
+
+      <h1 id="page-title">Seus direitos, sem complicação.</h1>
+      <p>Assessoria especializada em isenções e benefícios. Cuidamos de todo o processo, do levantamento dos documentos até a liberação final.</p>
+
+      <div class="selos" aria-label="Diferenciais do atendimento">
+        <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg>Atendimento humanizado</span>
+        <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg>Acompanhamento completo</span>
+        <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg>Orientação especializada</span>
       </div>
     </section>
 
     <section aria-labelledby="services-title">
-      <header class="section-intro">
+      <header class="intro">
         <h2 id="services-title">Como podemos ajudar você hoje?</h2>
         <span>Escolha uma opção</span>
       </header>
 
-      <ul class="service-list">
+      <ul class="servicos">
         <li>
-          <a class="service-link service-link--primary js-whatsapp" href="#" data-topic="isenções de IPI, ICMS e IPVA">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><path d="M7 17v2M17 17v2M8 13h8"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg></span>
-            <span class="service-copy"><h3>Isenção de IPI, ICMS e IPVA</h3><p>Quero saber se tenho direito às isenções para veículo.</p></span>
-            <span class="link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="servico-link servico-link--destaque js-whatsapp" href="#" data-topic="isenções de IPI, ICMS e IPVA">
+            <span class="servico-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1-5-3-3H8l-3 3-1 5Z"/><path d="M7 17v2M17 17v2M8 13h8"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg></span>
+            <span class="servico-copy"><h3>Isenção de IPI, ICMS e IPVA</h3><p>Quero saber se tenho direito às isenções para veículo.</p></span>
+            <span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </li>
         <li>
-          <a class="service-link js-whatsapp" href="#" data-topic="isenção de Imposto de Renda">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5M16.5 15.5v-3M15 14h3"/></svg></span>
-            <span class="service-copy"><h3>Isenção de Imposto de Renda</h3><p>Para aposentados e pensionistas com patologias previstas na legislação.</p></span>
-            <span class="link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="servico-link js-whatsapp" href="#" data-topic="isenção de Imposto de Renda">
+            <span class="servico-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5M16.5 15.5v-3M15 14h3"/></svg></span>
+            <span class="servico-copy"><h3>Isenção de Imposto de Renda</h3><p>Para aposentados e pensionistas com patologias previstas na legislação.</p></span>
+            <span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </li>
         <li>
-          <a class="service-link js-whatsapp" href="#" data-topic="CNH PCD e laudo do Detran">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M7 16h10M13 9h4M13 12h4"/></svg></span>
-            <span class="service-copy"><h3>CNH PCD e Laudo do Detran</h3><p>Orientação e acompanhamento durante o processo.</p></span>
-            <span class="link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="servico-link js-whatsapp" href="#" data-topic="CNH PCD e laudo do Detran">
+            <span class="servico-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><circle cx="9" cy="10" r="2"/><path d="M7 16h10M13 9h4M13 12h4"/></svg></span>
+            <span class="servico-copy"><h3>CNH PCD e Laudo do Detran</h3><p>Orientação e acompanhamento durante o processo.</p></span>
+            <span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </li>
         <li>
-          <a class="service-link js-whatsapp" href="#" data-topic="credencial de estacionamento preferencial">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 17V7h3a3 3 0 0 1 0 6h-3M10 13h5"/></svg></span>
-            <span class="service-copy"><h3>Credencial de Estacionamento</h3><p>Solicitação de credencial de estacionamento preferencial.</p></span>
-            <span class="link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="servico-link js-whatsapp" href="#" data-topic="credencial de estacionamento preferencial">
+            <span class="servico-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><circle cx="10" cy="9" r="2"/><path d="M7 16c.4-2 1.4-3 3-3s2.6 1 3 3M15 8h2M15 12h2M15 16h2"/></svg></span>
+            <span class="servico-copy"><h3>Credencial de Estacionamento</h3><p>Solicitação de credencial de estacionamento preferencial.</p></span>
+            <span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </li>
         <li>
-          <a class="service-link js-whatsapp" href="#" data-topic="liberação de rodízio municipal">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="m7 7 10 10M17 7 7 17"/></svg></span>
-            <span class="service-copy"><h3>Liberação de Rodízio</h3><p>Orientação para solicitação da liberação municipal.</p></span>
-            <span class="link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="servico-link js-whatsapp" href="#" data-topic="dispensa de rodízio municipal">
+            <span class="servico-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h15l-1-4-3-3H8l-3 3-1 4Z"/><circle cx="7" cy="15" r="1.4"/><circle cx="15" cy="15" r="1.4"/><path d="M16 5h5M19 2l3 3-3 3M16 19l2 2 4-5"/></svg></span>
+            <span class="servico-copy"><h3>Dispensa de Rodízio</h3><p>Orientação para solicitação da dispensa municipal.</p></span>
+            <span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </li>
         <li>
-          <a class="service-link js-whatsapp" href="#" data-topic="alvará judicial">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M6 18h12M7 18V9M17 18V9M4 9h16L12 3Z"/><path d="M10 13h4"/></svg></span>
-            <span class="service-copy"><h3>Alvará Judicial</h3><p>Assessoria e acompanhamento do processo.</p></span>
-            <span class="link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="servico-link js-whatsapp" href="#" data-topic="assessoria jurídica, curatela, tutela e alvará">
+            <span class="servico-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v17M7 6h10M4 20h16M7 7l-4 7h8L7 7ZM17 7l-4 7h8l-4-7Z"/></svg></span>
+            <span class="servico-copy"><h3>Assessoria Jurídica</h3><p>Curatela, tutela e alvará de compra e venda.</p></span>
+            <span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </li>
       </ul>
     </section>
 
-    <section class="help-card" aria-labelledby="help-title">
+    <section class="cartao-ajuda" aria-labelledby="help-title">
       <h2 id="help-title">Não sabe qual opção escolher?</h2>
       <p>Conte brevemente o seu caso e nossa equipe orientará você sobre o melhor caminho.</p>
-      <a class="primary-cta js-whatsapp" href="#" data-topic="uma orientação inicial">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/><path d="M8.2 8.2c.2-.5.5-.5.8-.5h.3c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.3-.9 1.8-.7.6-1.7.7-2.7.4-1-.3-2.3-.8-3.9-2.2-1.4-1.2-2.4-2.8-2.7-3.8-.4-1-.1-2 .3-2.5.4-.4.8-.5 1.1-.5Z"/></svg>
+      <a class="cta-whatsapp js-whatsapp" href="#" data-topic="uma orientação inicial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/><path d="M8.2 8.2c.2-.5.5-.5.8-.5h.3c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.6 2.1 2.8 2.7.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.3-.9 1.8-.7.6-1.7.7-2.7.4-1-.3-2.3-.8-3.9-2.2-1.4-1.2-2.4-2.8-2.7-3.8-.4-1-.1-2 .3-2.5.4-.4.8-.5 1.1-.5Z"/></svg>
         Falar com a Alcance no WhatsApp
       </a>
     </section>
 
-    <section class="trust-card" aria-labelledby="trust-title">
+    <section class="cartao-confianca" aria-labelledby="trust-title">
       <h2 id="trust-title">Por que contar com a Alcance?</h2>
-      <ul class="trust-list">
-        <li><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 8 3 3 7-7"/></svg></span>Atendimento humanizado</li>
-        <li><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 8 3 3 7-7"/></svg></span>Acompanhamento de cada etapa</li>
-        <li><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 8 3 3 7-7"/></svg></span>Orientação completa de documentos</li>
-        <li><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 8 3 3 7-7"/></svg></span>Indicação de clínicas credenciadas</li>
-        <li><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 8 3 3 7-7"/></svg></span>Relacionamento com vendedores</li>
-        <li><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 8 3 3 7-7"/></svg></span>Anos de experiência no mercado</li>
+      <ul class="lista-confianca">
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg></span>Atendimento humanizado</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg></span>Acompanhamento de cada etapa</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg></span>Orientação completa de documentos</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg></span>Rede de clínicas credenciadas</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg></span>Departamento jurídico próprio</li>
+        <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg></span>Mais de 8 anos de experiência</li>
       </ul>
-      <p class="trust-statement">Seu processo acompanhado do começo ao fim.</p>
+      <p class="frase-confianca">Seu processo acompanhado do começo ao fim.</p>
     </section>
 
-    <a class="site-link" href="index.html">
+    <a class="link-site" href="index-v2.html">
       <span>Conheça o site completo da Alcance</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
 
     <footer>
-      <strong>ALCANCE ISENÇÕES</strong>
+      <img src="assets/logo-simbolo.svg" alt="" width="644" height="631" loading="lazy" decoding="async" aria-hidden="true">
       <span>Assessoria especializada · Atendimento humanizado</span>
-      <span>Wireframe do link na bio</span>
+      <span class="assinatura">Seu direito, sem burocracia</span>
     </footer>
   </main>
 
@@ -698,27 +636,26 @@
 
   <script>
     // Insira o número oficial com DDI + DDD, somente dígitos. Ex.: 5511999999999
-    const WHATSAPP_NUMBER = "";
+    const WHATSAPP_NUMERO = "";
 
     document.querySelectorAll(".js-whatsapp").forEach((link) => {
-      const topic = link.dataset.topic || "meu caso";
-      const message = `Olá! Vim pelo link da bio da Alcance Isenções e gostaria de falar sobre ${topic}.`;
+      const assunto = link.dataset.topic || "meu caso";
+      const mensagem = `Olá! Vim pelo link da bio da Alcance Isenções e gostaria de falar sobre ${assunto}.`;
 
-      if (WHATSAPP_NUMBER) {
-        link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      if (WHATSAPP_NUMERO) {
+        link.href = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
       } else {
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          showToast("Wireframe: insira o número oficial do WhatsApp antes de publicar.");
+        link.addEventListener("click", (evento) => {
+          evento.preventDefault();
+          mostrarAviso("Configure o número oficial do WhatsApp antes de publicar.");
         });
       }
     });
 
-    const shareButton = document.querySelector(".share-button");
-    shareButton.addEventListener("click", async () => {
-      const shareData = {
+    document.querySelector(".share-button").addEventListener("click", async () => {
+      const dados = {
         title: "Alcance Isenções",
         text: "Seus direitos, sem complicação.",
         url: window.location.href
@@ -726,25 +663,25 @@
 
       try {
         if (navigator.share) {
-          await navigator.share(shareData);
+          await navigator.share(dados);
         } else if (navigator.clipboard) {
           await navigator.clipboard.writeText(window.location.href);
-          showToast("Link copiado.");
+          mostrarAviso("Link copiado.");
         } else {
-          showToast("Copie o endereço desta página para compartilhar.");
+          mostrarAviso("Copie o endereço desta página para compartilhar.");
         }
-      } catch (error) {
-        if (error.name !== "AbortError") showToast("Não foi possível compartilhar agora.");
+      } catch (erro) {
+        if (erro.name !== "AbortError") mostrarAviso("Não foi possível compartilhar agora.");
       }
     });
 
-    let toastTimer;
-    function showToast(message) {
-      const toast = document.querySelector(".toast");
-      toast.textContent = message;
-      toast.classList.add("is-visible");
-      window.clearTimeout(toastTimer);
-      toastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 3000);
+    let temporizador;
+    function mostrarAviso(mensagem) {
+      const aviso = document.querySelector(".toast");
+      aviso.textContent = mensagem;
+      aviso.classList.add("is-visible");
+      window.clearTimeout(temporizador);
+      temporizador = window.setTimeout(() => aviso.classList.remove("is-visible"), 3200);
     }
   </script>
 </body>
