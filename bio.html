@@ -49,6 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/foto-passeio-capa-720.webp" imagesrcset="assets/foto-passeio-capa-720.webp 720w, assets/foto-passeio-capa-1080.webp 1080w, assets/foto-passeio-capa-1400.webp 1400w" imagesizes="(min-width: 712px) 680px, calc(100vw - 32px)" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..900&display=swap">
+  <link rel="stylesheet" href="assets/cookie-consent.css">
 
   <style>
     /* ==========================================================================
@@ -501,6 +502,29 @@
     footer span { font-size: .78rem; }
     footer .assinatura { margin-top: 4px; color: var(--roxo); font-size: .74rem; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; }
 
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 14px;
+      margin-top: 8px;
+      font-size: .76rem;
+    }
+    .footer-legal a { color: var(--tinta-suave); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .footer-legal a:hover { color: var(--roxo); }
+    .footer-legal button.link-cookies {
+      color: var(--tinta-suave);
+      font: inherit;
+      font-weight: 600;
+      font-size: .76rem;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+    .footer-legal button.link-cookies:hover { color: var(--roxo); }
+
     /* ---------- aviso ---------- */
     .toast {
       position: fixed;
@@ -656,14 +680,18 @@
       <img src="assets/logo-simbolo.svg" alt="" width="644" height="631" loading="lazy" decoding="async" aria-hidden="true">
       <span>Assessoria especializada · Atendimento humanizado</span>
       <span class="assinatura">Seu direito, sem burocracia</span>
+      <div class="footer-legal">
+        <a href="privacidade.html">Política de Privacidade</a>
+        <button type="button" class="link-cookies" id="link-preferencias-rodape">Preferências de cookies</button>
+      </div>
     </footer>
   </main>
 
   <div class="toast" role="status" aria-live="polite"></div>
 
+  <script src="assets/cookie-consent.js" defer></script>
   <script>
-    // Insira o número oficial com DDI + DDD, somente dígitos. Ex.: 5511999999999
-    const WHATSAPP_NUMERO = "";
+    const WHATSAPP_NUMERO = "5512982103824";
 
     document.querySelectorAll(".js-whatsapp").forEach((link) => {
       const assunto = link.dataset.topic || "meu caso";
@@ -701,6 +729,15 @@
         if (erro.name !== "AbortError") mostrarAviso("Não foi possível compartilhar agora.");
       }
     });
+
+    const linkPreferenciasCookies = document.getElementById("link-preferencias-rodape");
+    if (linkPreferenciasCookies) {
+      linkPreferenciasCookies.addEventListener("click", () => {
+        if (typeof window.AlcancePreferenciasCookies === "function") {
+          window.AlcancePreferenciasCookies();
+        }
+      });
+    }
 
     let temporizador;
     function mostrarAviso(mensagem) {

@@ -42,6 +42,7 @@
   <link rel="preload" as="image" href="assets/foto-passeio-720.webp" imagesrcset="assets/foto-passeio-480.webp 480w, assets/foto-passeio-720.webp 720w, assets/foto-passeio-960.webp 960w" imagesizes="(min-width: 900px) 40vw, 92vw" fetchpriority="high">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..900&display=swap">
+  <link rel="stylesheet" href="assets/cookie-consent.css">
 
   <style>
     /* ==========================================================================
@@ -1377,23 +1378,42 @@
 
     .footer-link {
       display: inline-flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 8px;
       font-size: .92rem;
+      line-height: 1.5;
       transition: color .2s var(--easing);
     }
     .footer-link:hover { color: var(--laranja-claro); }
-    .footer-link svg { width: 17px; height: 17px; flex: 0 0 auto; color: var(--laranja-claro); }
+    .footer-link svg { width: 17px; height: 17px; margin-top: 2px; flex: 0 0 auto; color: var(--laranja-claro); }
 
     .footer-base {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 14px 20px;
       padding: 24px 0;
       border-top: 1px solid rgba(255, 255, 255, .1);
       font-size: .8rem;
     }
+
+    .footer-base-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; }
+    .footer-base a { color: rgba(255, 255, 255, .72); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; transition: color .2s var(--easing); }
+    .footer-base a:hover { color: #fff; }
+    .footer-base button.link-cookies {
+      color: rgba(255, 255, 255, .72);
+      font: inherit;
+      font-weight: 600;
+      letter-spacing: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      transition: color .2s var(--easing);
+    }
+    .footer-base button.link-cookies:hover { color: #fff; }
 
     .assinatura {
       display: inline-flex;
@@ -2065,10 +2085,10 @@
             <div class="cartao-elegibilidade">
               <h3>Quem pode ter direito?</h3>
               <ul class="lista-elegibilidade">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="4.5" r="1.8"/><path d="M11.5 8.5h3.2l1.2 5.5h3.6M12.3 8.5l-1 5.5M9.5 11.5a5 5 0 1 0 5.4 6.5M15.9 14l2.4 6h2.2"/></svg>Pessoas com deficiência física</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.4-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.4 5.5-9.5 5.5S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.6"/></svg>Pessoas com deficiência visual</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 4A2.5 2.5 0 0 0 7 6.5v.6a3.3 3.3 0 0 0-1.4 5.8A3 3 0 0 0 8 17.8V18a2 2 0 0 0 4 0V6.5A2.5 2.5 0 0 0 9.5 4ZM14.5 4A2.5 2.5 0 0 1 17 6.5v.6a3.3 3.3 0 0 1 1.4 5.8 3 3 0 0 1-2.4 4.9V18a2 2 0 0 1-4 0"/><path d="M8 9.5h1.5A2.5 2.5 0 0 1 12 12M16 9.5h-1.5A2.5 2.5 0 0 0 12 12M8.5 15H10M15.5 15H14"/></svg>Pessoas com deficiência intelectual ou mental</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8c-2.5 0-4.1 2-6 4s-3.5 4-6 4a4 4 0 0 1 0-8c2.5 0 4.1 2 6 4s3.5 4 6 4a4 4 0 0 0 0-8Z"/></svg>Pessoas com Transtorno do Espectro Autista (TEA)</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="15" cy="4.5" r="1.8"/><path d="M14 8.5v3.3l3.2 1.1.9 3.1"/><path d="M14.2 11.8H8.6"/><path d="M8.6 8.3v7.8"/><circle cx="9" cy="16.3" r="5"/><path d="M9 16.3 13 11.8"/><path d="M13.4 11.8h2.3l.6 6.4h2.2"/></svg>Pessoas com deficiência física</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.4-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.4 5.5-9.5 5.5S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.6"/><path d="M4 20 20 4"/></svg>Pessoas com deficiência visual</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 4.5a3 3 0 0 0-3 3v.3A3.2 3.2 0 0 0 4.8 13a3 3 0 0 0 1.7 4.6A2.8 2.8 0 0 0 9 20a2.5 2.5 0 0 0 2.5-2.5v-10A3 3 0 0 0 9.5 4.5Z"/><path d="M14.5 4.5a3 3 0 0 1 3 3v.3a3.2 3.2 0 0 1 1.7 5.2 3 3 0 0 1-1.7 4.6A2.8 2.8 0 0 1 15 20a2.5 2.5 0 0 1-2.5-2.5v-10a3 3 0 0 1 2-2.8Z"/><path d="M9 8.5c1 .3 1.7 1.2 1.7 2.3M15 8.5c-1 .3-1.7 1.2-1.7 2.3M7 13.2c.9 0 1.6.5 2 1.2M17 13.2c-.9 0-1.6.5-2 1.2"/></svg>Pessoas com deficiência intelectual ou mental</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 4.5h4a1 1 0 0 1 1 1v2.3a1.8 1.8 0 1 1 0 3.4V14a1 1 0 0 1-1 1h-2.3a1.8 1.8 0 1 0-3.4 0H5.8a1 1 0 0 1-1-1v-2.3a1.8 1.8 0 1 1 0-3.4V5.5a1 1 0 0 1 1-1h2.3a1.8 1.8 0 1 1 3.4 0Z"/></svg>Pessoas com Transtorno do Espectro Autista (TEA)</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 8.5v7M8.5 12h7"/></svg>Outras condições que gerem limitação funcional, conforme a legislação</li>
               </ul>
             </div>
@@ -2318,19 +2338,23 @@
         <ul>
           <li><a class="footer-link js-whatsapp" href="#">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4a8.4 8.4 0 1 1 15.2-4.7Z"/></svg>
-            WhatsApp: inserir número</a></li>
-          <li><span class="footer-link">
+            WhatsApp: (12) 98210-3824 / (12) 99165-6830</a></li>
+          <li><a class="footer-link" href="mailto:contato@alcanceisencoes.com.br">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
-            E-mail: inserir endereço</span></li>
+            E-mail: contato@alcanceisencoes.com.br</a></li>
           <li><span class="footer-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            Atendimento: inserir horário</span></li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            Endereço: Galeria Central Place – R. Antônio Saes, 162, Sala 04, Centro, São José dos Campos – SP</span></li>
         </ul>
       </div>
     </div>
 
     <div class="container footer-base">
       <span>© <span id="ano-atual">2026</span> Alcance Isenções. Todos os direitos reservados.</span>
+      <div class="footer-base-links">
+        <a href="privacidade.html">Política de Privacidade</a>
+        <button type="button" class="link-cookies" id="link-preferencias-rodape">Preferências de cookies</button>
+      </div>
       <span class="assinatura">Seu direito, sem burocracia</span>
     </div>
   </footer>
@@ -2353,6 +2377,15 @@
         "areaServed": "BR",
         "logo": "https://alcanceisencoes.com.br/assets/logo-horizontal.png",
         "image": "https://alcanceisencoes.com.br/assets/og-image.jpg",
+        "telephone": "+55 12 98210-3824",
+        "email": "contato@alcanceisencoes.com.br",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Antônio Saes, 162, Sala 04 - Galeria Central Place",
+          "addressLocality": "São José dos Campos",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
         "knowsAbout": ["Isenção de IPI", "Isenção de ICMS", "Isenção de IPVA", "Isenção de Imposto de Renda", "CNH PCD", "Laudo pericial do Detran", "Credencial de estacionamento", "Dispensa de rodízio municipal", "Curatela e tutela", "Alvará judicial"]
       },
       {
@@ -2388,19 +2421,17 @@
     ]
   }
   </script>
-  <!-- Assim que houver telefone, e-mail e endereço definitivos (hoje "inserir número/endereço" no rodapé),
-       adicione "telephone", "email" e "address" ao objeto ProfessionalService acima: isso habilita o
-       card de negócio local nos resultados de busca e no compartilhamento. -->
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="assets/cookie-consent.js" defer></script>
 
   <script>
     /* =========================================================================
        CONFIGURAÇÃO
        Informe o número com DDI + DDD, somente dígitos. Ex.: "5511999999999"
        ========================================================================= */
-    var WHATSAPP_NUMERO = "";
+    var WHATSAPP_NUMERO = "5512982103824";
     var WHATSAPP_MENSAGEM = "Olá! Vim pelo site da Alcance Isenções e gostaria de uma avaliação gratuita do meu caso.";
 
     /* "defer" não tem efeito em script inline: este bloco roda no momento em que
@@ -2444,6 +2475,18 @@
           toggle.focus();
         }
       });
+
+      /* ---------------------------------------------------------------------
+         Preferências de cookies (rodapé)
+         --------------------------------------------------------------------- */
+      var linkPreferenciasCookies = document.getElementById("link-preferencias-rodape");
+      if (linkPreferenciasCookies) {
+        linkPreferenciasCookies.addEventListener("click", function () {
+          if (typeof window.AlcancePreferenciasCookies === "function") {
+            window.AlcancePreferenciasCookies();
+          }
+        });
+      }
 
       /* ---------------------------------------------------------------------
          FAQ (accordion acessível)

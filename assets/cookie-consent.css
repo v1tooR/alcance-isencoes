@@ -1,0 +1,276 @@
+/* ==========================================================================
+   BANNER DE COOKIES + PAINEL DE PREFERÊNCIAS
+   Compartilhado entre todas as páginas do site. Usa os tokens de cor já
+   definidos no :root de cada página (roxo/laranja da marca), com fallback
+   para o caso de ser carregado numa página que ainda não os declarou.
+   ========================================================================== */
+
+.cookie-banner {
+  position: fixed;
+  z-index: 300;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 640px;
+  margin-inline: auto;
+  padding: 22px 26px;
+  border: 1px solid var(--linha, #e7d9ee);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 28px 70px rgba(46, 6, 64, .22);
+  font: 400 15px/1.55 "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: -.011em;
+  color: var(--tinta, #241a2b);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .3s cubic-bezier(.22, .61, .36, 1), transform .3s cubic-bezier(.22, .61, .36, 1), visibility 0s linear .3s;
+  visibility: hidden;
+}
+
+.cookie-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition: opacity .3s cubic-bezier(.22, .61, .36, 1), transform .3s cubic-bezier(.22, .61, .36, 1);
+}
+
+.cookie-banner-texto { min-width: 0; }
+
+.cookie-banner-texto strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -.024em;
+}
+
+.cookie-banner-texto p { color: var(--tinta-suave, #5f5368); font-size: .92rem; }
+
+.cookie-banner-texto a {
+  color: var(--roxo, #840da8);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cookie-btn {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: .89rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: transform .2s cubic-bezier(.22, .61, .36, 1), box-shadow .2s cubic-bezier(.22, .61, .36, 1),
+              background-color .2s cubic-bezier(.22, .61, .36, 1), border-color .2s cubic-bezier(.22, .61, .36, 1);
+}
+.cookie-btn:hover { transform: translateY(-2px); }
+
+.cookie-btn--contorno { color: var(--roxo, #840da8); border-color: var(--linha, #e7d9ee); background: #fff; }
+.cookie-btn--contorno:hover { border-color: var(--roxo, #840da8); background: var(--lavanda, #f8f2fb); }
+
+.cookie-btn--roxo { color: #fff; background: var(--roxo, #840da8); box-shadow: 0 10px 24px rgba(132, 13, 168, .28); }
+.cookie-btn--roxo:hover { background: var(--roxo-vivo, #a12ec4); }
+
+.cookie-btn--laranja { color: #fff; background: var(--laranja-acao, #c4451a); box-shadow: 0 10px 24px rgba(216, 77, 28, .3); }
+.cookie-btn--laranja:hover { background: var(--laranja, #d84d1c); }
+
+/* ---------- painel de preferências ---------- */
+.cookie-overlay {
+  position: fixed;
+  z-index: 310;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(28, 3, 39, .5);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s cubic-bezier(.22, .61, .36, 1);
+}
+
+.cookie-overlay.is-visible { opacity: 1; pointer-events: auto; }
+
+.cookie-painel {
+  display: flex;
+  overflow: hidden;
+  width: min(100%, 540px);
+  max-height: min(88vh, 720px);
+  flex-direction: column;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 28px 70px rgba(46, 6, 64, .28);
+  font: 400 15px/1.55 "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: -.011em;
+  color: var(--tinta, #241a2b);
+  transform: scale(.96);
+  transition: transform .25s cubic-bezier(.22, .61, .36, 1);
+}
+
+/* cabeçalho e ações ficam sempre visíveis; só a lista de categorias rola —
+   importante para o público idoso/PCD do site não perder o botão de salvar */
+.cookie-painel-topo {
+  flex: 0 0 auto;
+  padding: clamp(24px, 5vw, 34px) clamp(24px, 5vw, 34px) 0;
+}
+
+.cookie-painel-scroll {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding: 0 clamp(24px, 5vw, 34px) 6px;
+}
+
+.cookie-painel-acoes {
+  flex: 0 0 auto;
+  padding: 18px clamp(24px, 5vw, 34px) clamp(24px, 5vw, 34px);
+  border-top: 1px solid var(--linha, #e7d9ee);
+}
+
+.cookie-overlay.is-visible .cookie-painel { transform: scale(1); }
+
+.cookie-painel-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.cookie-painel h2 {
+  font-size: 1.28rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+}
+
+.cookie-painel-fechar {
+  display: grid;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--linha, #e7d9ee);
+  border-radius: 50%;
+  color: var(--tinta-suave, #5f5368);
+  background: #fff;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background-color .2s;
+}
+.cookie-painel-fechar:hover { color: var(--roxo, #840da8); border-color: var(--roxo, #840da8); background: var(--lavanda, #f8f2fb); }
+.cookie-painel-fechar svg { width: 18px; height: 18px; }
+
+.cookie-painel-scroll > p {
+  margin: 16px 0;
+  color: var(--tinta-suave, #5f5368);
+  font-size: .93rem;
+}
+.cookie-painel-scroll > p a { color: var(--roxo, #840da8); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+
+.cookie-categoria {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 0;
+  border-top: 1px solid var(--linha, #e7d9ee);
+}
+.cookie-categoria:last-of-type { border-bottom: 1px solid var(--linha, #e7d9ee); }
+
+.cookie-categoria-copy strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: .97rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.cookie-categoria-copy p { color: var(--tinta-suave, #5f5368); font-size: .85rem; line-height: 1.5; }
+
+/* switch acessível: input real por baixo, visual customizado por cima */
+.cookie-switch {
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 46px;
+  height: 27px;
+}
+.cookie-switch input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.cookie-switch-trilho {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--linha, #e7d9ee);
+  transition: background-color .2s cubic-bezier(.22, .61, .36, 1);
+  pointer-events: none;
+}
+.cookie-switch-trilho::before {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(46, 6, 64, .3);
+  content: "";
+  transition: transform .2s cubic-bezier(.22, .61, .36, 1);
+}
+.cookie-switch input:checked ~ .cookie-switch-trilho { background: var(--roxo, #840da8); }
+.cookie-switch input:checked ~ .cookie-switch-trilho::before { transform: translateX(19px); }
+.cookie-switch input:disabled ~ .cookie-switch-trilho { background: var(--roxo, #840da8); opacity: .55; cursor: default; }
+.cookie-switch input:focus-visible ~ .cookie-switch-trilho { outline: 3px solid var(--roxo, #840da8); outline-offset: 3px; }
+
+.cookie-painel-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* abaixo da largura em que os 3 botões cabem confortavelmente numa linha só,
+   eles preenchem a largura da linha em vez de deixar sobras irregulares */
+@media (max-width: 600px) {
+  .cookie-banner-acoes { justify-content: stretch; }
+  .cookie-banner-acoes .cookie-btn { flex: 1 1 auto; }
+}
+
+@media (max-width: 560px) {
+  .cookie-banner {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    padding: 20px;
+  }
+  .cookie-categoria { flex-direction: column; gap: 10px; }
+  .cookie-painel-acoes .cookie-btn { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner, .cookie-overlay, .cookie-painel, .cookie-btn, .cookie-switch-trilho, .cookie-switch-trilho::before {
+    transition-duration: .01ms !important;
+  }
+}
